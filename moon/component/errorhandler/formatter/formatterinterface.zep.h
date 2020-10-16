@@ -1,0 +1,15 @@
+
+extern zend_class_entry *moon_component_errorhandler_formatter_formatterinterface_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_ErrorHandler_Formatter_FormatterInterface);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_errorhandler_formatter_formatterinterface_format, 0, 0, 3)
+	ZEND_ARG_OBJ_INFO(0, exception, Throwable, 0)
+	ZEND_ARG_INFO(0, debug)
+	ZEND_ARG_INFO(0, charset)
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(moon_component_errorhandler_formatter_formatterinterface_method_entry) {
+	PHP_ABSTRACT_ME(Moon_Component_ErrorHandler_Formatter_FormatterInterface, format, arginfo_moon_component_errorhandler_formatter_formatterinterface_format)
+	PHP_FE_END
+};

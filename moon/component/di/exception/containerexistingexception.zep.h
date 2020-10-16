@@ -1,0 +1,5 @@
+
+extern zend_class_entry *moon_component_di_exception_containerexistingexception_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_DI_Exception_ContainerExistingException);
+

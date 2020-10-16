@@ -1,0 +1,5 @@
+
+extern zend_class_entry *moon_component_config_exception_parserexception_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_Config_Exception_ParserException);
+

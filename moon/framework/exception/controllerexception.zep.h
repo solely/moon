@@ -1,0 +1,5 @@
+
+extern zend_class_entry *moon_framework_exception_controllerexception_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Framework_Exception_ControllerException);
+

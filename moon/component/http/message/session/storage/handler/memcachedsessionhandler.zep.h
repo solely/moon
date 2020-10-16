@@ -1,0 +1,102 @@
+
+extern zend_class_entry *moon_component_http_message_session_storage_handler_memcachedsessionhandler_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler);
+
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, __construct);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, close);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, doRead);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, updateTimestamp);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, doWrite);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, doDestroy);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, gc);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, getMemcached);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler___construct, 0, 0, 1)
+	ZEND_ARG_OBJ_INFO(0, memcached, Memcached, 0)
+	ZEND_ARG_ARRAY_INFO(0, options, 0)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_close, 0, 0, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_close, 0, 0, _IS_BOOL, NULL, 0)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_doread, 0, 1, IS_STRING, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_doread, 0, 1, IS_STRING, NULL, 0)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, sessionId, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, sessionId)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_updatetimestamp, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_updatetimestamp, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+	ZEND_ARG_INFO(0, data)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_dowrite, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_dowrite, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, sessionId, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, sessionId)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, data, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, data)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_dodestroy, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_dodestroy, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, sessionId, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, sessionId)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_gc, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_gc, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, maxlifetime)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_getmemcached, 0, 0, Memcached, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_getmemcached, 0, 0, IS_OBJECT, "Memcached", 0)
+#endif
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(moon_component_http_message_session_storage_handler_memcachedsessionhandler_method_entry) {
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, __construct, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler___construct, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, close, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_close, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, doRead, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_doread, ZEND_ACC_PROTECTED)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, updateTimestamp, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_updatetimestamp, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, doWrite, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_dowrite, ZEND_ACC_PROTECTED)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, doDestroy, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_dodestroy, ZEND_ACC_PROTECTED)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, gc, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_gc, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_MemcachedSessionHandler, getMemcached, arginfo_moon_component_http_message_session_storage_handler_memcachedsessionhandler_getmemcached, ZEND_ACC_PROTECTED)
+	PHP_FE_END
+};

@@ -1,0 +1,106 @@
+
+extern zend_class_entry *moon_component_http_message_session_storage_proxy_sessionhandlerproxy_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy);
+
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, __construct);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, getHandler);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, open);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, close);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, read);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, write);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, destroy);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, gc);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, validateId);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, updateTimestamp);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy___construct, 0, 0, 1)
+	ZEND_ARG_OBJ_INFO(0, handler, SessionHandlerInterface, 0)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_gethandler, 0, 0, SessionHandlerInterface, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_gethandler, 0, 0, IS_OBJECT, "SessionHandlerInterface", 0)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_open, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_open, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, savePath)
+	ZEND_ARG_INFO(0, sessionName)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_close, 0, 0, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_close, 0, 0, _IS_BOOL, NULL, 0)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_read, 0, 1, IS_STRING, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_read, 0, 1, IS_STRING, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_write, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_write, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+	ZEND_ARG_INFO(0, data)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_destroy, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_destroy, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_gc, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_gc, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, maxlifetime)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_validateid, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_validateid, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_updatetimestamp, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_updatetimestamp, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+	ZEND_ARG_INFO(0, data)
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(moon_component_http_message_session_storage_proxy_sessionhandlerproxy_method_entry) {
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, __construct, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy___construct, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, getHandler, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_gethandler, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, open, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_open, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, close, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_close, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, read, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_read, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, write, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_write, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, destroy, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_destroy, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, gc, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_gc, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, validateId, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_validateid, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Proxy_SessionHandlerProxy, updateTimestamp, arginfo_moon_component_http_message_session_storage_proxy_sessionhandlerproxy_updatetimestamp, ZEND_ACC_PUBLIC)
+	PHP_FE_END
+};

@@ -1,0 +1,5 @@
+
+extern zend_class_entry *moon_component_di_exception_resolverexception_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_DI_Exception_ResolverException);
+

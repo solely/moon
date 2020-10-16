@@ -1,0 +1,113 @@
+
+extern zend_class_entry *moon_component_http_message_session_storage_handler_strictsessionhandler_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler);
+
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, __construct);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, open);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, doRead);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, updateTimestamp);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, doWrite);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, destroy);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, doDestroy);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, close);
+PHP_METHOD(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, gc);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler___construct, 0, 0, 1)
+	ZEND_ARG_OBJ_INFO(0, handler, SessionHandlerInterface, 0)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_open, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_open, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, savePath)
+	ZEND_ARG_INFO(0, sessionName)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_doread, 0, 1, IS_STRING, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_doread, 0, 1, IS_STRING, NULL, 0)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, sessionId, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, sessionId)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_updatetimestamp, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_updatetimestamp, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+	ZEND_ARG_INFO(0, data)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_dowrite, 0, 2, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_dowrite, 0, 2, _IS_BOOL, NULL, 0)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, sessionId, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, sessionId)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, data, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, data)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_destroy, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_destroy, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, sessionId)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_dodestroy, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_dodestroy, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, sessionId, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, sessionId)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_close, 0, 0, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_close, 0, 0, _IS_BOOL, NULL, 0)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_gc, 0, 1, _IS_BOOL, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_gc, 0, 1, _IS_BOOL, NULL, 0)
+#endif
+	ZEND_ARG_INFO(0, maxlifetime)
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(moon_component_http_message_session_storage_handler_strictsessionhandler_method_entry) {
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, __construct, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler___construct, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, open, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_open, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, doRead, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_doread, ZEND_ACC_PROTECTED)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, updateTimestamp, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_updatetimestamp, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, doWrite, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_dowrite, ZEND_ACC_PROTECTED)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, destroy, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_destroy, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, doDestroy, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_dodestroy, ZEND_ACC_PROTECTED)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, close, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_close, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Http_Message_Session_Storage_Handler_StrictSessionHandler, gc, arginfo_moon_component_http_message_session_storage_handler_strictsessionhandler_gc, ZEND_ACC_PUBLIC)
+	PHP_FE_END
+};

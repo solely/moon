@@ -1,0 +1,5 @@
+
+extern zend_class_entry *moon_framework_event_event_finishrequestevent_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Framework_Event_Event_FinishRequestEvent);
+

@@ -1,0 +1,5 @@
+
+extern zend_class_entry *moon_component_http_message_exception_invalidargumentexception_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_Exception_InvalidArgumentException);
+

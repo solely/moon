@@ -1,0 +1,22 @@
+
+extern zend_class_entry *moon_component_eventdispatcher_debugeventdispatcher_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_EventDispatcher_DebugEventDispatcher);
+
+PHP_METHOD(Moon_Component_EventDispatcher_DebugEventDispatcher, __construct);
+PHP_METHOD(Moon_Component_EventDispatcher_DebugEventDispatcher, dispatch);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_eventdispatcher_debugeventdispatcher___construct, 0, 0, 2)
+	ZEND_ARG_OBJ_INFO(0, dispatcher, Psr\\EventDispatcher\\EventDispatcherInterface, 0)
+	ZEND_ARG_OBJ_INFO(0, logger, Psr\\Log\\LoggerInterface, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_eventdispatcher_debugeventdispatcher_dispatch, 0, 0, 1)
+	ZEND_ARG_INFO(0, event)
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(moon_component_eventdispatcher_debugeventdispatcher_method_entry) {
+	PHP_ME(Moon_Component_EventDispatcher_DebugEventDispatcher, __construct, arginfo_moon_component_eventdispatcher_debugeventdispatcher___construct, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+	PHP_ME(Moon_Component_EventDispatcher_DebugEventDispatcher, dispatch, arginfo_moon_component_eventdispatcher_debugeventdispatcher_dispatch, ZEND_ACC_PUBLIC)
+	PHP_FE_END
+};

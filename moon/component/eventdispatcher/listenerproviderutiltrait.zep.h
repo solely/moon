@@ -1,0 +1,19 @@
+
+extern zend_class_entry *moon_component_eventdispatcher_listenerproviderutiltrait_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Component_EventDispatcher_ListenerProviderUtilTrait);
+
+PHP_METHOD(Moon_Component_EventDispatcher_ListenerProviderUtilTrait, getListenerId);
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_eventdispatcher_listenerproviderutiltrait_getlistenerid, 0, 1, IS_STRING, 1)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_eventdispatcher_listenerproviderutiltrait_getlistenerid, 0, 1, IS_STRING, NULL, 1)
+#endif
+	ZEND_ARG_INFO(0, listener)
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(moon_component_eventdispatcher_listenerproviderutiltrait_method_entry) {
+	PHP_ME(Moon_Component_EventDispatcher_ListenerProviderUtilTrait, getListenerId, arginfo_moon_component_eventdispatcher_listenerproviderutiltrait_getlistenerid, ZEND_ACC_PROTECTED)
+	PHP_FE_END
+};

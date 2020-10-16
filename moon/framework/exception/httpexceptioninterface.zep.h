@@ -1,0 +1,24 @@
+
+extern zend_class_entry *moon_framework_exception_httpexceptioninterface_ce;
+
+ZEPHIR_INIT_CLASS(Moon_Framework_Exception_HttpExceptionInterface);
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_framework_exception_httpexceptioninterface_getstatuscode, 0, 0, IS_LONG, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_framework_exception_httpexceptioninterface_getstatuscode, 0, 0, IS_LONG, NULL, 0)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_framework_exception_httpexceptioninterface_getheaders, 0, 0, IS_ARRAY, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_framework_exception_httpexceptioninterface_getheaders, 0, 0, IS_ARRAY, NULL, 0)
+#endif
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(moon_framework_exception_httpexceptioninterface_method_entry) {
+	PHP_ABSTRACT_ME(Moon_Framework_Exception_HttpExceptionInterface, getStatusCode, arginfo_moon_framework_exception_httpexceptioninterface_getstatuscode)
+	PHP_ABSTRACT_ME(Moon_Framework_Exception_HttpExceptionInterface, getHeaders, arginfo_moon_framework_exception_httpexceptioninterface_getheaders)
+	PHP_FE_END
+};
