@@ -165,7 +165,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Medium, __invoke) {
 	ZEPHIR_INIT_NVAR(&_0);
 	zephir_create_closure_ex(&_0, NULL, moon_0__closure_ce, SL("__invoke"));
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("params"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_2, "array_map", NULL, 83, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(&_2, "array_map", NULL, 60, &_0, &_1);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_object, reflectedClass, "newinstanceargs", NULL, 0, &_2);
 	zephir_check_call_status();
@@ -252,15 +252,15 @@ PHP_METHOD(Moon_Component_DI_Resolver_Medium, merge) {
 
 	object_init_ex(return_value, moon_component_di_resolver_medium_ce);
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("className"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "mergeparams", NULL, 84, mergeBlueprint);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "mergeparams", NULL, 61, mergeBlueprint);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "mergesetters", NULL, 85, mergeBlueprint);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "mergesetters", NULL, 62, mergeBlueprint);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_3, mergeBlueprint, "islazy", NULL, 0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_4, this_ptr, "mergemutations", NULL, 86, mergeBlueprint);
+	ZEPHIR_CALL_METHOD(&_4, this_ptr, "mergemutations", NULL, 63, mergeBlueprint);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 21, &_0, &_1, &_2, &_3, &_4);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 13, &_0, &_1, &_2, &_3, &_4);
 	zephir_check_call_status();
 	RETURN_MM();
 

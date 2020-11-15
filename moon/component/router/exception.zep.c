@@ -60,7 +60,7 @@ PHP_METHOD(Moon_Component_Router_Exception, notFoundException) {
 	ZVAL_STRING(&_1, "No match to route %s for request mode %s");
 	ZEPHIR_CALL_FUNCTION(&_2, "sprintf", NULL, 3, &_1, &uri, &method);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 34, &_2);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 26, &_2);
 	zephir_check_call_status();
 	zephir_throw_exception_debug(&_0, "moon/Component/Router/Exception.zep", 15);
 	ZEPHIR_MM_RESTORE();
@@ -93,7 +93,7 @@ PHP_METHOD(Moon_Component_Router_Exception, notSupportedException) {
 	ZVAL_STRING(&_1, "The request mode of %s is not supported");
 	ZEPHIR_CALL_FUNCTION(&_2, "sprintf", NULL, 3, &_1, &method);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 34, &_2);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 26, &_2);
 	zephir_check_call_status();
 	zephir_throw_exception_debug(&_0, "moon/Component/Router/Exception.zep", 20);
 	ZEPHIR_MM_RESTORE();

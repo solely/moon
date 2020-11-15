@@ -85,24 +85,24 @@ PHP_METHOD(Moon_Component_Router_Argument, resolverArgument) {
 		object_init_ex(&reflection, zephir_get_internal_ce(SL("reflectionmethod")));
 		zephir_array_fetch_long(&_1$$3, handler, 0, PH_NOISY | PH_READONLY, "moon/Component/Router/Argument.zep", 18);
 		zephir_array_fetch_long(&_2$$3, handler, 1, PH_NOISY | PH_READONLY, "moon/Component/Router/Argument.zep", 18);
-		ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 31, &_1$$3, &_2$$3);
+		ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 23, &_1$$3, &_2$$3);
 		zephir_check_call_status();
 	} else if (_0) {
 		ZEPHIR_INIT_VAR(&_3$$4);
 		object_init_ex(&_3$$4, zephir_get_internal_ce(SL("reflectionobject")));
-		ZEPHIR_CALL_METHOD(NULL, &_3$$4, "__construct", NULL, 28, handler);
+		ZEPHIR_CALL_METHOD(NULL, &_3$$4, "__construct", NULL, 21, handler);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_4$$4);
 		ZVAL_STRING(&_4$$4, "__invoke");
-		ZEPHIR_CALL_METHOD(&reflection, &_3$$4, "getmethod", NULL, 29, &_4$$4);
+		ZEPHIR_CALL_METHOD(&reflection, &_3$$4, "getmethod", NULL, 22, &_4$$4);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&reflection);
 		object_init_ex(&reflection, zephir_get_internal_ce(SL("reflectionfunction")));
-		ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 26, handler);
+		ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 19, handler);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_METHOD(&_5, &reflection, "getparameters", NULL, 27);
+	ZEPHIR_CALL_METHOD(&_5, &reflection, "getparameters", NULL, 20);
 	zephir_check_call_status();
 	zephir_is_iterable(&_5, 0, "moon/Component/Router/Argument.zep", 33);
 	if (Z_TYPE_P(&_5) == IS_ARRAY) {
@@ -110,11 +110,11 @@ PHP_METHOD(Moon_Component_Router_Argument, resolverArgument) {
 		{
 			ZEPHIR_INIT_NVAR(&param);
 			ZVAL_COPY(&param, _6);
-			ZEPHIR_CALL_METHOD(&type, this_ptr, "gettype", &_8, 265, &param, &reflection);
+			ZEPHIR_CALL_METHOD(&type, this_ptr, "gettype", &_8, 146, &param, &reflection);
 			zephir_check_call_status();
 			_9$$6 = zephir_is_true(&type);
 			if (_9$$6) {
-				ZEPHIR_CALL_METHOD(&_10$$6, this_ptr, "isrequestclass", &_11, 266, &type);
+				ZEPHIR_CALL_METHOD(&_10$$6, this_ptr, "isrequestclass", &_11, 147, &type);
 				zephir_check_call_status();
 				_9$$6 = zephir_is_true(&_10$$6);
 			}
@@ -132,7 +132,7 @@ PHP_METHOD(Moon_Component_Router_Argument, resolverArgument) {
 					zephir_array_fetch(&_13$$8, &params, &_15$$8, PH_NOISY, "moon/Component/Router/Argument.zep", 30);
 				} else {
 					ZEPHIR_MAKE_REF(&params);
-					ZEPHIR_CALL_FUNCTION(&_13$$8, "array_shift", &_16, 169, &params);
+					ZEPHIR_CALL_FUNCTION(&_13$$8, "array_shift", &_16, 85, &params);
 					ZEPHIR_UNREF(&params);
 					zephir_check_call_status();
 				}
@@ -150,11 +150,11 @@ PHP_METHOD(Moon_Component_Router_Argument, resolverArgument) {
 			}
 			ZEPHIR_CALL_METHOD(&param, &_5, "current", NULL, 0);
 			zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(&type, this_ptr, "gettype", &_8, 265, &param, &reflection);
+				ZEPHIR_CALL_METHOD(&type, this_ptr, "gettype", &_8, 146, &param, &reflection);
 				zephir_check_call_status();
 				_17$$9 = zephir_is_true(&type);
 				if (_17$$9) {
-					ZEPHIR_CALL_METHOD(&_18$$9, this_ptr, "isrequestclass", &_11, 266, &type);
+					ZEPHIR_CALL_METHOD(&_18$$9, this_ptr, "isrequestclass", &_11, 147, &type);
 					zephir_check_call_status();
 					_17$$9 = zephir_is_true(&_18$$9);
 				}
@@ -172,7 +172,7 @@ PHP_METHOD(Moon_Component_Router_Argument, resolverArgument) {
 						zephir_array_fetch(&_20$$11, &params, &_22$$11, PH_NOISY, "moon/Component/Router/Argument.zep", 30);
 					} else {
 						ZEPHIR_MAKE_REF(&params);
-						ZEPHIR_CALL_FUNCTION(&_20$$11, "array_shift", &_16, 169, &params);
+						ZEPHIR_CALL_FUNCTION(&_20$$11, "array_shift", &_16, 85, &params);
 						ZEPHIR_UNREF(&params);
 						zephir_check_call_status();
 					}
@@ -279,14 +279,14 @@ PHP_METHOD(Moon_Component_Router_Argument, isRequestClass) {
 
 
 
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getrequestclass", &_1, 267);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getrequestclass", &_1, 148);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_EQUAL(_class, &_0)) {
 		RETURN_MM_BOOL(1);
 	}
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getrequestclass", &_1, 267);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getrequestclass", &_1, 148);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_FUNCTION("is_subclass_of", NULL, 268, _class, &_2);
+	ZEPHIR_RETURN_CALL_FUNCTION("is_subclass_of", NULL, 149, _class, &_2);
 	zephir_check_call_status();
 	RETURN_MM();
 

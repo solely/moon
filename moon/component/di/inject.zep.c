@@ -55,25 +55,25 @@ PHP_METHOD(Moon_Component_DI_Inject, factory) {
 
 	if (Z_TYPE_P(parameters) == IS_STRING) {
 		object_init_ex(return_value, moon_component_di_inject_stringinject_ce);
-		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 79, parameters, container);
+		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 56, parameters, container);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
 	if (Z_TYPE_P(parameters) == IS_ARRAY) {
 		object_init_ex(return_value, moon_component_di_inject_arrayinject_ce);
-		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 80, parameters, container);
+		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 57, parameters, container);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
 	if (zephir_is_callable(parameters) == 1) {
 		object_init_ex(return_value, moon_component_di_inject_callableinject_ce);
-		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 81, parameters, container);
+		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 58, parameters, container);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
 	if (Z_TYPE_P(parameters) == IS_OBJECT) {
 		object_init_ex(return_value, moon_component_di_inject_objectinject_ce);
-		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 82, parameters, container);
+		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 59, parameters, container);
 		zephir_check_call_status();
 		RETURN_MM();
 	}

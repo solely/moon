@@ -11,20 +11,13 @@ if (PHP_MOON != "no") {
   }
   
   ADD_SOURCES(configure_module_dirname + "/moon/component/http/message", "message.zep.c response.zep.c parameterbag.zep.c request.zep.c serverrequest.zep.c clirequest.zep.c cookie.zep.c emptyresponse.zep.c filebag.zep.c headerbag.zep.c headerutils.zep.c htmlresponse.zep.c jsonresponse.zep.c redirectresponse.zep.c serverbag.zep.c stream.zep.c streamedresponse.zep.c uploadedfile.zep.c uri.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/eventdispatcher", "event.zep.c parameterderivertrait.zep.c listenerproviderinterface.zep.c listenerproviderutiltrait.zep.c subscriberinterface.zep.c debugeventdispatcher.zep.c eventdispatcher.zep.c exception.zep.c listenercollection.zep.c listenerevententry.zep.c listeneritems.zep.c listenerprovider.zep.c listenerproviderproxy.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/http/message/session", "sessionbaginterface.zep.c sessioninterface.zep.c session.zep.c sessionbagproxy.zep.c sessionutils.zep.c", "moon");
+	ADD_SOURCES(configure_module_dirname + "/moon/component/eventdispatcher", "event.zep.c parameterderivertrait.zep.c listenerproviderinterface.zep.c listenerproviderutiltrait.zep.c subscriberinterface.zep.c debugeventdispatcher.zep.c eventdispatcher.zep.c exception.zep.c listenercollection.zep.c listenerevententry.zep.c listeneritems.zep.c listenerprovider.zep.c listenerprovidercallback.zep.c listenerproviderproxy.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/framework/event/event", "kernelevent.zep.c requestevent.zep.c controllerargumentsevent.zep.c controllerevent.zep.c exceptionevent.zep.c finishrequestevent.zep.c responseevent.zep.c viewevent.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/http/message/session/storage/handler", "abstractsessionhandler.zep.c memcachedsessionhandler.zep.c migratingsessionhandler.zep.c nativefilesessionhandler.zep.c nullsessionhandler.zep.c pdosessionhandler.zep.c redissessionhandler.zep.c sessionhandlerfactory.zep.c strictsessionhandler.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/di/inject", "inject.zep.c arrayinject.zep.c callableinject.zep.c objectinject.zep.c stringinject.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/http/message/session/storage", "sessionstorageinterface.zep.c mockarraysessionstorage.zep.c nativesessionstorage.zep.c metadatabag.zep.c mockfilesessionstorage.zep.c phpbridgesessionstorage.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/config/parser", "abstractparser.zep.c iniparser.zep.c phpparser.zep.c parserfactory.zep.c yaml.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/di/exception", "containerexception.zep.c containerexistingexception.zep.c notfoundexception.zep.c resolverexception.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/errorhandler/formatter", "formatterinterface.zep.c callbackformatter.zep.c normalformatter.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/http/message/session/attribute", "attributebaginterface.zep.c attributebag.zep.c namespacedattributebag.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/http/message/session/flash", "flashbaginterface.zep.c autoexpireflashbag.zep.c flashbag.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/di", "delegatorinterface.zep.c injectinterface.zep.c mooncontainerinterface.zep.c container.zep.c delegator.zep.c exception.zep.c inject.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/http/message/session/storage/proxy", "abstractproxy.zep.c sessionhandlerproxy.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/router", "routerinterface.zep.c argument.zep.c exception.zep.c handler.zep.c node.zep.c router.zep.c", "moon");
+	ADD_SOURCES(configure_module_dirname + "/moon/component/router", "routerinterface.zep.c argument.zep.c exception.zep.c handler.zep.c node.zep.c router.zep.c treenode.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/framework", "bootstrapinterface.zep.c bootstrap.zep.c kernel.zep.c modulesinterface.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/framework/controller", "controllerargumentsresolverinterface.zep.c controllerresolverinterface.zep.c abstractcontroller.zep.c controllerargumentsresolver.zep.c controllerresolver.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/framework/exception", "httpexceptioninterface.zep.c controllerexception.zep.c httpexception.zep.c", "moon");
@@ -32,15 +25,12 @@ if (PHP_MOON != "no") {
 	ADD_SOURCES(configure_module_dirname + "/moon/component/config/exception", "notfoundexception.zep.c parserexception.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/config/reader", "loader.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/di/resolver", "autoresolver.zep.c defaultvalueparam.zep.c medium.zep.c reflector.zep.c resolver.zep.c stringresolver.zep.c unresolvedparam.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/errorhandler", "bootstrap.zep.c dumper.zep.c errorhandler.zep.c helpers.zep.c panel.zep.c table.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/errorhandler/exception", "errorexception.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon/component/errorhandler/handler", "errorhandler.zep.c exceptionhandler.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/eventdispatcher/exception", "containermissingexception.zep.c eventdispatcherexception.zep.c runtimeexception.zep.c unimplementedmethodsexception.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/http/message/exception", "invalidargumentexception.zep.c uploadedfileexception.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/component/router/exception", "notfoundexception.zep.c routerexception.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/framework/event", "event.zep.c", "moon");
 	ADD_SOURCES(configure_module_dirname + "/moon/framework/event/listener", "controllerlistener.zep.c requestlistener.zep.c routersubscriber.zep.c", "moon");
-	ADD_SOURCES(configure_module_dirname + "/moon", "0__closure.zep.c 1__closure.zep.c 2__closure.zep.c 3__closure.zep.c 4__closure.zep.c 5__closure.zep.c 6__closure.zep.c 7__closure.zep.c", "moon");
+	ADD_SOURCES(configure_module_dirname + "/moon", "0__closure.zep.c 1__closure.zep.c", "moon");
   ADD_FLAG("CFLAGS_MOON", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("LDFLAGS", "/LTCG");

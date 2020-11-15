@@ -70,7 +70,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, handle) {
 
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "boot", NULL, 0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getkernel", NULL, 277);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getkernel", NULL, 161);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(&_0, "handle", NULL, 0, request);
 	zephir_check_call_status();
@@ -91,9 +91,9 @@ PHP_METHOD(Moon_Framework_Bootstrap, boot) {
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializemodules", NULL, 278);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializemodules", NULL, 162);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializecontainer", NULL, 279);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializecontainer", NULL, 163);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getmodules", NULL, 0);
 	zephir_check_call_status();
@@ -215,7 +215,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeModules) {
 				ZVAL_STRING(&_6$$4, "Trying to register two modules with the same name \"%s\".");
 				ZEPHIR_CALL_FUNCTION(&_7$$4, "sprintf", &_8, 3, &_6$$4, &name);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &_5$$4, "__construct", &_9, 18, &_7$$4);
+				ZEPHIR_CALL_METHOD(NULL, &_5$$4, "__construct", &_9, 164, &_7$$4);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_5$$4, "moon/Framework/Bootstrap.zep", 70);
 				ZEPHIR_MM_RESTORE();
@@ -244,7 +244,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeModules) {
 					ZVAL_STRING(&_12$$6, "Trying to register two modules with the same name \"%s\".");
 					ZEPHIR_CALL_FUNCTION(&_13$$6, "sprintf", &_8, 3, &_12$$6, &name);
 					zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, &_11$$6, "__construct", &_9, 18, &_13$$6);
+					ZEPHIR_CALL_METHOD(NULL, &_11$$6, "__construct", &_9, 164, &_13$$6);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_11$$6, "moon/Framework/Bootstrap.zep", 70);
 					ZEPHIR_MM_RESTORE();
@@ -327,9 +327,9 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeContainer) {
 	}
 	ZEPHIR_INIT_NVAR(&module);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("container"), &container);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializeconfig", NULL, 280);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializeconfig", NULL, 165);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializeroutes", NULL, 281);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "initializeroutes", NULL, 166);
 	zephir_check_call_status();
 	zephir_read_property(&_5, this_ptr, ZEND_STRL("container"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&_6);
@@ -343,7 +343,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeContainer) {
 	ZEPHIR_INIT_NVAR(&_6);
 	object_init_ex(&_6, moon_component_eventdispatcher_eventdispatcher_ce);
 	ZVAL_NULL(&_10);
-	ZEPHIR_CALL_METHOD(NULL, &_6, "__construct", NULL, 282, &provider, &_10);
+	ZEPHIR_CALL_METHOD(NULL, &_6, "__construct", NULL, 167, &provider, &_10);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_11);
 	ZVAL_STRING(&_11, "dispatcher");
@@ -375,7 +375,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeContainer) {
 	ZEPHIR_INIT_NVAR(&_14);
 	object_init_ex(&_14, moon_framework_kernel_ce);
 	zephir_read_property(&_16, this_ptr, ZEND_STRL("container"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, &_14, "__construct", NULL, 283, &_16);
+	ZEPHIR_CALL_METHOD(NULL, &_14, "__construct", NULL, 168, &_16);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_17);
 	ZVAL_STRING(&_17, "kernel");
@@ -528,7 +528,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeRoutes) {
 		zephir_check_call_status();
 	}
 	if (!(ZEPHIR_IS_EMPTY(&routerFile))) {
-		ZEPHIR_CALL_FUNCTION(&_0$$3, "is_file", NULL, 73, &routerFile);
+		ZEPHIR_CALL_FUNCTION(&_0$$3, "is_file", NULL, 49, &routerFile);
 		zephir_check_call_status();
 		if (!zephir_is_true(&_0$$3)) {
 			ZEPHIR_INIT_VAR(&_1$$4);
@@ -537,7 +537,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeRoutes) {
 			ZVAL_STRING(&_2$$4, "File %s was not found.");
 			ZEPHIR_CALL_FUNCTION(&_3$$4, "sprintf", &_4, 3, &_2$$4, &routerFile);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(NULL, &_1$$4, "__construct", NULL, 34, &_3$$4);
+			ZEPHIR_CALL_METHOD(NULL, &_1$$4, "__construct", NULL, 26, &_3$$4);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_1$$4, "moon/Framework/Bootstrap.zep", 144);
 			ZEPHIR_MM_RESTORE();
@@ -555,7 +555,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeRoutes) {
 			ZVAL_STRING(&_7$$5, "File %s must return an executable function.");
 			ZEPHIR_CALL_FUNCTION(&_8$$5, "sprintf", &_4, 3, &_7$$5, &routerFile);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(NULL, &_6$$5, "__construct", NULL, 34, &_8$$5);
+			ZEPHIR_CALL_METHOD(NULL, &_6$$5, "__construct", NULL, 26, &_8$$5);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_6$$5, "moon/Framework/Bootstrap.zep", 148);
 			ZEPHIR_MM_RESTORE();
@@ -563,7 +563,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeRoutes) {
 		}
 		ZEPHIR_CALL_ZVAL_FUNCTION(NULL, &routesFn, NULL, 0, &router);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &router, "addroutes", NULL, 284);
+		ZEPHIR_CALL_METHOD(NULL, &router, "addroutes", NULL, 169);
 		zephir_check_call_status();
 	}
 	zephir_read_property(&_9, this_ptr, ZEND_STRL("container"), PH_NOISY_CC | PH_READONLY);
@@ -622,7 +622,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, getModule) {
 			_4$$3 = ZEPHIR_IS_LONG_IDENTICAL(&_6$$3, 0);
 		}
 		if (_4$$3) {
-			ZEPHIR_CALL_FUNCTION(&_7$$3, "get_parent_class", NULL, 89, &_class);
+			ZEPHIR_CALL_FUNCTION(&_7$$3, "get_parent_class", NULL, 66, &_class);
 			zephir_check_call_status();
 			ZEPHIR_INIT_NVAR(&_1$$3);
 			ZEPHIR_CONCAT_VS(&_1$$3, &_7$$3, "@anonymous");
@@ -636,7 +636,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, getModule) {
 		ZVAL_STRING(&_9$$3, "Module \"%s\" does not exist or it is not enabled. Maybe you forgot to add it in the \"registerModules()\" method of your \"%s.php\" file?");
 		ZEPHIR_CALL_FUNCTION(&_10$$3, "sprintf", NULL, 3, &_9$$3, &name, &_class);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_8$$3, "__construct", NULL, 33, &_10$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_8$$3, "__construct", NULL, 25, &_10$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_8$$3, "moon/Framework/Bootstrap.zep", 162);
 		ZEPHIR_MM_RESTORE();
@@ -691,9 +691,9 @@ PHP_METHOD(Moon_Framework_Bootstrap, getProjectDir) {
 	if (Z_TYPE_P(&_0) == IS_NULL) {
 		ZEPHIR_INIT_VAR(&r);
 		object_init_ex(&r, zephir_get_internal_ce(SL("reflectionobject")));
-		ZEPHIR_CALL_METHOD(NULL, &r, "__construct", NULL, 28, this_ptr);
+		ZEPHIR_CALL_METHOD(NULL, &r, "__construct", NULL, 21, this_ptr);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(&dir, &r, "getfilename", NULL, 285);
+		ZEPHIR_CALL_METHOD(&dir, &r, "getfilename", NULL, 170);
 		zephir_check_call_status();
 		if (!((zephir_file_exists(&dir) == SUCCESS))) {
 			ZEPHIR_INIT_VAR(&_1$$4);
@@ -703,13 +703,13 @@ PHP_METHOD(Moon_Framework_Bootstrap, getProjectDir) {
 			ZVAL_STRING(&_3$$4, "Cannot auto-detect project dir for bootstrap of class \"%s\".");
 			ZEPHIR_CALL_FUNCTION(&_4$$4, "sprintf", NULL, 3, &_3$$4, &_2$$4);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(NULL, &_1$$4, "__construct", NULL, 18, &_4$$4);
+			ZEPHIR_CALL_METHOD(NULL, &_1$$4, "__construct", NULL, 164, &_4$$4);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_1$$4, "moon/Framework/Bootstrap.zep", 186);
 			ZEPHIR_MM_RESTORE();
 			return;
 		}
-		ZEPHIR_CALL_FUNCTION(&rootDir, "dirname", &_5, 250, &dir);
+		ZEPHIR_CALL_FUNCTION(&rootDir, "dirname", &_5, 128, &dir);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(&dir, &rootDir);
 		while (1) {
@@ -718,13 +718,13 @@ PHP_METHOD(Moon_Framework_Bootstrap, getProjectDir) {
 			if (!(!((zephir_file_exists(&_6$$3) == SUCCESS)))) {
 				break;
 			}
-			ZEPHIR_CALL_FUNCTION(&_7$$5, "dirname", &_5, 250, &dir);
+			ZEPHIR_CALL_FUNCTION(&_7$$5, "dirname", &_5, 128, &dir);
 			zephir_check_call_status();
 			if (ZEPHIR_IS_IDENTICAL(&dir, &_7$$5)) {
 				zephir_update_property_zval(this_ptr, ZEND_STRL("projectDir"), &rootDir);
 				RETURN_CCTOR(&rootDir);
 			}
-			ZEPHIR_CALL_FUNCTION(&_8$$5, "dirname", &_5, 250, &dir);
+			ZEPHIR_CALL_FUNCTION(&_8$$5, "dirname", &_5, 128, &dir);
 			zephir_check_call_status();
 			ZEPHIR_CPY_WRT(&dir, &_8$$5);
 		}

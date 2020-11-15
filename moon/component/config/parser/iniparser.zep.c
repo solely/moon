@@ -69,7 +69,7 @@ PHP_METHOD(Moon_Component_Config_Parser_INIParser, parseFile) {
 	zephir_get_strval(&fileName, fileName_param);
 
 
-	ZEPHIR_CALL_FUNCTION(&ini, "parse_ini_file", NULL, 70, &fileName, &__$true);
+	ZEPHIR_CALL_FUNCTION(&ini, "parse_ini_file", NULL, 46, &fileName, &__$true);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "parse", NULL, 0, &ini);
 	zephir_check_call_status();
@@ -95,7 +95,7 @@ PHP_METHOD(Moon_Component_Config_Parser_INIParser, parseString) {
 	zephir_get_strval(&configString, configString_param);
 
 
-	ZEPHIR_CALL_FUNCTION(&ini, "parse_ini_string", NULL, 71, &configString, &__$true);
+	ZEPHIR_CALL_FUNCTION(&ini, "parse_ini_string", NULL, 47, &configString, &__$true);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "parse", NULL, 0, &ini);
 	zephir_check_call_status();

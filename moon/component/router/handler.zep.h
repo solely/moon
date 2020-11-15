@@ -21,9 +21,9 @@ ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_router_handler_createhandler, 0, 0, 1)
 #if PHP_VERSION_ID >= 70200
-	ZEND_ARG_TYPE_INFO(0, handler, IS_STRING, 0)
+	ZEND_ARG_TYPE_INFO(0, _handler, IS_STRING, 0)
 #else
-	ZEND_ARG_INFO(0, handler)
+	ZEND_ARG_INFO(0, _handler)
 #endif
 ZEND_END_ARG_INFO()
 

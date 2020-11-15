@@ -157,7 +157,7 @@ PHP_METHOD(Moon_Component_Http_Message_ParameterBag, add) {
 
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("parameters"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_1, "array_replace", NULL, 35, &_0, &parameters);
+	ZEPHIR_CALL_FUNCTION(&_1, "array_replace", NULL, 27, &_0, &parameters);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("parameters"), &_1);
 	ZEPHIR_MM_RESTORE();
@@ -322,7 +322,7 @@ PHP_METHOD(Moon_Component_Http_Message_ParameterBag, getAlpha) {
 	ZVAL_STRING(&_1, "/[^[:alpha:]]/");
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 36, &_1, &_2, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 28, &_1, &_2, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -366,7 +366,7 @@ PHP_METHOD(Moon_Component_Http_Message_ParameterBag, getAlnum) {
 	ZVAL_STRING(&_1, "/[^[:alnum:]]/");
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 36, &_1, &_2, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 28, &_1, &_2, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -580,7 +580,7 @@ PHP_METHOD(Moon_Component_Http_Message_ParameterBag, filter) {
 		filter = 516;
 	}
 	ZVAL_LONG(&_4, filter);
-	ZEPHIR_RETURN_CALL_FUNCTION("filter_var", NULL, 17, &value, &_4, options);
+	ZEPHIR_RETURN_CALL_FUNCTION("filter_var", NULL, 29, &value, &_4, options);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -603,7 +603,7 @@ PHP_METHOD(Moon_Component_Http_Message_ParameterBag, getIterator) {
 
 	object_init_ex(return_value, zephir_get_internal_ce(SL("arrayiterator")));
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("parameters"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 37, &_0);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 30, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 

@@ -129,13 +129,13 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, setStream) {
 	if (Z_TYPE_P(stream) == IS_STRING) {
 		ZEPHIR_INIT_VAR(&_0$$3);
 		ZEPHIR_INIT_NVAR(&_0$$3);
-		zephir_create_closure_ex(&_0$$3, NULL, moon_7__closure_ce, SL("__invoke"));
-		zephir_update_static_property_ce(moon_7__closure_ce, ZEND_STRL("error"), &error);
-		ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 159, &_0$$3);
+		zephir_create_closure_ex(&_0$$3, NULL, moon_1__closure_ce, SL("__invoke"));
+		zephir_update_static_property_ce(moon_1__closure_ce, ZEND_STRL("error"), &error);
+		ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 116, &_0$$3);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_resource, "fopen", NULL, 140, stream, &mode);
+		ZEPHIR_CALL_FUNCTION(&_resource, "fopen", NULL, 117, stream, &mode);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 163);
+		ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 118);
 		zephir_check_call_status();
 	}
 	if (zephir_is_true(&error)) {
@@ -144,7 +144,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, setStream) {
 	}
 	_1 = !(Z_TYPE_P(&_resource) == IS_RESOURCE);
 	if (!(_1)) {
-		ZEPHIR_CALL_FUNCTION(&_2, "get_resource_type", NULL, 121, &_resource);
+		ZEPHIR_CALL_FUNCTION(&_2, "get_resource_type", NULL, 119, &_resource);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_3);
 		ZVAL_STRING(&_3, "stream");
@@ -309,7 +309,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, getContents) {
 	/* try_start_1: */
 
 		zephir_read_property(&_1$$4, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&result, "stream_get_contents", NULL, 224, &_1$$4);
+		ZEPHIR_CALL_FUNCTION(&result, "stream_get_contents", NULL, 120, &_1$$4);
 		zephir_check_call_status_or_jump(try_end_1);
 
 	try_end_1:
@@ -357,7 +357,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, getMetadata) {
 
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&metaData, "stream_get_meta_data", NULL, 243, &_0);
+	ZEPHIR_CALL_FUNCTION(&metaData, "stream_get_meta_data", NULL, 121, &_0);
 	zephir_check_call_status();
 	if (Z_TYPE_P(key) == IS_NULL) {
 		RETURN_CCTOR(&metaData);
@@ -391,7 +391,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, getSize) {
 		RETURN_MM_NULL();
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&stats, "fstat", NULL, 244, &_1);
+	ZEPHIR_CALL_FUNCTION(&stats, "fstat", NULL, 122, &_1);
 	zephir_check_call_status();
 	if (!ZEPHIR_IS_FALSE_IDENTICAL(&stats)) {
 		zephir_array_fetch_string(&_2$$4, &stats, SL("size"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Stream.zep", 152);
@@ -425,19 +425,19 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, isReadable) {
 		RETURN_MM_BOOL(0);
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_2, "stream_get_meta_data", NULL, 243, &_1);
+	ZEPHIR_CALL_FUNCTION(&_2, "stream_get_meta_data", NULL, 121, &_1);
 	zephir_check_call_status();
 	ZEPHIR_OBS_VAR(&mode);
 	zephir_array_fetch_string(&mode, &_2, SL("mode"), PH_NOISY, "moon/Component/Http/Message/Stream.zep", 163);
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_STRING(&_3, "r");
-	ZEPHIR_CALL_FUNCTION(&_4, "strstr", &_5, 245, &mode, &_3);
+	ZEPHIR_CALL_FUNCTION(&_4, "strstr", &_5, 123, &mode, &_3);
 	zephir_check_call_status();
 	_6 = zephir_is_true(&_4);
 	if (!(_6)) {
 		ZEPHIR_INIT_NVAR(&_3);
 		ZVAL_STRING(&_3, "+");
-		ZEPHIR_CALL_FUNCTION(&_7, "strstr", &_5, 245, &mode, &_3);
+		ZEPHIR_CALL_FUNCTION(&_7, "strstr", &_5, 123, &mode, &_3);
 		zephir_check_call_status();
 		_6 = zephir_is_true(&_7);
 	}
@@ -464,7 +464,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, isSeekable) {
 		RETURN_MM_BOOL(0);
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&meta, "stream_get_meta_data", NULL, 243, &_1);
+	ZEPHIR_CALL_FUNCTION(&meta, "stream_get_meta_data", NULL, 121, &_1);
 	zephir_check_call_status();
 	zephir_array_fetch_string(&_2, &meta, SL("seekable"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Stream.zep", 174);
 	RETURN_CTOR(&_2);
@@ -498,19 +498,19 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, isWritable) {
 		RETURN_MM_BOOL(0);
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_2, "stream_get_meta_data", NULL, 243, &_1);
+	ZEPHIR_CALL_FUNCTION(&_2, "stream_get_meta_data", NULL, 121, &_1);
 	zephir_check_call_status();
 	ZEPHIR_OBS_VAR(&mode);
 	zephir_array_fetch_string(&mode, &_2, SL("mode"), PH_NOISY, "moon/Component/Http/Message/Stream.zep", 183);
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_STRING(&_3, "x");
-	ZEPHIR_CALL_FUNCTION(&_4, "strstr", &_5, 245, &mode, &_3);
+	ZEPHIR_CALL_FUNCTION(&_4, "strstr", &_5, 123, &mode, &_3);
 	zephir_check_call_status();
 	_6 = zephir_is_true(&_4);
 	if (!(_6)) {
 		ZEPHIR_INIT_NVAR(&_3);
 		ZVAL_STRING(&_3, "w");
-		ZEPHIR_CALL_FUNCTION(&_7, "strstr", &_5, 245, &mode, &_3);
+		ZEPHIR_CALL_FUNCTION(&_7, "strstr", &_5, 123, &mode, &_3);
 		zephir_check_call_status();
 		_6 = zephir_is_true(&_7);
 	}
@@ -518,7 +518,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, isWritable) {
 	if (!(_8)) {
 		ZEPHIR_INIT_NVAR(&_3);
 		ZVAL_STRING(&_3, "c");
-		ZEPHIR_CALL_FUNCTION(&_9, "strstr", &_5, 245, &mode, &_3);
+		ZEPHIR_CALL_FUNCTION(&_9, "strstr", &_5, 123, &mode, &_3);
 		zephir_check_call_status();
 		_8 = zephir_is_true(&_9);
 	}
@@ -526,7 +526,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, isWritable) {
 	if (!(_10)) {
 		ZEPHIR_INIT_NVAR(&_3);
 		ZVAL_STRING(&_3, "a");
-		ZEPHIR_CALL_FUNCTION(&_11, "strstr", &_5, 245, &mode, &_3);
+		ZEPHIR_CALL_FUNCTION(&_11, "strstr", &_5, 123, &mode, &_3);
 		zephir_check_call_status();
 		_10 = zephir_is_true(&_11);
 	}
@@ -534,7 +534,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, isWritable) {
 	if (!(_12)) {
 		ZEPHIR_INIT_NVAR(&_3);
 		ZVAL_STRING(&_3, "+");
-		ZEPHIR_CALL_FUNCTION(&_13, "strstr", &_5, 245, &mode, &_3);
+		ZEPHIR_CALL_FUNCTION(&_13, "strstr", &_5, 123, &mode, &_3);
 		zephir_check_call_status();
 		_12 = zephir_is_true(&_13);
 	}
@@ -577,7 +577,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, read) {
 	/* try_start_1: */
 
 		zephir_read_property(&_2$$5, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&result, "fread", NULL, 246, &_2$$5, length);
+		ZEPHIR_CALL_FUNCTION(&result, "fread", NULL, 124, &_2$$5, length);
 		zephir_check_call_status_or_jump(try_end_1);
 
 	try_end_1:
@@ -663,7 +663,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, seek) {
 			ZVAL_LONG(whence, 0);
 		}
 		zephir_read_property(&_2$$5, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&result, "fseek", NULL, 247, &_2$$5, offset, whence);
+		ZEPHIR_CALL_FUNCTION(&result, "fseek", NULL, 125, &_2$$5, offset, whence);
 		zephir_check_call_status_or_jump(try_end_1);
 
 	try_end_1:
@@ -707,7 +707,7 @@ PHP_METHOD(Moon_Component_Http_Message_Stream, tell) {
 		return;
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("_resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&result, "ftell", NULL, 248, &_1);
+	ZEPHIR_CALL_FUNCTION(&result, "ftell", NULL, 126, &_1);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&result)) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_RuntimeException, "Failed to get the offset in the file stream", "moon/Component/Http/Message/Stream.zep", 241);

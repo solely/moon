@@ -94,17 +94,17 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, split) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "/");
-	ZEPHIR_CALL_FUNCTION(&quotedSeparators, "preg_quote", NULL, 188, &separators, &_0);
+	ZEPHIR_CALL_FUNCTION(&quotedSeparators, "preg_quote", NULL, 101, &separators, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_1);
-	ZEPHIR_CONCAT_SVSVS(&_1, "\n            /\n                (?!\\s)\n                    (?:\n                        # quoted-string\n                        \"(?:[^\"\\\\]|\\\\.)*(?:\"|\\\\|$)\n                    |\n                        # token\n                        [^\"", &quotedSeparators, "]+\n                    )+\n                (?<!\\s)\n            |\n                # separator\n                \\s*\n                (?<separator>[", &quotedSeparators, "])\n                \\s*\n            /x");
+	ZEPHIR_CONCAT_SVSVS(&_1, "\n            /\n                (?!\\s)\n                    (?:\n                        # quoted-string\n                        \"(?:[^\"\\\\]|\\\\.)*(?:\"|\\\\|$)\n                    |\n                        # token\n                        [^\"", &quotedSeparators, "]+\n                    )+\n                (?<!\\s)\n            |\n                # separator\n                \\s*\n                (?<separator>[", &quotedSeparators, "])\n                \\s*\n            /x");
 	ZEPHIR_INIT_NVAR(&_0);
 	zephir_fast_trim(&_0, &header, NULL , ZEPHIR_TRIM_BOTH);
 	ZVAL_LONG(&_2, 2);
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_LONG(&_4, 2);
 	zephir_preg_match(&_3, &_1, &_0, &matches, 1, zephir_get_intval(&_2) , 0 );
-	ZEPHIR_RETURN_CALL_SELF("groupparts", &_5, 189, &matches, &separators);
+	ZEPHIR_RETURN_CALL_SELF("groupparts", &_5, 102, &matches, &separators);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -340,7 +340,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, quote) {
 	}
 	ZEPHIR_INIT_VAR(&_4);
 	ZVAL_STRING(&_4, "\"\\\"");
-	ZEPHIR_CALL_FUNCTION(&_5, "addcslashes", NULL, 190, &s, &_4);
+	ZEPHIR_CALL_FUNCTION(&_5, "addcslashes", NULL, 103, &s, &_4);
 	zephir_check_call_status();
 	ZEPHIR_CONCAT_SVS(return_value, "\"", &_5, "\"");
 	RETURN_MM();
@@ -375,7 +375,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, unquote) {
 	ZVAL_STRING(&_0, "/\\\\(.)|\"/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "$1");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 36, &_0, &_1, &s);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 28, &_0, &_1, &s);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -468,7 +468,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, makeDisposition) {
 		ZVAL_STRING(&_5$$3, "inline");
 		ZEPHIR_CALL_FUNCTION(&_6$$3, "sprintf", NULL, 3, &_3$$3, &_4$$3, &_5$$3);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_2$$3, "__construct", NULL, 33, &_6$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_2$$3, "__construct", NULL, 25, &_6$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_2$$3, "moon/Component/Http/Message/HeaderUtils.zep", 145);
 		ZEPHIR_MM_RESTORE();
@@ -534,7 +534,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, makeDisposition) {
 	zephir_create_array(&params, 1, 0);
 	zephir_array_update_string(&params, SL("filename"), &filenameFallback, PH_COPY | PH_SEPARATE);
 	if (!ZEPHIR_IS_IDENTICAL(&filename, &filenameFallback)) {
-		ZEPHIR_CALL_FUNCTION(&_24$$8, "rawurlencode", NULL, 181, &filename);
+		ZEPHIR_CALL_FUNCTION(&_24$$8, "rawurlencode", NULL, 91, &filename);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_25$$8);
 		ZEPHIR_CONCAT_SV(&_25$$8, "utf-8''", &_24$$8);
@@ -653,7 +653,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 			{
 				ZEPHIR_INIT_NVAR(&matches$$9);
 				ZVAL_COPY(&matches$$9, _8$$9);
-				ZEPHIR_CALL_SELF(&_10$$10, "groupparts", &_11, 189, &matches$$9, &partSeparators);
+				ZEPHIR_CALL_SELF(&_10$$10, "groupparts", &_11, 102, &matches$$9, &partSeparators);
 				zephir_check_call_status();
 				zephir_array_append(&parts, &_10$$10, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 194);
 			} ZEND_HASH_FOREACH_END();
@@ -668,7 +668,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 				}
 				ZEPHIR_CALL_METHOD(&matches$$9, &partMatches, "current", NULL, 0);
 				zephir_check_call_status();
-					ZEPHIR_CALL_SELF(&_12$$11, "groupparts", &_11, 189, &matches$$9, &partSeparators);
+					ZEPHIR_CALL_SELF(&_12$$11, "groupparts", &_11, 102, &matches$$9, &partSeparators);
 					zephir_check_call_status();
 					zephir_array_append(&parts, &_12$$11, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 194);
 				ZEPHIR_CALL_METHOD(NULL, &partMatches, "next", NULL, 0);

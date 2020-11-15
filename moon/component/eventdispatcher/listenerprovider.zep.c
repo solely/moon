@@ -71,13 +71,13 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, __construct) {
 
 PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, getListenersForEvent) {
 
+	zval iter;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *event, event_sub, iter, listener, _0, *_1, _2, _3$$3, _4$$4, _5$$5, _6$$6;
+	zval *event, event_sub, listener, _0, *_1, _2, _3$$3, _4$$4, _5$$5, _6$$6;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&event_sub);
-	ZVAL_UNDEF(&iter);
 	ZVAL_UNDEF(&listener);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
@@ -85,6 +85,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, getListenersForEvent
 	ZVAL_UNDEF(&_4$$4);
 	ZVAL_UNDEF(&_5$$5);
 	ZVAL_UNDEF(&_6$$6);
+	ZVAL_UNDEF(&iter);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &event);
@@ -94,7 +95,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, getListenersForEvent
 	ZEPHIR_INIT_VAR(&iter);
 	array_init(&iter);
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
-	zephir_is_iterable(&_0, 0, "moon/Component/EventDispatcher/ListenerProvider.zep", 33);
+	zephir_is_iterable(&_0, 0, "moon/Component/EventDispatcher/ListenerProvider.zep", 32);
 	if (Z_TYPE_P(&_0) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_0), _1)
 		{
@@ -104,7 +105,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, getListenersForEvent
 			zephir_read_property(&_3$$3, &listener, ZEND_STRL("type"), PH_NOISY_CC);
 			if (zephir_is_instance_of(event, Z_STRVAL_P(&_3$$3), Z_STRLEN_P(&_3$$3))) {
 				zephir_read_property(&_4$$4, &listener, ZEND_STRL("listener"), PH_NOISY_CC | PH_READONLY);
-				zephir_array_append(&iter, &_4$$4, PH_SEPARATE, "moon/Component/EventDispatcher/ListenerProvider.zep", 30);
+				zephir_array_append(&iter, &_4$$4, PH_SEPARATE, "moon/Component/EventDispatcher/ListenerProvider.zep", 29);
 			}
 		} ZEND_HASH_FOREACH_END();
 	} else {
@@ -122,7 +123,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, getListenersForEvent
 				zephir_read_property(&_5$$5, &listener, ZEND_STRL("type"), PH_NOISY_CC);
 				if (zephir_is_instance_of(event, Z_STRVAL_P(&_5$$5), Z_STRLEN_P(&_5$$5))) {
 					zephir_read_property(&_6$$6, &listener, ZEND_STRL("listener"), PH_NOISY_CC | PH_READONLY);
-					zephir_array_append(&iter, &_6$$6, PH_SEPARATE, "moon/Component/EventDispatcher/ListenerProvider.zep", 30);
+					zephir_array_append(&iter, &_6$$6, PH_SEPARATE, "moon/Component/EventDispatcher/ListenerProvider.zep", 29);
 				}
 			ZEPHIR_CALL_METHOD(NULL, &_0, "next", NULL, 0);
 			zephir_check_call_status();
@@ -130,7 +131,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, getListenersForEvent
 	}
 	ZEPHIR_INIT_NVAR(&listener);
 	object_init_ex(return_value, zephir_get_internal_ce(SL("arrayiterator")));
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 37, &iter);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 30, &iter);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -201,7 +202,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addListener) {
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&_3);
 	object_init_ex(&_3, moon_component_eventdispatcher_listenerevententry_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", NULL, 171, listener, &type);
+	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", NULL, 79, listener, &type);
 	zephir_check_call_status();
 	ZVAL_LONG(&_4, priority);
 	ZEPHIR_RETURN_CALL_METHOD(&_2, "additem", NULL, 0, &_3, &_4, &id);
@@ -271,7 +272,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addListenerBefore) {
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&_3);
 	object_init_ex(&_3, moon_component_eventdispatcher_listenerevententry_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", NULL, 171, listener, &type);
+	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", NULL, 79, listener, &type);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(&_2, "additembefore", NULL, 0, &pivotId, &_3, &id);
 	zephir_check_call_status();
@@ -340,7 +341,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addListenerAfter) {
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&_3);
 	object_init_ex(&_3, moon_component_eventdispatcher_listenerevententry_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", NULL, 171, listener, &type);
+	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", NULL, 79, listener, &type);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(&_2, "additemafter", NULL, 0, &pivotId, &_3, &id);
 	zephir_check_call_status();
@@ -401,7 +402,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addListenerService) 
 		ZEPHIR_CPY_WRT(&_0, &_1);
 	}
 	zephir_get_strval(&id, &_0);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "makelistenerforservice", NULL, 172, &serviceName, &methodName);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "makelistenerforservice", NULL, 80, &serviceName, &methodName);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "addlistener", NULL, 0, &_2, priority, &id, &type);
 	zephir_check_call_status();
@@ -458,7 +459,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addListenerServiceBe
 		ZEPHIR_CPY_WRT(&_0, &_1);
 	}
 	zephir_get_strval(&id, &_0);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "makelistenerforservice", NULL, 172, &serviceName, &methodName);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "makelistenerforservice", NULL, 80, &serviceName, &methodName);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "addlistenerbefore", NULL, 0, &pivotId, &_2, &id, &type);
 	zephir_check_call_status();
@@ -515,7 +516,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addListenerServiceAf
 		ZEPHIR_CPY_WRT(&_0, &_1);
 	}
 	zephir_get_strval(&id, &_0);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "makelistenerforservice", NULL, 172, &serviceName, &methodName);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "makelistenerforservice", NULL, 80, &serviceName, &methodName);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "addlistenerafter", NULL, 0, &pivotId, &_2, &id, &type);
 	zephir_check_call_status();
@@ -582,12 +583,12 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addSubscriber) {
 
 	ZEPHIR_INIT_VAR(&proxy);
 	object_init_ex(&proxy, moon_component_eventdispatcher_listenerproviderproxy_ce);
-	ZEPHIR_CALL_METHOD(NULL, &proxy, "__construct", NULL, 173, this_ptr, &serviceName, &_class);
+	ZEPHIR_CALL_METHOD(NULL, &proxy, "__construct", NULL, 81, this_ptr, &serviceName, &_class);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_0, "class_implements", NULL, 97, &_class);
+	ZEPHIR_CALL_FUNCTION(&_0, "class_implements", NULL, 74, &_class);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_1);
-	ZVAL_STRING(&_1, "SubscriberInterface");
+	ZVAL_STRING(&_1, "Moon\\Component\\EventDispatcher\\SubscriberInterface");
 	if (zephir_fast_in_array(&_1, &_0)) {
 		_2$$3 = zephir_fetch_class(&_class);
 		ZEPHIR_CALL_CE_STATIC(NULL, _2$$3, "registerlisteners", NULL, 0, &proxy);
@@ -598,10 +599,10 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addSubscriber) {
 
 		ZEPHIR_INIT_VAR(&rClass);
 		object_init_ex(&rClass, zephir_get_internal_ce(SL("reflectionclass")));
-		ZEPHIR_CALL_METHOD(NULL, &rClass, "__construct", NULL, 24, &_class);
+		ZEPHIR_CALL_METHOD(NULL, &rClass, "__construct", NULL, 17, &_class);
 		zephir_check_call_status_or_jump(try_end_1);
 		ZVAL_LONG(&_3$$4, 256);
-		ZEPHIR_CALL_METHOD(&methods, &rClass, "getmethods", NULL, 174, &_3$$4);
+		ZEPHIR_CALL_METHOD(&methods, &rClass, "getmethods", NULL, 82, &_3$$4);
 		zephir_check_call_status_or_jump(try_end_1);
 		zephir_is_iterable(&methods, 0, "moon/Component/EventDispatcher/ListenerProvider.zep", 154);
 		if (Z_TYPE_P(&methods) == IS_ARRAY) {
@@ -611,7 +612,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addSubscriber) {
 				ZVAL_COPY(&rMethod$$4, _4$$4);
 				ZEPHIR_CALL_METHOD(&methodName, &rMethod$$4, "getname", &_6, 0);
 				zephir_check_call_status_or_jump(try_end_1);
-				ZEPHIR_CALL_METHOD(&_7$$5, &proxy, "getregisteredmethods", &_8, 175);
+				ZEPHIR_CALL_METHOD(&_7$$5, &proxy, "getregisteredmethods", &_8, 83);
 				zephir_check_call_status_or_jump(try_end_1);
 				_9$$5 = !(zephir_fast_in_array(&methodName, &_7$$5));
 				if (_9$$5) {
@@ -652,7 +653,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addSubscriber) {
 				zephir_check_call_status();
 					ZEPHIR_CALL_METHOD(&methodName, &rMethod$$4, "getname", &_20, 0);
 					zephir_check_call_status_or_jump(try_end_1);
-					ZEPHIR_CALL_METHOD(&_21$$8, &proxy, "getregisteredmethods", &_8, 175);
+					ZEPHIR_CALL_METHOD(&_21$$8, &proxy, "getregisteredmethods", &_8, 83);
 					zephir_check_call_status_or_jump(try_end_1);
 					_22$$8 = !(zephir_fast_in_array(&methodName, &_21$$8));
 					if (_22$$8) {
@@ -695,7 +696,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, addSubscriber) {
 			zend_clear_exception(TSRMLS_C);
 			ZEPHIR_CPY_WRT(&e, &_32);
 			ZEPHIR_INIT_VAR(&_35$$11);
-			ZVAL_STRING(&_35$$11, "Type error registering subscriber.");
+			ZVAL_STRING(&_35$$11, "Type error registering subscriber");
 			ZVAL_LONG(&_36$$11, 0);
 			ZEPHIR_CALL_CE_STATIC(&_33$$11, moon_component_eventdispatcher_exception_ce, "runtimeexception", &_34, 0, &_35$$11, &_36$$11, &e);
 			zephir_check_call_status();
@@ -750,10 +751,9 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerProvider, makeListenerForServi
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("container"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_CPY_WRT(&container, &_3);
 	ZEPHIR_INIT_VAR(&listener);
-	zephir_create_closure_ex(&listener, NULL, moon_6__closure_ce, SL("__invoke"));
-	zephir_update_static_property_ce(moon_6__closure_ce, ZEND_STRL("serviceName"), serviceName);
-	zephir_update_static_property_ce(moon_6__closure_ce, ZEND_STRL("methodName"), methodName);
-	zephir_update_static_property_ce(moon_6__closure_ce, ZEND_STRL("container"), &container);
+	object_init_ex(&listener, moon_component_eventdispatcher_listenerprovidercallback_ce);
+	ZEPHIR_CALL_METHOD(NULL, &listener, "__construct", NULL, 84, &container, serviceName, methodName);
+	zephir_check_call_status();
 	RETURN_CCTOR(&listener);
 
 }

@@ -80,7 +80,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, __construct) {
 
 
 	if (!(ZEPHIR_IS_EMPTY(&uri))) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "parseuri", NULL, 255, &uri);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "parseuri", NULL, 134, &uri);
 		zephir_check_call_status();
 	}
 	ZEPHIR_MM_RESTORE();
@@ -154,7 +154,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, withFragment) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The argument must be a string", "moon/Component/Http/Message/Uri.zep", 50);
 		return;
 	}
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterfragment", NULL, 256, fragment);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterfragment", NULL, 135, fragment);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(fragment, &_0);
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("fragment"), PH_NOISY_CC | PH_READONLY);
@@ -201,7 +201,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, withHost) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The argument must be a string", "moon/Component/Http/Message/Uri.zep", 70);
 		return;
 	}
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterhost", NULL, 257, host);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterhost", NULL, 136, host);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(host, &_0);
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("host"), PH_NOISY_CC | PH_READONLY);
@@ -268,7 +268,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, withPath) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "Parameter values is not a valid URI and contains anchor points", "moon/Component/Http/Message/Uri.zep", 96);
 		return;
 	}
-	ZEPHIR_CALL_METHOD(&_4, this_ptr, "filterpath", NULL, 258, path);
+	ZEPHIR_CALL_METHOD(&_4, this_ptr, "filterpath", NULL, 137, path);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(path, &_4);
 	zephir_read_property(&_5, this_ptr, ZEND_STRL("path"), PH_NOISY_CC | PH_READONLY);
@@ -375,7 +375,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, withQuery) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "Parameter values cannot contain anchor points", "moon/Component/Http/Message/Uri.zep", 141);
 		return;
 	}
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "filterquery", NULL, 259, query);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "filterquery", NULL, 138, query);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(query, &_2);
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("query"), PH_NOISY_CC | PH_READONLY);
@@ -422,7 +422,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, withScheme) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The argument must be a string", "moon/Component/Http/Message/Uri.zep", 161);
 		return;
 	}
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterscheme", NULL, 260, scheme);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterscheme", NULL, 139, scheme);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(scheme, &_0);
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("scheme"), PH_NOISY_CC | PH_READONLY);
@@ -487,11 +487,11 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, withUserInfo) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The second argument must be either a string or null", "moon/Component/Http/Message/Uri.zep", 184);
 		return;
 	}
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "filteruser", &_2, 261, user);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "filteruser", &_2, 140, user);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(user, &_1);
 	if (!(Z_TYPE_P(password) == IS_NULL)) {
-		ZEPHIR_CALL_METHOD(&_3$$5, this_ptr, "filteruser", &_2, 261, password);
+		ZEPHIR_CALL_METHOD(&_3$$5, this_ptr, "filteruser", &_2, 140, password);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_4$$5);
 		ZEPHIR_CONCAT_SV(&_4$$5, ":", &_3$$5);
@@ -548,7 +548,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, __toString) {
 	zephir_check_call_status();
 	zephir_read_property(&_6, this_ptr, ZEND_STRL("query"), PH_NOISY_CC | PH_READONLY);
 	zephir_read_property(&_7, this_ptr, ZEND_STRL("fragment"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_STATIC(&_1, "createuristring", &_2, 262, &_3, &_4, &_5, &_6, &_7);
+	ZEPHIR_CALL_STATIC(&_1, "createuristring", &_2, 141, &_3, &_4, &_5, &_6, &_7);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("uriString"), &_1);
 	RETURN_MM_MEMBER(getThis(), "uriString");
@@ -589,7 +589,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 	zephir_get_strval(&uri, uri_param);
 
 
-	ZEPHIR_CALL_FUNCTION(&result, "parse_url", NULL, 221, &uri);
+	ZEPHIR_CALL_FUNCTION(&result, "parse_url", NULL, 142, &uri);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&result)) {
 		ZEPHIR_INIT_VAR(&_0$$3);
@@ -598,7 +598,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 		ZVAL_STRING(&_1$$3, "Parsing the URI failed and \"%s\" could be a seriously unqualified URL");
 		ZEPHIR_CALL_FUNCTION(&_2$$3, "sprintf", NULL, 3, &_1$$3, &uri);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_0$$3, "__construct", NULL, 33, &_2$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_0$$3, "__construct", NULL, 25, &_2$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_0$$3, "moon/Component/Http/Message/Uri.zep", 217);
 		ZEPHIR_MM_RESTORE();
@@ -607,7 +607,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 	ZEPHIR_INIT_VAR(&_3);
 	if (zephir_array_isset_string(&result, SL("scheme"))) {
 		zephir_array_fetch_string(&_4, &result, SL("scheme"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 219);
-		ZEPHIR_CALL_METHOD(&_3, this_ptr, "filterscheme", NULL, 260, &_4);
+		ZEPHIR_CALL_METHOD(&_3, this_ptr, "filterscheme", NULL, 139, &_4);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&_3);
@@ -617,7 +617,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 	ZEPHIR_INIT_VAR(&_5);
 	if (zephir_array_isset_string(&result, SL("host"))) {
 		zephir_array_fetch_string(&_6, &result, SL("host"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 220);
-		ZEPHIR_CALL_METHOD(&_5, this_ptr, "filterhost", NULL, 257, &_6);
+		ZEPHIR_CALL_METHOD(&_5, this_ptr, "filterhost", NULL, 136, &_6);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&_5);
@@ -630,14 +630,14 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 		zephir_array_fetch_string(&_7, &result, SL("port"), PH_NOISY, "moon/Component/Http/Message/Uri.zep", 221);
 	} else {
 		zephir_read_property(&_8, this_ptr, ZEND_STRL("scheme"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_METHOD(&_7, this_ptr, "filterport", NULL, 263, &_8);
+		ZEPHIR_CALL_METHOD(&_7, this_ptr, "filterport", NULL, 143, &_8);
 		zephir_check_call_status();
 	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("port"), &_7);
 	ZEPHIR_INIT_VAR(&_9);
 	if (zephir_array_isset_string(&result, SL("user"))) {
 		zephir_array_fetch_string(&_10, &result, SL("user"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 222);
-		ZEPHIR_CALL_METHOD(&_9, this_ptr, "filteruser", NULL, 261, &_10);
+		ZEPHIR_CALL_METHOD(&_9, this_ptr, "filteruser", NULL, 140, &_10);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&_9);
@@ -647,7 +647,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 	ZEPHIR_INIT_VAR(&_11);
 	if (zephir_array_isset_string(&result, SL("path"))) {
 		zephir_array_fetch_string(&_12, &result, SL("path"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 223);
-		ZEPHIR_CALL_METHOD(&_11, this_ptr, "filterpath", NULL, 258, &_12);
+		ZEPHIR_CALL_METHOD(&_11, this_ptr, "filterpath", NULL, 137, &_12);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&_11);
@@ -657,7 +657,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 	ZEPHIR_INIT_VAR(&_13);
 	if (zephir_array_isset_string(&result, SL("query"))) {
 		zephir_array_fetch_string(&_14, &result, SL("query"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 224);
-		ZEPHIR_CALL_METHOD(&_13, this_ptr, "filterquery", NULL, 259, &_14);
+		ZEPHIR_CALL_METHOD(&_13, this_ptr, "filterquery", NULL, 138, &_14);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&_13);
@@ -667,7 +667,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, parseUri) {
 	ZEPHIR_INIT_VAR(&_15);
 	if (zephir_array_isset_string(&result, SL("fragment"))) {
 		zephir_array_fetch_string(&_16, &result, SL("fragment"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 225);
-		ZEPHIR_CALL_METHOD(&_15, this_ptr, "filterfragment", NULL, 256, &_16);
+		ZEPHIR_CALL_METHOD(&_15, this_ptr, "filterfragment", NULL, 135, &_16);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&_15);
@@ -701,7 +701,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, filterScheme) {
 	ZVAL_STRING(&_0, "/(?=:\\/\\/).*/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 36, &_0, &_1, &scheme);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 28, &_0, &_1, &scheme);
 	zephir_check_call_status();
 	zephir_get_strval(&scheme, &_2);
 	zephir_fast_strtolower(return_value, &scheme);
@@ -737,7 +737,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, filterUser) {
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "urlEncode");
 	zephir_array_fast_append(&_1, &_2);
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 109, &_0, &_1, &user);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 144, &_0, &_1, &user);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -833,7 +833,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, filterPath) {
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "urlEncode");
 	zephir_array_fast_append(&_1, &_2);
-	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace_callback", NULL, 109, &_0, &_1, &path);
+	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace_callback", NULL, 144, &_0, &_1, &path);
 	zephir_check_call_status();
 	zephir_get_strval(&path, &_3);
 	RETURN_CTOR(&path);
@@ -894,12 +894,12 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, filterQuery) {
 			zephir_fast_explode_str(&_4$$3, SL("="), &item, LONG_MAX);
 			ZEPHIR_CPY_WRT(&item, &_4$$3);
 			zephir_array_fetch_long(&_6$$3, &item, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 289);
-			ZEPHIR_CALL_METHOD(&_5$$3, this_ptr, "filterparams", &_7, 264, &_6$$3);
+			ZEPHIR_CALL_METHOD(&_5$$3, this_ptr, "filterparams", &_7, 145, &_6$$3);
 			zephir_check_call_status();
 			ZEPHIR_INIT_NVAR(&_8$$3);
 			if (zephir_array_isset_long(&item, 1)) {
 				zephir_array_fetch_long(&_9$$3, &item, 1, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 289);
-				ZEPHIR_CALL_METHOD(&_8$$3, this_ptr, "filterparams", &_7, 264, &_9$$3);
+				ZEPHIR_CALL_METHOD(&_8$$3, this_ptr, "filterparams", &_7, 145, &_9$$3);
 				zephir_check_call_status();
 			} else {
 				ZEPHIR_INIT_NVAR(&_8$$3);
@@ -926,12 +926,12 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, filterQuery) {
 				zephir_fast_explode_str(&_12$$4, SL("="), &item, LONG_MAX);
 				ZEPHIR_CPY_WRT(&item, &_12$$4);
 				zephir_array_fetch_long(&_14$$4, &item, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 289);
-				ZEPHIR_CALL_METHOD(&_13$$4, this_ptr, "filterparams", &_7, 264, &_14$$4);
+				ZEPHIR_CALL_METHOD(&_13$$4, this_ptr, "filterparams", &_7, 145, &_14$$4);
 				zephir_check_call_status();
 				ZEPHIR_INIT_NVAR(&_15$$4);
 				if (zephir_array_isset_long(&item, 1)) {
 					zephir_array_fetch_long(&_16$$4, &item, 1, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 289);
-					ZEPHIR_CALL_METHOD(&_15$$4, this_ptr, "filterparams", &_7, 264, &_16$$4);
+					ZEPHIR_CALL_METHOD(&_15$$4, this_ptr, "filterparams", &_7, 145, &_16$$4);
 					zephir_check_call_status();
 				} else {
 					ZEPHIR_INIT_NVAR(&_15$$4);
@@ -971,7 +971,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, filterFragment) {
 	zephir_get_strval(&fragment, fragment_param);
 
 
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "filterparams", NULL, 264, &fragment);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "filterparams", NULL, 145, &fragment);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -995,7 +995,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, urlEncode) {
 
 
 	zephir_array_fetch_long(&_0, &matches, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Uri.zep", 304);
-	ZEPHIR_RETURN_CALL_FUNCTION("rawurlencode", NULL, 181, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("rawurlencode", NULL, 91, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -1029,7 +1029,7 @@ PHP_METHOD(Moon_Component_Http_Message_Uri, filterParams) {
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "urlEncode");
 	zephir_array_fast_append(&_1, &_2);
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 109, &_0, &_1, &params);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 144, &_0, &_1, &params);
 	zephir_check_call_status();
 	RETURN_MM();
 

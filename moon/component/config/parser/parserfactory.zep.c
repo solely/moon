@@ -101,7 +101,7 @@ PHP_METHOD(Moon_Component_Config_Parser_ParserFactory, parseFile) {
 			zephir_fast_trim(&_3$$3, &file, NULL , ZEPHIR_TRIM_BOTH);
 			ZEPHIR_CPY_WRT(&file, &_3$$3);
 			ZVAL_LONG(&_4$$3, 4);
-			ZEPHIR_CALL_FUNCTION(&_5$$3, "pathinfo", &_6, 72, &file, &_4$$3);
+			ZEPHIR_CALL_FUNCTION(&_5$$3, "pathinfo", &_6, 48, &file, &_4$$3);
 			zephir_check_call_status();
 			ZEPHIR_INIT_NVAR(&ext);
 			zephir_fast_strtolower(&ext, &_5$$3);
@@ -117,7 +117,7 @@ PHP_METHOD(Moon_Component_Config_Parser_ParserFactory, parseFile) {
 				ZEPHIR_MM_RESTORE();
 				return;
 			}
-			ZEPHIR_CALL_FUNCTION(&_12$$3, "is_file", &_13, 73, &file);
+			ZEPHIR_CALL_FUNCTION(&_12$$3, "is_file", &_13, 49, &file);
 			zephir_check_call_status();
 			if (!zephir_is_true(&_12$$3)) {
 				ZEPHIR_INIT_NVAR(&_15$$5);
@@ -157,7 +157,7 @@ PHP_METHOD(Moon_Component_Config_Parser_ParserFactory, parseFile) {
 				zephir_fast_trim(&_22$$6, &file, NULL , ZEPHIR_TRIM_BOTH);
 				ZEPHIR_CPY_WRT(&file, &_22$$6);
 				ZVAL_LONG(&_23$$6, 4);
-				ZEPHIR_CALL_FUNCTION(&_24$$6, "pathinfo", &_6, 72, &file, &_23$$6);
+				ZEPHIR_CALL_FUNCTION(&_24$$6, "pathinfo", &_6, 48, &file, &_23$$6);
 				zephir_check_call_status();
 				ZEPHIR_INIT_NVAR(&ext);
 				zephir_fast_strtolower(&ext, &_24$$6);
@@ -173,7 +173,7 @@ PHP_METHOD(Moon_Component_Config_Parser_ParserFactory, parseFile) {
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
-				ZEPHIR_CALL_FUNCTION(&_28$$6, "is_file", &_13, 73, &file);
+				ZEPHIR_CALL_FUNCTION(&_28$$6, "is_file", &_13, 49, &file);
 				zephir_check_call_status();
 				if (!zephir_is_true(&_28$$6)) {
 					ZEPHIR_INIT_NVAR(&_30$$8);

@@ -36,20 +36,19 @@ ZEPHIR_INIT_CLASS(Moon_Framework_Event_Event_ControllerEvent) {
 
 PHP_METHOD(Moon_Framework_Event_Event_ControllerEvent, __construct) {
 
-	zend_bool _1;
+	zend_bool _1, _2;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_0 = NULL;
-	zval *request, request_sub, *router, router_sub, controller, controller_sub, *container, container_sub, _2, _3$$3;
+	zval *request, request_sub, *router, router_sub, *controller, controller_sub, *container, container_sub, _3, _4$$3;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&request_sub);
 	ZVAL_UNDEF(&router_sub);
-	ZVAL_UNDEF(&controller);
 	ZVAL_UNDEF(&controller_sub);
 	ZVAL_UNDEF(&container_sub);
-	ZVAL_UNDEF(&_2);
-	ZVAL_UNDEF(&_3$$3);
+	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4$$3);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 4, 0, &request, &router, &controller, &container);
@@ -58,17 +57,21 @@ PHP_METHOD(Moon_Framework_Event_Event_ControllerEvent, __construct) {
 
 	ZEPHIR_CALL_PARENT(NULL, moon_framework_event_event_controllerevent_ce, getThis(), "__construct", &_0, 0, request, router, container);
 	zephir_check_call_status();
-	_1 = Z_TYPE_P(&controller) == IS_ARRAY;
+	_1 = (zephir_is_callable(controller) == 1);
 	if (_1) {
-		zephir_array_fetch_long(&_2, &controller, 0, PH_NOISY | PH_READONLY, "moon/Framework/Event/Event/ControllerEvent.zep", 19);
-		_1 = Z_TYPE_P(&_2) == IS_OBJECT;
+		_1 = Z_TYPE_P(controller) == IS_ARRAY;
 	}
-	if (_1) {
-		zephir_array_fetch_long(&_3$$3, &controller, 0, PH_NOISY | PH_READONLY, "moon/Framework/Event/Event/ControllerEvent.zep", 20);
-		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "setcontainer", NULL, 0, container);
+	_2 = _1;
+	if (_2) {
+		zephir_array_fetch_long(&_3, controller, 0, PH_NOISY | PH_READONLY, "moon/Framework/Event/Event/ControllerEvent.zep", 18);
+		_2 = Z_TYPE_P(&_3) == IS_OBJECT;
+	}
+	if (_2) {
+		zephir_array_fetch_long(&_4$$3, controller, 0, PH_NOISY | PH_READONLY, "moon/Framework/Event/Event/ControllerEvent.zep", 19);
+		ZEPHIR_CALL_METHOD(NULL, &_4$$3, "setcontainer", NULL, 0, container);
 		zephir_check_call_status();
 	}
-	zephir_update_property_zval(this_ptr, ZEND_STRL("controller"), &controller);
+	zephir_update_property_zval(this_ptr, ZEND_STRL("controller"), controller);
 	ZEPHIR_MM_RESTORE();
 
 }

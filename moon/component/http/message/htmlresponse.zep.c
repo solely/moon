@@ -60,7 +60,7 @@ PHP_METHOD(Moon_Component_Http_Message_HtmlResponse, __construct) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "createstream", NULL, 191, html);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "createstream", NULL, 104, html);
 	zephir_check_call_status();
 	ZEPHIR_CALL_PARENT(NULL, moon_component_http_message_htmlresponse_ce, getThis(), "__construct", &_0, 0, &_1, statusCode, headers);
 	zephir_check_call_status();
@@ -101,9 +101,9 @@ PHP_METHOD(Moon_Component_Http_Message_HtmlResponse, createStream) {
 	ZVAL_STRING(&_1, "wb+");
 	ZEPHIR_CALL_METHOD(NULL, &body, "__construct", NULL, 2, &_0, &_1);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &body, "write", NULL, 192, html);
+	ZEPHIR_CALL_METHOD(NULL, &body, "write", NULL, 105, html);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &body, "rewind", NULL, 193);
+	ZEPHIR_CALL_METHOD(NULL, &body, "rewind", NULL, 106);
 	zephir_check_call_status();
 	RETURN_CCTOR(&body);
 

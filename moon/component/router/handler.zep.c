@@ -99,7 +99,7 @@ PHP_METHOD(Moon_Component_Router_Handler, resolverHandler) {
 			/* try_start_1: */
 
 				zephir_array_fetch_long(&_4$$5, handler, 0, PH_NOISY | PH_READONLY, "moon/Component/Router/Handler.zep", 19);
-				ZEPHIR_CALL_METHOD(&_3$$5, this_ptr, "instantiatehandler", NULL, 269, &_4$$5);
+				ZEPHIR_CALL_METHOD(&_3$$5, this_ptr, "instantiatehandler", NULL, 150, &_4$$5);
 				zephir_check_call_status_or_jump(try_end_1);
 				zephir_array_update_long(handler, 0, &_3$$5, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
 
@@ -119,9 +119,9 @@ PHP_METHOD(Moon_Component_Router_Handler, resolverHandler) {
 						object_init_ex(&_6$$7, zephir_get_internal_ce(SL("reflectionmethod")));
 						zephir_array_fetch_long(&_7$$7, handler, 0, PH_NOISY | PH_READONLY, "moon/Component/Router/Handler.zep", 26);
 						zephir_array_fetch_long(&_8$$7, handler, 1, PH_NOISY | PH_READONLY, "moon/Component/Router/Handler.zep", 26);
-						ZEPHIR_CALL_METHOD(NULL, &_6$$7, "__construct", NULL, 31, &_7$$7, &_8$$7);
+						ZEPHIR_CALL_METHOD(NULL, &_6$$7, "__construct", NULL, 23, &_7$$7, &_8$$7);
 						zephir_check_call_status_or_jump(try_end_2);
-						ZEPHIR_CALL_METHOD(&_9$$7, &_6$$7, "isstatic", NULL, 270);
+						ZEPHIR_CALL_METHOD(&_9$$7, &_6$$7, "isstatic", NULL, 151);
 						zephir_check_call_status_or_jump(try_end_2);
 						if (zephir_is_true(&_9$$7)) {
 							RETVAL_ZVAL(handler, 1, 0);
@@ -156,9 +156,9 @@ PHP_METHOD(Moon_Component_Router_Handler, resolverHandler) {
 							object_init_ex(&_11$$12, zephir_get_internal_ce(SL("reflectionmethod")));
 							zephir_array_fetch_long(&_12$$12, handler, 0, PH_NOISY | PH_READONLY, "moon/Component/Router/Handler.zep", 26);
 							zephir_array_fetch_long(&_13$$12, handler, 1, PH_NOISY | PH_READONLY, "moon/Component/Router/Handler.zep", 26);
-							ZEPHIR_CALL_METHOD(NULL, &_11$$12, "__construct", NULL, 31, &_12$$12, &_13$$12);
+							ZEPHIR_CALL_METHOD(NULL, &_11$$12, "__construct", NULL, 23, &_12$$12, &_13$$12);
 							zephir_check_call_status_or_jump(try_end_3);
-							ZEPHIR_CALL_METHOD(&_14$$12, &_11$$12, "isstatic", NULL, 270);
+							ZEPHIR_CALL_METHOD(&_14$$12, &_11$$12, "isstatic", NULL, 151);
 							zephir_check_call_status_or_jump(try_end_3);
 							if (zephir_is_true(&_14$$12)) {
 								RETVAL_ZVAL(handler, 1, 0);
@@ -195,7 +195,7 @@ PHP_METHOD(Moon_Component_Router_Handler, resolverHandler) {
 			ZVAL_STRING(&_18$$15, "The handler \"%s\" is not callable: ");
 			ZEPHIR_CALL_FUNCTION(&_19$$15, "sprintf", &_20, 3, &_18$$15, &_17$$15);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(NULL, &_16$$15, "__construct", NULL, 33, &_19$$15);
+			ZEPHIR_CALL_METHOD(NULL, &_16$$15, "__construct", NULL, 25, &_19$$15);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_16$$15, "moon/Component/Router/Handler.zep", 36);
 			ZEPHIR_MM_RESTORE();
@@ -214,7 +214,7 @@ PHP_METHOD(Moon_Component_Router_Handler, resolverHandler) {
 			ZVAL_STRING(&_23$$17, "The handler \"%s\" is not callable: ");
 			ZEPHIR_CALL_FUNCTION(&_24$$17, "sprintf", &_20, 3, &_23$$17, &_22$$17);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(NULL, &_21$$17, "__construct", NULL, 33, &_24$$17);
+			ZEPHIR_CALL_METHOD(NULL, &_21$$17, "__construct", NULL, 25, &_24$$17);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_21$$17, "moon/Component/Router/Handler.zep", 42);
 			ZEPHIR_MM_RESTORE();
@@ -227,7 +227,7 @@ PHP_METHOD(Moon_Component_Router_Handler, resolverHandler) {
 		RETVAL_ZVAL(handler, 1, 0);
 		RETURN_MM();
 	}
-	ZEPHIR_CALL_METHOD(&_callable, this_ptr, "createhandler", NULL, 271, handler);
+	ZEPHIR_CALL_METHOD(&_callable, this_ptr, "createhandler", NULL, 152, handler);
 	zephir_check_call_status();
 	if (zephir_is_callable(&_callable) != 1) {
 		ZEPHIR_INIT_VAR(&_25$$19);
@@ -238,7 +238,7 @@ PHP_METHOD(Moon_Component_Router_Handler, resolverHandler) {
 		ZVAL_STRING(&_27$$19, "The handler \"%s\" is not callable: ");
 		ZEPHIR_CALL_FUNCTION(&_28$$19, "sprintf", &_20, 3, &_27$$19, &_26$$19);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_25$$19, "__construct", NULL, 33, &_28$$19);
+		ZEPHIR_CALL_METHOD(NULL, &_25$$19, "__construct", NULL, 25, &_28$$19);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_25$$19, "moon/Component/Router/Handler.zep", 51);
 		ZEPHIR_MM_RESTORE();
@@ -285,9 +285,11 @@ PHP_METHOD(Moon_Component_Router_Handler, createHandler) {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_5 = NULL;
-	zval handler, *handler_param = NULL, classAndMethod, _class, method, _0, _1, e, _7, _2$$3, _3$$3, _4$$3, _6$$4, reflectionException$$5, _10$$5, _8$$6, _9$$6, reflectionException$$10, _13$$10, _11$$11, _12$$11, _14$$14, _15$$14, _16$$14, _17$$14;
+	zval *_handler_param = NULL, handler, classAndMethod, _class, method, _0, _1, e, _8, _2$$3, _3$$3, _4$$3, _6$$4, _7$$4, reflectionException$$5, _11$$5, _9$$6, _10$$6, reflectionException$$10, _14$$10, _12$$11, _13$$11, _15$$14, _16$$14, _17$$14, _18$$14;
+	zval _handler;
 	zval *this_ptr = getThis();
 
+	ZVAL_UNDEF(&_handler);
 	ZVAL_UNDEF(&handler);
 	ZVAL_UNDEF(&classAndMethod);
 	ZVAL_UNDEF(&_class);
@@ -295,30 +297,32 @@ PHP_METHOD(Moon_Component_Router_Handler, createHandler) {
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&e);
-	ZVAL_UNDEF(&_7);
+	ZVAL_UNDEF(&_8);
 	ZVAL_UNDEF(&_2$$3);
 	ZVAL_UNDEF(&_3$$3);
 	ZVAL_UNDEF(&_4$$3);
 	ZVAL_UNDEF(&_6$$4);
+	ZVAL_UNDEF(&_7$$4);
 	ZVAL_UNDEF(&reflectionException$$5);
-	ZVAL_UNDEF(&_10$$5);
-	ZVAL_UNDEF(&_8$$6);
+	ZVAL_UNDEF(&_11$$5);
 	ZVAL_UNDEF(&_9$$6);
+	ZVAL_UNDEF(&_10$$6);
 	ZVAL_UNDEF(&reflectionException$$10);
-	ZVAL_UNDEF(&_13$$10);
-	ZVAL_UNDEF(&_11$$11);
+	ZVAL_UNDEF(&_14$$10);
 	ZVAL_UNDEF(&_12$$11);
-	ZVAL_UNDEF(&_14$$14);
+	ZVAL_UNDEF(&_13$$11);
 	ZVAL_UNDEF(&_15$$14);
 	ZVAL_UNDEF(&_16$$14);
 	ZVAL_UNDEF(&_17$$14);
+	ZVAL_UNDEF(&_18$$14);
 
 	ZEPHIR_MM_GROW();
-	zephir_fetch_params(1, 1, 0, &handler_param);
+	zephir_fetch_params(1, 1, 0, &_handler_param);
 
-	zephir_get_strval(&handler, handler_param);
+	zephir_get_strval(&_handler, _handler_param);
 
 
+	ZEPHIR_CPY_WRT(&handler, &_handler);
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "::");
 	ZEPHIR_INIT_VAR(&_1);
@@ -330,47 +334,48 @@ PHP_METHOD(Moon_Component_Router_Handler, createHandler) {
 		ZVAL_STRING(&_3$$3, "The string \"%s\" must contain \"::\"");
 		ZEPHIR_CALL_FUNCTION(&_4$$3, "sprintf", &_5, 3, &_3$$3, &handler);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_2$$3, "__construct", NULL, 33, &_4$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_2$$3, "__construct", NULL, 25, &_4$$3);
 		zephir_check_call_status();
-		zephir_throw_exception_debug(&_2$$3, "moon/Component/Router/Handler.zep", 68);
+		zephir_throw_exception_debug(&_2$$3, "moon/Component/Router/Handler.zep", 70);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
 	ZEPHIR_INIT_VAR(&classAndMethod);
 	zephir_fast_explode_str(&classAndMethod, SL("::"), &handler, 2 );
 	ZEPHIR_OBS_VAR(&_class);
-	zephir_array_fetch_long(&_class, &classAndMethod, 0, PH_NOISY, "moon/Component/Router/Handler.zep", 71);
+	zephir_array_fetch_long(&_class, &classAndMethod, 0, PH_NOISY, "moon/Component/Router/Handler.zep", 73);
 	ZEPHIR_OBS_VAR(&method);
-	zephir_array_fetch_long(&method, &classAndMethod, 1, PH_NOISY, "moon/Component/Router/Handler.zep", 72);
+	zephir_array_fetch_long(&method, &classAndMethod, 1, PH_NOISY, "moon/Component/Router/Handler.zep", 74);
 
 	/* try_start_1: */
 
-		ZEPHIR_INIT_VAR(&handler);
-		zephir_create_array(&handler, 2, 0);
-		ZEPHIR_CALL_METHOD(&_6$$4, this_ptr, "instantiatehandler", NULL, 269, &_class);
+		ZEPHIR_INIT_VAR(&_6$$4);
+		zephir_create_array(&_6$$4, 2, 0);
+		ZEPHIR_CALL_METHOD(&_7$$4, this_ptr, "instantiatehandler", NULL, 150, &_class);
 		zephir_check_call_status_or_jump(try_end_1);
-		zephir_array_fast_append(&handler, &_6$$4);
-		zephir_array_fast_append(&handler, &method);
+		zephir_array_fast_append(&_6$$4, &_7$$4);
+		zephir_array_fast_append(&_6$$4, &method);
+		ZEPHIR_CPY_WRT(&handler, &_6$$4);
 
 	try_end_1:
 
 	if (EG(exception)) {
-		ZEPHIR_INIT_VAR(&_7);
-		ZVAL_OBJ(&_7, EG(exception));
-		Z_ADDREF_P(&_7);
-		if (zephir_instance_of_ev(&_7, zephir_get_internal_ce(SL("error")))) {
+		ZEPHIR_INIT_VAR(&_8);
+		ZVAL_OBJ(&_8, EG(exception));
+		Z_ADDREF_P(&_8);
+		if (zephir_instance_of_ev(&_8, zephir_get_internal_ce(SL("error")))) {
 			zend_clear_exception(TSRMLS_C);
-			ZEPHIR_CPY_WRT(&e, &_7);
+			ZEPHIR_CPY_WRT(&e, &_8);
 
 			/* try_start_2: */
 
-				ZEPHIR_INIT_VAR(&_8$$6);
-				object_init_ex(&_8$$6, zephir_get_internal_ce(SL("reflectionmethod")));
-				ZEPHIR_CALL_METHOD(NULL, &_8$$6, "__construct", NULL, 31, &_class, &method);
+				ZEPHIR_INIT_VAR(&_9$$6);
+				object_init_ex(&_9$$6, zephir_get_internal_ce(SL("reflectionmethod")));
+				ZEPHIR_CALL_METHOD(NULL, &_9$$6, "__construct", NULL, 23, &_class, &method);
 				zephir_check_call_status_or_jump(try_end_2);
-				ZEPHIR_CALL_METHOD(&_9$$6, &_8$$6, "isstatic", NULL, 270);
+				ZEPHIR_CALL_METHOD(&_10$$6, &_9$$6, "isstatic", NULL, 151);
 				zephir_check_call_status_or_jump(try_end_2);
-				if (zephir_is_true(&_9$$6)) {
+				if (zephir_is_true(&_10$$6)) {
 					ZEPHIR_CONCAT_VSV(return_value, &_class, "::", &method);
 					RETURN_MM();
 				}
@@ -378,34 +383,34 @@ PHP_METHOD(Moon_Component_Router_Handler, createHandler) {
 			try_end_2:
 
 			if (EG(exception)) {
-				ZEPHIR_INIT_VAR(&_10$$5);
-				ZVAL_OBJ(&_10$$5, EG(exception));
-				Z_ADDREF_P(&_10$$5);
-				if (zephir_instance_of_ev(&_10$$5, zephir_get_internal_ce(SL("reflectionexception")))) {
+				ZEPHIR_INIT_VAR(&_11$$5);
+				ZVAL_OBJ(&_11$$5, EG(exception));
+				Z_ADDREF_P(&_11$$5);
+				if (zephir_instance_of_ev(&_11$$5, zephir_get_internal_ce(SL("reflectionexception")))) {
 					zend_clear_exception(TSRMLS_C);
-					ZEPHIR_CPY_WRT(&reflectionException$$5, &_10$$5);
-					zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 83);
+					ZEPHIR_CPY_WRT(&reflectionException$$5, &_11$$5);
+					zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 85);
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
 			}
-			zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 85);
+			zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 87);
 			ZEPHIR_MM_RESTORE();
 			return;
 		} else {
-			if (zephir_instance_of_ev(&_7, spl_ce_LogicException)) {
+			if (zephir_instance_of_ev(&_8, spl_ce_LogicException)) {
 				zend_clear_exception(TSRMLS_C);
-				ZEPHIR_CPY_WRT(&e, &_7);
+				ZEPHIR_CPY_WRT(&e, &_8);
 
 				/* try_start_3: */
 
-					ZEPHIR_INIT_VAR(&_11$$11);
-					object_init_ex(&_11$$11, zephir_get_internal_ce(SL("reflectionmethod")));
-					ZEPHIR_CALL_METHOD(NULL, &_11$$11, "__construct", NULL, 31, &_class, &method);
+					ZEPHIR_INIT_VAR(&_12$$11);
+					object_init_ex(&_12$$11, zephir_get_internal_ce(SL("reflectionmethod")));
+					ZEPHIR_CALL_METHOD(NULL, &_12$$11, "__construct", NULL, 23, &_class, &method);
 					zephir_check_call_status_or_jump(try_end_3);
-					ZEPHIR_CALL_METHOD(&_12$$11, &_11$$11, "isstatic", NULL, 270);
+					ZEPHIR_CALL_METHOD(&_13$$11, &_12$$11, "isstatic", NULL, 151);
 					zephir_check_call_status_or_jump(try_end_3);
-					if (zephir_is_true(&_12$$11)) {
+					if (zephir_is_true(&_13$$11)) {
 						ZEPHIR_CONCAT_VSV(return_value, &_class, "::", &method);
 						RETURN_MM();
 					}
@@ -413,35 +418,35 @@ PHP_METHOD(Moon_Component_Router_Handler, createHandler) {
 				try_end_3:
 
 				if (EG(exception)) {
-					ZEPHIR_INIT_VAR(&_13$$10);
-					ZVAL_OBJ(&_13$$10, EG(exception));
-					Z_ADDREF_P(&_13$$10);
-					if (zephir_instance_of_ev(&_13$$10, zephir_get_internal_ce(SL("reflectionexception")))) {
+					ZEPHIR_INIT_VAR(&_14$$10);
+					ZVAL_OBJ(&_14$$10, EG(exception));
+					Z_ADDREF_P(&_14$$10);
+					if (zephir_instance_of_ev(&_14$$10, zephir_get_internal_ce(SL("reflectionexception")))) {
 						zend_clear_exception(TSRMLS_C);
-						ZEPHIR_CPY_WRT(&reflectionException$$10, &_13$$10);
-						zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 83);
+						ZEPHIR_CPY_WRT(&reflectionException$$10, &_14$$10);
+						zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 85);
 						ZEPHIR_MM_RESTORE();
 						return;
 					}
 				}
-				zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 85);
+				zephir_throw_exception_debug(&e, "moon/Component/Router/Handler.zep", 87);
 				ZEPHIR_MM_RESTORE();
 				return;
 			}
 		}
 	}
 	if (zephir_is_callable(&handler) != 1) {
-		ZEPHIR_INIT_VAR(&_14$$14);
-		object_init_ex(&_14$$14, spl_ce_InvalidArgumentException);
 		ZEPHIR_INIT_VAR(&_15$$14);
-		zephir_get_class(&_15$$14, &handler, 0);
+		object_init_ex(&_15$$14, spl_ce_InvalidArgumentException);
 		ZEPHIR_INIT_VAR(&_16$$14);
-		ZVAL_STRING(&_16$$14, "The handler \"%s\" is not callable: ");
-		ZEPHIR_CALL_FUNCTION(&_17$$14, "sprintf", &_5, 3, &_16$$14, &_15$$14);
+		zephir_get_class(&_16$$14, &handler, 0);
+		ZEPHIR_INIT_VAR(&_17$$14);
+		ZVAL_STRING(&_17$$14, "The handler \"%s\" is not callable: ");
+		ZEPHIR_CALL_FUNCTION(&_18$$14, "sprintf", &_5, 3, &_17$$14, &_16$$14);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_14$$14, "__construct", NULL, 33, &_17$$14);
+		ZEPHIR_CALL_METHOD(NULL, &_15$$14, "__construct", NULL, 25, &_18$$14);
 		zephir_check_call_status();
-		zephir_throw_exception_debug(&_14$$14, "moon/Component/Router/Handler.zep", 88);
+		zephir_throw_exception_debug(&_15$$14, "moon/Component/Router/Handler.zep", 90);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}

@@ -170,16 +170,16 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, __toString) {
 		RETURN_MM_STRING("");
 	}
 	ZEPHIR_MAKE_REF(&headers);
-	ZEPHIR_CALL_FUNCTION(NULL, "ksort", NULL, 186, &headers);
+	ZEPHIR_CALL_FUNCTION(NULL, "ksort", NULL, 97, &headers);
 	ZEPHIR_UNREF(&headers);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_array_keys(&_0, &headers);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "strlen");
-	ZEPHIR_CALL_FUNCTION(&_2, "array_map", NULL, 83, &_1, &_0);
+	ZEPHIR_CALL_FUNCTION(&_2, "array_map", NULL, 60, &_1, &_0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_3, "max", NULL, 152, &_2);
+	ZEPHIR_CALL_FUNCTION(&_3, "max", NULL, 98, &_2);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&max);
 	ZVAL_LONG(&max, (zephir_get_numberval(&_3) + 1));
@@ -199,7 +199,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, __toString) {
 			ZVAL_COPY(&values, _4);
 			ZEPHIR_INIT_NVAR(&_8$$4);
 			ZVAL_STRING(&_8$$4, "-");
-			ZEPHIR_CALL_FUNCTION(&_9$$4, "ucwords", &_10, 187, &name, &_8$$4);
+			ZEPHIR_CALL_FUNCTION(&_9$$4, "ucwords", &_10, 99, &name, &_8$$4);
 			zephir_check_call_status();
 			ZEPHIR_CPY_WRT(&name, &_9$$4);
 			zephir_is_iterable(&values, 0, "moon/Component/Http/Message/HeaderBag.zep", 49);
@@ -255,7 +255,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, __toString) {
 			zephir_check_call_status();
 				ZEPHIR_INIT_NVAR(&_20$$7);
 				ZVAL_STRING(&_20$$7, "-");
-				ZEPHIR_CALL_FUNCTION(&_21$$7, "ucwords", &_10, 187, &name, &_20$$7);
+				ZEPHIR_CALL_FUNCTION(&_21$$7, "ucwords", &_10, 99, &name, &_20$$7);
 				zephir_check_call_status();
 				ZEPHIR_CPY_WRT(&name, &_21$$7);
 				zephir_is_iterable(&values, 0, "moon/Component/Http/Message/HeaderBag.zep", 49);
@@ -347,7 +347,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, all) {
 		ZVAL_STRING(&_2$$3, "_ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		ZEPHIR_INIT_VAR(&_3$$3);
 		ZVAL_STRING(&_3$$3, "-abcdefghijklmnopqrstuvwxyz");
-		ZEPHIR_CALL_FUNCTION(&_4$$3, "strtr", NULL, 128, &key, &_2$$3, &_3$$3);
+		ZEPHIR_CALL_FUNCTION(&_4$$3, "strtr", NULL, 100, &key, &_2$$3, &_3$$3);
 		zephir_check_call_status();
 		if (zephir_array_isset(&_1$$3, &_4$$3)) {
 			zephir_read_property(&_5$$3, this_ptr, ZEND_STRL("headers"), PH_NOISY_CC | PH_READONLY);
@@ -355,7 +355,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, all) {
 			ZVAL_STRING(&_2$$3, "_ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 			ZEPHIR_INIT_NVAR(&_3$$3);
 			ZVAL_STRING(&_3$$3, "-abcdefghijklmnopqrstuvwxyz");
-			ZEPHIR_CALL_FUNCTION(&_6$$3, "strtr", NULL, 128, &key, &_2$$3, &_3$$3);
+			ZEPHIR_CALL_FUNCTION(&_6$$3, "strtr", NULL, 100, &key, &_2$$3, &_3$$3);
 			zephir_check_call_status();
 			zephir_array_fetch(&_0$$3, &_5$$3, &_6$$3, PH_NOISY, "moon/Component/Http/Message/HeaderBag.zep", 63);
 		} else {
@@ -591,11 +591,11 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, set) {
 	ZVAL_STRING(&_0, "_ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "-abcdefghijklmnopqrstuvwxyz");
-	ZEPHIR_CALL_FUNCTION(&_2, "strtr", NULL, 128, &key, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(&_2, "strtr", NULL, 100, &key, &_0, &_1);
 	zephir_check_call_status();
 	zephir_get_strval(&key, &_2);
 	if (Z_TYPE_P(values) == IS_ARRAY) {
-		ZEPHIR_CALL_FUNCTION(&_3$$3, "array_values", NULL, 98, values);
+		ZEPHIR_CALL_FUNCTION(&_3$$3, "array_values", NULL, 75, values);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(values, &_3$$3);
 		_4$$3 = replace == 1;
@@ -671,7 +671,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, has) {
 	ZVAL_STRING(&_0, "_ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "-abcdefghijklmnopqrstuvwxyz");
-	ZEPHIR_CALL_FUNCTION(&_2, "strtr", NULL, 128, &key, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(&_2, "strtr", NULL, 100, &key, &_0, &_1);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_3, this_ptr, "all", NULL, 0);
 	zephir_check_call_status();
@@ -740,7 +740,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, remove) {
 	ZVAL_STRING(&_0, "_ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "-abcdefghijklmnopqrstuvwxyz");
-	ZEPHIR_CALL_FUNCTION(&_2, "strtr", NULL, 128, &key, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(&_2, "strtr", NULL, 100, &key, &_0, &_1);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&key, &_2);
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("headers"), PH_NOISY_CC | PH_READONLY);
@@ -807,7 +807,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, getDate) {
 		ZVAL_STRING(&_3$$4, "The \"%s\" HTTP header is not parseable (%s).");
 		ZEPHIR_CALL_FUNCTION(&_4$$4, "sprintf", NULL, 3, &_3$$4, &key, &value);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_2$$4, "__construct", NULL, 34, &_4$$4);
+		ZEPHIR_CALL_METHOD(NULL, &_2$$4, "__construct", NULL, 26, &_4$$4);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_2$$4, "moon/Component/Http/Message/HeaderBag.zep", 204);
 		ZEPHIR_MM_RESTORE();
@@ -974,7 +974,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, getIterator) {
 
 	object_init_ex(return_value, zephir_get_internal_ce(SL("arrayiterator")));
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("headers"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 37, &_0);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 30, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -1014,7 +1014,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderBag, getCacheControlHeader) {
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("cacheControl"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_MAKE_REF(&_0);
-	ZEPHIR_CALL_FUNCTION(NULL, "ksort", NULL, 186, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "ksort", NULL, 97, &_0);
 	ZEPHIR_UNREF(&_0);
 	zephir_check_call_status();
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("cacheControl"), PH_NOISY_CC | PH_READONLY);

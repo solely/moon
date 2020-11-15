@@ -50,9 +50,9 @@ PHP_METHOD(Moon_Component_Config_Parser_Yaml, parseFile) {
 	zephir_get_strval(&fileName, fileName_param);
 
 
-	ZEPHIR_CALL_FUNCTION(&yaml, "yaml_parse_file", NULL, 74, &fileName);
+	ZEPHIR_CALL_FUNCTION(&yaml, "yaml_parse_file", NULL, 50, &fileName);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "parse", NULL, 75, &yaml);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "parse", NULL, 51, &yaml);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -75,9 +75,9 @@ PHP_METHOD(Moon_Component_Config_Parser_Yaml, parseString) {
 	zephir_get_strval(&configString, configString_param);
 
 
-	ZEPHIR_CALL_FUNCTION(&yaml, "yaml_parse", NULL, 76, &configString);
+	ZEPHIR_CALL_FUNCTION(&yaml, "yaml_parse", NULL, 52, &configString);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "parse", NULL, 75, &yaml);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "parse", NULL, 51, &yaml);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -98,7 +98,7 @@ PHP_METHOD(Moon_Component_Config_Parser_Yaml, init) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "yaml");
-	ZEPHIR_CALL_FUNCTION(&_1, "extension_loaded", NULL, 55, &_0);
+	ZEPHIR_CALL_FUNCTION(&_1, "extension_loaded", NULL, 53, &_0);
 	zephir_check_call_status();
 	if (!zephir_is_true(&_1)) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(moon_component_config_exception_ce, "Failed to load yaml extension", "moon/Component/Config/Parser/Yaml.zep", 32);

@@ -92,7 +92,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Reflector, getInstance) {
 	if (ZEPHIR_IS_EMPTY(&_0)) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, moon_component_di_resolver_reflector_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 87);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 64);
 		zephir_check_call_status();
 		zephir_update_static_property_ce(moon_component_di_resolver_reflector_ce, ZEND_STRL("instance"), &_1$$3);
 	}
@@ -159,7 +159,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Reflector, getClass) {
 	if (!(zephir_array_isset(&_0, _class))) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, zephir_get_internal_ce(SL("reflectionclass")));
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 24, _class);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 17, _class);
 		zephir_check_call_status();
 		zephir_update_property_array(this_ptr, SL("classes"), _class, &_1$$3);
 	}
@@ -266,10 +266,10 @@ PHP_METHOD(Moon_Component_DI_Resolver_Reflector, getTraits) {
 		ZEPHIR_INIT_VAR(&traits);
 		array_init(&traits);
 		do {
-			ZEPHIR_CALL_FUNCTION(&_1$$4, "class_uses", &_2, 88, _class);
+			ZEPHIR_CALL_FUNCTION(&_1$$4, "class_uses", &_2, 65, _class);
 			zephir_check_call_status();
 			ZEPHIR_ADD_ASSIGN(&traits, &_1$$4);
-			ZEPHIR_CALL_FUNCTION(&_3$$4, "get_parent_class", &_4, 89, _class);
+			ZEPHIR_CALL_FUNCTION(&_3$$4, "get_parent_class", &_4, 66, _class);
 			zephir_check_call_status();
 			ZEPHIR_CPY_WRT(_class, &_3$$4);
 		} while (zephir_is_true(_class));
@@ -279,10 +279,10 @@ PHP_METHOD(Moon_Component_DI_Resolver_Reflector, getTraits) {
 				break;
 			}
 			ZEPHIR_MAKE_REF(&traitsToSearch);
-			ZEPHIR_CALL_FUNCTION(&_5$$5, "array_pop", &_6, 90, &traitsToSearch);
+			ZEPHIR_CALL_FUNCTION(&_5$$5, "array_pop", &_6, 67, &traitsToSearch);
 			ZEPHIR_UNREF(&traitsToSearch);
 			zephir_check_call_status();
-			ZEPHIR_CALL_FUNCTION(&newTraits, "class_uses", &_2, 88, &_5$$5);
+			ZEPHIR_CALL_FUNCTION(&newTraits, "class_uses", &_2, 65, &_5$$5);
 			zephir_check_call_status();
 			ZEPHIR_ADD_ASSIGN(&traits, &newTraits);
 			ZEPHIR_ADD_ASSIGN(&traitsToSearch, &newTraits);
@@ -293,7 +293,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Reflector, getTraits) {
 			{
 				ZEPHIR_INIT_NVAR(&trait$$3);
 				ZVAL_COPY(&trait$$3, _7$$3);
-				ZEPHIR_CALL_FUNCTION(&_9$$6, "class_uses", &_2, 88, &trait$$3);
+				ZEPHIR_CALL_FUNCTION(&_9$$6, "class_uses", &_2, 65, &trait$$3);
 				zephir_check_call_status();
 				ZEPHIR_ADD_ASSIGN(&traits, &_9$$6);
 			} ZEND_HASH_FOREACH_END();
@@ -308,7 +308,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Reflector, getTraits) {
 				}
 				ZEPHIR_CALL_METHOD(&trait$$3, &traits, "current", NULL, 0);
 				zephir_check_call_status();
-					ZEPHIR_CALL_FUNCTION(&_10$$7, "class_uses", &_2, 88, &trait$$3);
+					ZEPHIR_CALL_FUNCTION(&_10$$7, "class_uses", &_2, 65, &trait$$3);
 					zephir_check_call_status();
 					ZEPHIR_ADD_ASSIGN(&traits, &_10$$7);
 				ZEPHIR_CALL_METHOD(NULL, &traits, "next", NULL, 0);
@@ -316,7 +316,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Reflector, getTraits) {
 			}
 		}
 		ZEPHIR_INIT_NVAR(&trait$$3);
-		ZEPHIR_CALL_FUNCTION(&_11$$3, "array_unique", NULL, 91, &traits);
+		ZEPHIR_CALL_FUNCTION(&_11$$3, "array_unique", NULL, 68, &traits);
 		zephir_check_call_status();
 		zephir_update_property_array(this_ptr, SL("traits"), _class, &_11$$3);
 	}

@@ -26,17 +26,6 @@
  * DateTime: 2019/7/11 23:14
  * Description:
  *
- * Provider: Map Events to Listeners
- * Dispatcher: Call Listeners
- * Providers are the API to frameworks
- * Dispatchers are the API to calling libraries   2019年7月13日23:27:08
- *
- * 事件 - 事件是由发射器产生的消息。它可以是任意PHP对象。
- * 监听器 - 监听器是任何希望传递给事件的PHP可调用者。零个或多个侦听器可以传递相同的事件。如果它选择的话，监听器可以排队其他一些异步行为。
- * Emitter发射器 - 发射器是任何希望发送事件的任意代码。这也称为“呼叫代码”。它不是由任何特定数据结构表示，而是指用例。
- * Dispatcher - Dispatcher是一个服务对象，由Emitter提供一个Event对象。Dispatcher负责确保将事件传递给所有相关的监听器，但必须推迟向监听器提供者确定负责的监听器。
- * 监听器提供者 - 监听器提供者负责确定哪些监听器与给定事件相关，但不得调用监听器本身。监听器提供者可以指定零个或多个相关的监听器。
- * 2019年7月16日21:23:54
  */
 ZEPHIR_INIT_CLASS(Moon_Component_EventDispatcher_EventDispatcher) {
 
@@ -135,7 +124,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_EventDispatcher, dispatch) {
 		zephir_read_property(&_2$$4, this_ptr, ZEND_STRL("provider"), PH_NOISY_CC | PH_READONLY);
 		ZEPHIR_CALL_METHOD(&_3$$4, &_2$$4, "getlistenersforevent", NULL, 0, event);
 		zephir_check_call_status_or_jump(try_end_1);
-		zephir_is_iterable(&_3$$4, 0, "moon/Component/EventDispatcher/EventDispatcher.zep", 57);
+		zephir_is_iterable(&_3$$4, 0, "moon/Component/EventDispatcher/EventDispatcher.zep", 45);
 		if (Z_TYPE_P(&_3$$4) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_3$$4), _4$$4)
 			{
@@ -201,7 +190,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_EventDispatcher, dispatch) {
 			zephir_check_call_status();
 			ZEPHIR_CALL_CE_STATIC(&_14$$9, moon_component_eventdispatcher_exception_ce, "eventdispatcherexception", &_15, 0, event, &exception);
 			zephir_check_call_status();
-			zephir_throw_exception_debug(&_14$$9, "moon/Component/EventDispatcher/EventDispatcher.zep", 59);
+			zephir_throw_exception_debug(&_14$$9, "moon/Component/EventDispatcher/EventDispatcher.zep", 47);
 			ZEPHIR_MM_RESTORE();
 			return;
 		}

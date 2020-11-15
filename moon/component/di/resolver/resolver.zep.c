@@ -314,14 +314,14 @@ PHP_METHOD(Moon_Component_DI_Resolver_Resolver, resolve) {
 			zephir_check_call_status_or_jump(try_end_1);
 			ZEPHIR_CALL_METHOD(&_6$$4, &_5$$4, "getclass", NULL, 0, &_7$$4);
 			zephir_check_call_status_or_jump(try_end_1);
-			ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_8, 92, &_0$$4, &_6$$4);
+			ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_8, 69, &_0$$4, &_6$$4);
 			zephir_check_call_status_or_jump(try_end_1);
 			RETURN_MM();
 		}
 		ZEPHIR_INIT_VAR(&remember);
 		object_init_ex(&remember, moon_component_di_resolver_resolver_ce);
 		zephir_read_property(&_9$$3, this_ptr, ZEND_STRL("reflector"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_METHOD(NULL, &remember, "__construct", NULL, 22, &_9$$3);
+		ZEPHIR_CALL_METHOD(NULL, &remember, "__construct", NULL, 14, &_9$$3);
 		zephir_check_call_status_or_jump(try_end_1);
 		zephir_is_iterable(&contextualBlueprints, 0, "moon/Component/DI/Resolver/Resolver.zep", 133);
 		if (Z_TYPE_P(&contextualBlueprints) == IS_ARRAY) {
@@ -523,7 +523,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Resolver, resolve) {
 		zephir_check_call_status_or_jump(try_end_1);
 		ZEPHIR_CALL_METHOD(&_65$$3, &_64$$3, "getclass", NULL, 0, &_66$$3);
 		zephir_check_call_status_or_jump(try_end_1);
-		ZEPHIR_CALL_FUNCTION(&resolved, "call_user_func", &_8, 92, &_60$$3, &_65$$3);
+		ZEPHIR_CALL_FUNCTION(&resolved, "call_user_func", &_8, 69, &_60$$3, &_65$$3);
 		zephir_check_call_status_or_jump(try_end_1);
 		zephir_is_iterable(&contextualBlueprints, 0, "moon/Component/DI/Resolver/Resolver.zep", 146);
 		if (Z_TYPE_P(&contextualBlueprints) == IS_ARRAY) {
@@ -704,33 +704,33 @@ PHP_METHOD(Moon_Component_DI_Resolver_Resolver, getUnified) {
 		zephir_array_fetch(&_2$$3, &_1$$3, &_class, PH_NOISY | PH_READONLY, "moon/Component/DI/Resolver/Resolver.zep", 167);
 		RETURN_CTOR(&_2$$3);
 	}
-	ZEPHIR_CALL_FUNCTION(&parent, "get_parent_class", NULL, 89, &_class);
+	ZEPHIR_CALL_FUNCTION(&parent, "get_parent_class", NULL, 66, &_class);
 	zephir_check_call_status();
 	if (zephir_is_true(&parent)) {
-		ZEPHIR_CALL_METHOD(&spec, this_ptr, "getunified", NULL, 93, &parent);
+		ZEPHIR_CALL_METHOD(&spec, this_ptr, "getunified", NULL, 70, &parent);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_NVAR(&spec);
 		object_init_ex(&spec, moon_component_di_resolver_medium_ce);
-		ZEPHIR_CALL_METHOD(NULL, &spec, "__construct", &_3, 21, &_class);
+		ZEPHIR_CALL_METHOD(NULL, &spec, "__construct", &_3, 13, &_class);
 		zephir_check_call_status();
 	}
 	ZEPHIR_INIT_VAR(&_4);
 	object_init_ex(&_4, moon_component_di_resolver_medium_ce);
-	ZEPHIR_CALL_METHOD(&_6, &spec, "getparams", NULL, 94);
+	ZEPHIR_CALL_METHOD(&_6, &spec, "getparams", NULL, 71);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_5, this_ptr, "getunifiedparams", NULL, 0, &_class, &_6);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_8, &spec, "getsetters", NULL, 95);
+	ZEPHIR_CALL_METHOD(&_8, &spec, "getsetters", NULL, 72);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_7, this_ptr, "getunifiedsetters", NULL, 0, &_class, &_8);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_10, &spec, "getmutations", NULL, 96);
+	ZEPHIR_CALL_METHOD(&_10, &spec, "getmutations", NULL, 73);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_9, this_ptr, "getunifiedmutations", NULL, 0, &_class, &_10);
 	zephir_check_call_status();
 	ZVAL_BOOL(&_11, 0);
-	ZEPHIR_CALL_METHOD(NULL, &_4, "__construct", &_3, 21, &_class, &_5, &_7, &_11, &_9);
+	ZEPHIR_CALL_METHOD(NULL, &_4, "__construct", &_3, 13, &_class, &_5, &_7, &_11, &_9);
 	zephir_check_call_status();
 	zephir_update_property_array(this_ptr, SL("unified"), &_class, &_4);
 	zephir_read_property(&_11, this_ptr, ZEND_STRL("unified"), PH_NOISY_CC | PH_READONLY);
@@ -1076,7 +1076,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Resolver, getUnifiedMutations) {
 
 
 	ZEPHIR_CPY_WRT(&unified, &_parent);
-	ZEPHIR_CALL_FUNCTION(&interfaces, "class_implements", NULL, 97, &_class);
+	ZEPHIR_CALL_FUNCTION(&interfaces, "class_implements", NULL, 74, &_class);
 	zephir_check_call_status();
 	zephir_is_iterable(&interfaces, 0, "moon/Component/DI/Resolver/Resolver.zep", 298);
 	if (Z_TYPE_P(&interfaces) == IS_ARRAY) {
@@ -1233,7 +1233,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Resolver, getUnifiedSetters) {
 
 
 	ZEPHIR_CPY_WRT(&unified, &_parent);
-	ZEPHIR_CALL_FUNCTION(&interfaces, "class_implements", NULL, 97, &_class);
+	ZEPHIR_CALL_FUNCTION(&interfaces, "class_implements", NULL, 74, &_class);
 	zephir_check_call_status();
 	zephir_is_iterable(&interfaces, 0, "moon/Component/DI/Resolver/Resolver.zep", 341);
 	if (Z_TYPE_P(&interfaces) == IS_ARRAY) {
@@ -1457,7 +1457,7 @@ PHP_METHOD(Moon_Component_DI_Resolver_Resolver, expandParams) {
 	}
 	ZEPHIR_INIT_NVAR(&reflectParam);
 	ZEPHIR_INIT_VAR(&_20);
-	ZEPHIR_CALL_FUNCTION(&_21, "array_values", NULL, 98, &variadicParams);
+	ZEPHIR_CALL_FUNCTION(&_21, "array_values", NULL, 75, &variadicParams);
 	zephir_check_call_status();
 	zephir_fast_array_merge(&_20, &params, &_21);
 	ZEPHIR_RETURN_CALL_METHOD(blueprint, "replaceparams", NULL, 0, &_20);

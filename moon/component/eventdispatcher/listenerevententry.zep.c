@@ -12,6 +12,7 @@
 #include <Zend/zend_interfaces.h>
 
 #include "kernel/main.h"
+#include "kernel/exception.h"
 #include "kernel/object.h"
 #include "kernel/operators.h"
 #include "kernel/memory.h"
@@ -53,6 +54,10 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerEventEntry, __construct) {
 	zephir_get_strval(&type, type_param);
 
 
+	if (zephir_is_callable(listener) != 1) {
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(moon_component_eventdispatcher_exception_ce, "The first argument must be of type Callable", "moon/Component/EventDispatcher/ListenerEventEntry.zep", 18);
+		return;
+	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("listener"), listener);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("type"), &type);
 	ZEPHIR_MM_RESTORE();

@@ -55,7 +55,7 @@ PHP_METHOD(Moon_Component_Config_Reader_Loader, glob) {
 
 
 	ZVAL_LONG(&_0, flags);
-	ZEPHIR_RETURN_CALL_FUNCTION("glob", NULL, 77, &pattern, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("glob", NULL, 54, &pattern, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 

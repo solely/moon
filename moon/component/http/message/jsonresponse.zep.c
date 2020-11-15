@@ -103,7 +103,7 @@ PHP_METHOD(Moon_Component_Http_Message_JsonResponse, __construct) {
 	if (Z_TYPE_P(data) == IS_NULL) {
 		ZEPHIR_INIT_NVAR(data);
 		object_init_ex(data, spl_ce_ArrayObject);
-		ZEPHIR_CALL_METHOD(NULL, data, "__construct", NULL, 194);
+		ZEPHIR_CALL_METHOD(NULL, data, "__construct", NULL, 107);
 		zephir_check_call_status();
 	}
 	_0 = json;
@@ -123,7 +123,7 @@ PHP_METHOD(Moon_Component_Http_Message_JsonResponse, __construct) {
 		zephir_fast_array_merge(&_3$$5, &headers, &_4$$5);
 		ZEPHIR_CPY_WRT(&headers, &_3$$5);
 	}
-	ZEPHIR_CALL_METHOD(&_6, this_ptr, "createstream", NULL, 195);
+	ZEPHIR_CALL_METHOD(&_6, this_ptr, "createstream", NULL, 108);
 	zephir_check_call_status();
 	ZVAL_LONG(&_7, statusCode);
 	ZEPHIR_CALL_PARENT(NULL, moon_component_http_message_jsonresponse_ce, getThis(), "__construct", &_5, 0, &_6, &_7, &headers);
@@ -330,14 +330,14 @@ PHP_METHOD(Moon_Component_Http_Message_JsonResponse, setData) {
 		zephir_check_call_status();
 		RETURN_MM();
 	}
-	ZEPHIR_CALL_FUNCTION(&_14, "json_last_error", NULL, 196);
+	ZEPHIR_CALL_FUNCTION(&_14, "json_last_error", NULL, 109);
 	zephir_check_call_status();
 	if (!ZEPHIR_IS_LONG_IDENTICAL(&_14, 0)) {
 		ZEPHIR_INIT_VAR(&_15$$9);
 		object_init_ex(&_15$$9, spl_ce_InvalidArgumentException);
-		ZEPHIR_CALL_FUNCTION(&_16$$9, "json_last_error_msg", NULL, 197);
+		ZEPHIR_CALL_FUNCTION(&_16$$9, "json_last_error_msg", NULL, 110);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_15$$9, "__construct", NULL, 33, &_16$$9);
+		ZEPHIR_CALL_METHOD(NULL, &_15$$9, "__construct", NULL, 25, &_16$$9);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_15$$9, "moon/Component/Http/Message/JsonResponse.zep", 93);
 		ZEPHIR_MM_RESTORE();
@@ -430,9 +430,9 @@ PHP_METHOD(Moon_Component_Http_Message_JsonResponse, createStream) {
 	ZEPHIR_CALL_METHOD(NULL, &stream, "__construct", NULL, 2, &_0, &_1);
 	zephir_check_call_status();
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("data"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, &stream, "write", NULL, 192, &_2);
+	ZEPHIR_CALL_METHOD(NULL, &stream, "write", NULL, 105, &_2);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &stream, "rewind", NULL, 193);
+	ZEPHIR_CALL_METHOD(NULL, &stream, "rewind", NULL, 106);
 	zephir_check_call_status();
 	RETURN_CCTOR(&stream);
 

@@ -75,7 +75,7 @@ PHP_METHOD(Moon_Component_Http_Message_RedirectResponse, __construct) {
 
 	ZEPHIR_CALL_METHOD(&data, this_ptr, "settargeturl", NULL, 0, &url);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "createstream", NULL, 198, &data);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "createstream", NULL, 111, &data);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	ZEPHIR_INIT_VAR(&_3);
@@ -121,10 +121,10 @@ PHP_METHOD(Moon_Component_Http_Message_RedirectResponse, setTargetUrl) {
 	ZVAL_LONG(&_1, 3);
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "UTF-8");
-	ZEPHIR_CALL_FUNCTION(&_3, "htmlspecialchars", NULL, 167, &url, &_1, &_2);
+	ZEPHIR_CALL_FUNCTION(&_3, "htmlspecialchars", NULL, 112, &url, &_1, &_2);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_2);
-	ZVAL_STRING(&_2, "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='%1$s'\" />\n\n        <title>Redirecting to %1$s</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"%1$s\">%1$s</a>.\n    </body>\n</html>");
+	ZVAL_STRING(&_2, "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='%1$s'\" />\n\n        <title>Redirecting to %1$s</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"%1$s\">%1$s</a>.\n    </body>\n</html>");
 	ZEPHIR_RETURN_CALL_FUNCTION("sprintf", NULL, 3, &_2, &_3);
 	zephir_check_call_status();
 	RETURN_MM();
@@ -172,9 +172,9 @@ PHP_METHOD(Moon_Component_Http_Message_RedirectResponse, createStream) {
 	ZVAL_STRING(&_1, "wb+");
 	ZEPHIR_CALL_METHOD(NULL, &stream, "__construct", NULL, 2, &_0, &_1);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &stream, "write", NULL, 192, &data);
+	ZEPHIR_CALL_METHOD(NULL, &stream, "write", NULL, 105, &data);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &stream, "rewind", NULL, 193);
+	ZEPHIR_CALL_METHOD(NULL, &stream, "rewind", NULL, 106);
 	zephir_check_call_status();
 	RETURN_CCTOR(&stream);
 

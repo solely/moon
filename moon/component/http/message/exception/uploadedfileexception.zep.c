@@ -72,7 +72,7 @@ PHP_METHOD(Moon_Component_Http_Message_Exception_UploadedFileException, __constr
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "");
 	if (ZEPHIR_IS_IDENTICAL(&_0, message)) {
-		ZEPHIR_CALL_METHOD(message, this_ptr, "codetomessage", NULL, 182, code);
+		ZEPHIR_CALL_METHOD(message, this_ptr, "codetomessage", NULL, 92, code);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CALL_PARENT(NULL, moon_component_http_message_exception_uploadedfileexception_ce, getThis(), "__construct", NULL, 0, message, code, previous);

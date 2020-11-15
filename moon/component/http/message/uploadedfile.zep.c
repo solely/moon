@@ -137,7 +137,7 @@ PHP_METHOD(Moon_Component_Http_Message_UploadedFile, getStream) {
 
 
 	if (zephir_is_true(isCheck)) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "check", NULL, 249);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "check", NULL, 127);
 		zephir_check_call_status();
 	}
 	ZEPHIR_OBS_VAR(&_0);
@@ -188,29 +188,29 @@ PHP_METHOD(Moon_Component_Http_Message_UploadedFile, moveTo) {
 
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "check", NULL, 249);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "check", NULL, 127);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&path, "dirname", NULL, 250, targetPath);
+	ZEPHIR_CALL_FUNCTION(&path, "dirname", NULL, 128, targetPath);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_0, "is_dir", NULL, 211, &path);
+	ZEPHIR_CALL_FUNCTION(&_0, "is_dir", NULL, 129, &path);
 	zephir_check_call_status();
 	if (!zephir_is_true(&_0)) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, moon_component_http_message_exception_uploadedfileexception_ce);
 		ZVAL_LONG(&_2$$3, 102);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", &_3, 251, &_2$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", &_3, 130, &_2$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_1$$3, "moon/Component/Http/Message/UploadedFile.zep", 70);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
-	ZEPHIR_CALL_FUNCTION(&_4, "is_writable", NULL, 252, &path);
+	ZEPHIR_CALL_FUNCTION(&_4, "is_writable", NULL, 131, &path);
 	zephir_check_call_status();
 	if (!zephir_is_true(&_4)) {
 		ZEPHIR_INIT_VAR(&_5$$4);
 		object_init_ex(&_5$$4, moon_component_http_message_exception_uploadedfileexception_ce);
 		ZVAL_LONG(&_6$$4, 103);
-		ZEPHIR_CALL_METHOD(NULL, &_5$$4, "__construct", &_3, 251, &_6$$4);
+		ZEPHIR_CALL_METHOD(NULL, &_5$$4, "__construct", &_3, 130, &_6$$4);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_5$$4, "moon/Component/Http/Message/UploadedFile.zep", 73);
 		ZEPHIR_MM_RESTORE();
@@ -234,18 +234,18 @@ PHP_METHOD(Moon_Component_Http_Message_UploadedFile, moveTo) {
 			_11 = !zephir_is_true(&_12);
 		}
 		if (_7 == _11) {
-			ZEPHIR_CALL_METHOD(NULL, this_ptr, "writefile", NULL, 253, targetPath);
+			ZEPHIR_CALL_METHOD(NULL, this_ptr, "writefile", NULL, 132, targetPath);
 			zephir_check_call_status();
 			break;
 		}
 		zephir_read_property(&_13$$6, this_ptr, ZEND_STRL("file"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&_14$$6, "move_uploaded_file", NULL, 254, &_13$$6, targetPath);
+		ZEPHIR_CALL_FUNCTION(&_14$$6, "move_uploaded_file", NULL, 133, &_13$$6, targetPath);
 		zephir_check_call_status();
 		if (ZEPHIR_IS_FALSE_IDENTICAL(&_14$$6)) {
 			ZEPHIR_INIT_VAR(&_15$$7);
 			object_init_ex(&_15$$7, moon_component_http_message_exception_uploadedfileexception_ce);
 			ZVAL_LONG(&_16$$7, 104);
-			ZEPHIR_CALL_METHOD(NULL, &_15$$7, "__construct", &_3, 251, &_16$$7);
+			ZEPHIR_CALL_METHOD(NULL, &_15$$7, "__construct", &_3, 130, &_16$$7);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_15$$7, "moon/Component/Http/Message/UploadedFile.zep", 82);
 			ZEPHIR_MM_RESTORE();
@@ -285,7 +285,7 @@ PHP_METHOD(Moon_Component_Http_Message_UploadedFile, check) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, moon_component_http_message_exception_uploadedfileexception_ce);
 		zephir_read_property(&_2$$3, this_ptr, ZEND_STRL("error"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", &_3, 251, &_2$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", &_3, 130, &_2$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_1$$3, "moon/Component/Http/Message/UploadedFile.zep", 92);
 		ZEPHIR_MM_RESTORE();
@@ -296,7 +296,7 @@ PHP_METHOD(Moon_Component_Http_Message_UploadedFile, check) {
 		ZEPHIR_INIT_VAR(&_5$$4);
 		object_init_ex(&_5$$4, moon_component_http_message_exception_uploadedfileexception_ce);
 		ZVAL_LONG(&_6$$4, 101);
-		ZEPHIR_CALL_METHOD(NULL, &_5$$4, "__construct", &_3, 251, &_6$$4);
+		ZEPHIR_CALL_METHOD(NULL, &_5$$4, "__construct", &_3, 130, &_6$$4);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_5$$4, "moon/Component/Http/Message/UploadedFile.zep", 95);
 		ZEPHIR_MM_RESTORE();
@@ -333,7 +333,7 @@ PHP_METHOD(Moon_Component_Http_Message_UploadedFile, writeFile) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "wb");
-	ZEPHIR_CALL_FUNCTION(&fp, "fopen", NULL, 140, targetPath, &_1);
+	ZEPHIR_CALL_FUNCTION(&fp, "fopen", NULL, 117, targetPath, &_1);
 	zephir_check_call_status();
 	ZVAL_LONG(&_0, 4096);
 	ZEPHIR_CALL_METHOD(&s, &stream, "read", NULL, 0, &_0);

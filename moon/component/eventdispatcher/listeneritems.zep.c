@@ -110,7 +110,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerItems, createWithPriority) {
 
 	ZEPHIR_INIT_VAR(&_new);
 	object_init_ex(&_new, moon_component_eventdispatcher_listeneritems_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_new, "__construct", NULL, 170);
+	ZEPHIR_CALL_METHOD(NULL, &_new, "__construct", NULL, 78);
 	zephir_check_call_status();
 	zephir_update_property_zval(&_new, ZEND_STRL("item"), item);
 	ZEPHIR_INIT_ZVAL_NREF(_0);
@@ -142,7 +142,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerItems, createBefore) {
 
 	ZEPHIR_INIT_VAR(&_new);
 	object_init_ex(&_new, moon_component_eventdispatcher_listeneritems_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_new, "__construct", NULL, 170);
+	ZEPHIR_CALL_METHOD(NULL, &_new, "__construct", NULL, 78);
 	zephir_check_call_status();
 	zephir_update_property_zval(&_new, ZEND_STRL("item"), item);
 	zephir_update_property_zval(&_new, ZEND_STRL("before"), &pivotId);
@@ -172,7 +172,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerItems, createAfter) {
 
 	ZEPHIR_INIT_VAR(&_new);
 	object_init_ex(&_new, moon_component_eventdispatcher_listeneritems_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_new, "__construct", NULL, 170);
+	ZEPHIR_CALL_METHOD(NULL, &_new, "__construct", NULL, 78);
 	zephir_check_call_status();
 	zephir_update_property_zval(&_new, ZEND_STRL("item"), item);
 	zephir_update_property_zval(&_new, ZEND_STRL("after"), &pivotId);

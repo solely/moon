@@ -258,7 +258,7 @@ PHP_METHOD(Moon_Component_Http_Message_FileBag, convertFileInformation) {
 		ZEPHIR_INIT_VAR(&keys);
 		zephir_array_keys(&keys, file);
 		ZEPHIR_MAKE_REF(&keys);
-		ZEPHIR_CALL_FUNCTION(NULL, "sort", NULL, 183, &keys);
+		ZEPHIR_CALL_FUNCTION(NULL, "sort", NULL, 93, &keys);
 		ZEPHIR_UNREF(&keys);
 		zephir_check_call_status();
 		zephir_read_static_property_ce(&_1$$4, moon_component_http_message_filebag_ce, SL("fileKeys"), PH_NOISY_CC | PH_READONLY);
@@ -275,7 +275,7 @@ PHP_METHOD(Moon_Component_Http_Message_FileBag, convertFileInformation) {
 				zephir_array_fetch_string(&_5$$7, file, SL("type"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/FileBag.zep", 74);
 				zephir_array_fetch_string(&_6$$7, file, SL("error"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/FileBag.zep", 74);
 				ZVAL_BOOL(&_7$$7, 0);
-				ZEPHIR_CALL_METHOD(NULL, file, "__construct", NULL, 184, &_3$$7, &_4$$7, &_5$$7, &_6$$7, &_7$$7);
+				ZEPHIR_CALL_METHOD(NULL, file, "__construct", NULL, 94, &_3$$7, &_4$$7, &_5$$7, &_6$$7, &_7$$7);
 				zephir_check_call_status();
 			}
 		} else {
@@ -285,13 +285,13 @@ PHP_METHOD(Moon_Component_Http_Message_FileBag, convertFileInformation) {
 			ZEPHIR_INIT_VAR(&_9$$8);
 			ZVAL_STRING(&_9$$8, "convertFileInformation");
 			zephir_array_fast_append(&_8$$8, &_9$$8);
-			ZEPHIR_CALL_FUNCTION(&_10$$8, "array_map", NULL, 83, &_8$$8, file);
+			ZEPHIR_CALL_FUNCTION(&_10$$8, "array_map", NULL, 60, &_8$$8, file);
 			zephir_check_call_status();
 			ZEPHIR_CPY_WRT(file, &_10$$8);
 			ZEPHIR_INIT_NVAR(&_9$$8);
 			zephir_array_keys(&_9$$8, &keys);
 			if (ZEPHIR_IS_IDENTICAL(&_9$$8, &keys)) {
-				ZEPHIR_CALL_FUNCTION(&_11$$9, "array_filter", NULL, 161, file);
+				ZEPHIR_CALL_FUNCTION(&_11$$9, "array_filter", NULL, 95, file);
 				zephir_check_call_status();
 				ZEPHIR_CPY_WRT(file, &_11$$9);
 			}
@@ -365,7 +365,7 @@ PHP_METHOD(Moon_Component_Http_Message_FileBag, fixPhpFilesArray) {
 	ZEPHIR_INIT_VAR(&keys);
 	zephir_array_keys(&keys, data);
 	ZEPHIR_MAKE_REF(&keys);
-	ZEPHIR_CALL_FUNCTION(NULL, "sort", NULL, 183, &keys);
+	ZEPHIR_CALL_FUNCTION(NULL, "sort", NULL, 93, &keys);
 	ZEPHIR_UNREF(&keys);
 	zephir_check_call_status();
 	zephir_read_static_property_ce(&_0, moon_component_http_message_filebag_ce, SL("fileKeys"), PH_NOISY_CC | PH_READONLY);
@@ -441,7 +441,7 @@ PHP_METHOD(Moon_Component_Http_Message_FileBag, fixPhpFilesArray) {
 			ZEPHIR_OBS_NVAR(&_15$$6);
 			zephir_array_fetch(&_15$$6, &_18$$6, &key, PH_NOISY, "moon/Component/Http/Message/FileBag.zep", 119);
 			zephir_array_update_string(&_13$$6, SL("size"), &_15$$6, PH_COPY | PH_SEPARATE);
-			ZEPHIR_CALL_METHOD(&_12$$6, this_ptr, "fixphpfilesarray", &_19, 185, &_13$$6);
+			ZEPHIR_CALL_METHOD(&_12$$6, this_ptr, "fixphpfilesarray", &_19, 96, &_13$$6);
 			zephir_check_call_status();
 			zephir_array_update_zval(&files, &key, &_12$$6, PH_COPY | PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
@@ -477,7 +477,7 @@ PHP_METHOD(Moon_Component_Http_Message_FileBag, fixPhpFilesArray) {
 				ZEPHIR_OBS_NVAR(&_23$$7);
 				zephir_array_fetch(&_23$$7, &_26$$7, &key, PH_NOISY, "moon/Component/Http/Message/FileBag.zep", 119);
 				zephir_array_update_string(&_21$$7, SL("size"), &_23$$7, PH_COPY | PH_SEPARATE);
-				ZEPHIR_CALL_METHOD(&_20$$7, this_ptr, "fixphpfilesarray", &_19, 185, &_21$$7);
+				ZEPHIR_CALL_METHOD(&_20$$7, this_ptr, "fixphpfilesarray", &_19, 96, &_21$$7);
 				zephir_check_call_status();
 				zephir_array_update_zval(&files, &key, &_20$$7, PH_COPY | PH_SEPARATE);
 			ZEPHIR_CALL_METHOD(NULL, &_7, "next", NULL, 0);

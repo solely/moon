@@ -22,7 +22,10 @@
  * User: solely
  * DateTime: 2020/7/26 0:20
  * Description:
- *
+ *   这个异常事件（最好）不要继承 RequestEvent 事件，
+ *   因为在事件订阅模式中（比如：路由订阅类）当触发 ExceptionEvent 事件时，会先触发 RequestEvent 事件。
+ *   不过，为了减少后续类似的 bug ，已经在 路由订阅类中判断是  RequestEvent 类时才触发 onKernelRequest 方法。
+ *   2020年9月27日00:47:41
  */
 ZEPHIR_INIT_CLASS(Moon_Framework_Event_Event_ExceptionEvent) {
 

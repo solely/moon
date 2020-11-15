@@ -67,7 +67,7 @@ PHP_METHOD(Moon_Framework_Controller_ControllerArgumentsResolver, getArguments) 
 	zephir_create_array(&_3, 1, 0);
 	zephir_array_update_string(&_3, SL("_request"), request, PH_COPY | PH_SEPARATE);
 	zephir_fast_array_merge(&_1, &_2, &_3);
-	ZEPHIR_RETURN_CALL_METHOD(&_0, "resolverargument", NULL, 276, controller, &_1);
+	ZEPHIR_RETURN_CALL_METHOD(&_0, "resolverargument", NULL, 160, controller, &_1);
 	zephir_check_call_status();
 	RETURN_MM();
 

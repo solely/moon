@@ -380,7 +380,7 @@ PHP_METHOD(Moon_Component_Config_Config, getInstance) {
 	if (ZEPHIR_IS_EMPTY(&_0)) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, moon_component_config_config_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 69, dir);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 45, dir);
 		zephir_check_call_status();
 		zephir_update_static_property_ce(moon_component_config_config_ce, ZEND_STRL("instance"), &_1$$3);
 	}

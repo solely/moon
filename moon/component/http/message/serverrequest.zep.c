@@ -125,32 +125,32 @@ PHP_METHOD(Moon_Component_Http_Message_ServerRequest, __construct) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	object_init_ex(&_0, moon_component_http_message_serverbag_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", &_1, 44, serverParams);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", &_1, 37, serverParams);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("serverParams"), &_0);
 	ZEPHIR_INIT_VAR(&_2);
 	object_init_ex(&_2, moon_component_http_message_parameterbag_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_2, "__construct", &_1, 44, cookieParams);
+	ZEPHIR_CALL_METHOD(NULL, &_2, "__construct", &_1, 37, cookieParams);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("cookieParams"), &_2);
 	ZEPHIR_INIT_VAR(&_3);
 	object_init_ex(&_3, moon_component_http_message_parameterbag_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", &_1, 44, queryParams);
+	ZEPHIR_CALL_METHOD(NULL, &_3, "__construct", &_1, 37, queryParams);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("queryParams"), &_3);
 	ZEPHIR_INIT_VAR(&_4);
 	object_init_ex(&_4, moon_component_http_message_parameterbag_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_4, "__construct", &_1, 44, parseBody);
+	ZEPHIR_CALL_METHOD(NULL, &_4, "__construct", &_1, 37, parseBody);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("parseBody"), &_4);
 	ZEPHIR_INIT_VAR(&_5);
 	object_init_ex(&_5, moon_component_http_message_filebag_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_5, "__construct", NULL, 45, uploadedFiles);
+	ZEPHIR_CALL_METHOD(NULL, &_5, "__construct", NULL, 38, uploadedFiles);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("uploadedFiles"), &_5);
 	ZEPHIR_INIT_VAR(&_6);
 	object_init_ex(&_6, moon_component_http_message_parameterbag_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_6, "__construct", &_1, 44, attributes);
+	ZEPHIR_CALL_METHOD(NULL, &_6, "__construct", &_1, 37, attributes);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("attributes"), &_6);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("protocolVersion"), protocolVersion);
@@ -158,7 +158,7 @@ PHP_METHOD(Moon_Component_Http_Message_ServerRequest, __construct) {
 	if (!(ZEPHIR_IS_EMPTY(uri))) {
 		ZEPHIR_CPY_WRT(&_7, uri);
 	} else {
-		ZEPHIR_CALL_METHOD(&_7, this_ptr, "getfullrequesturl", NULL, 46);
+		ZEPHIR_CALL_METHOD(&_7, this_ptr, "getfullrequesturl", NULL, 39);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CPY_WRT(uri, &_7);
@@ -570,7 +570,7 @@ PHP_METHOD(Moon_Component_Http_Message_ServerRequest, validateUploadedFiles) {
 			ZEPHIR_INIT_NVAR(&file);
 			ZVAL_COPY(&file, _0);
 			if (Z_TYPE_P(&file) == IS_ARRAY) {
-				ZEPHIR_CALL_METHOD(NULL, this_ptr, "validateuploadedfiles", &_2, 47, &file);
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "validateuploadedfiles", &_2, 40, &file);
 				zephir_check_call_status();
 			}
 			if (!((zephir_is_instance_of(&file, SL("Psr\\Http\\Message\\UploadedFileInterface"))))) {
@@ -590,7 +590,7 @@ PHP_METHOD(Moon_Component_Http_Message_ServerRequest, validateUploadedFiles) {
 			ZEPHIR_CALL_METHOD(&file, &uploadedFiles, "current", NULL, 0);
 			zephir_check_call_status();
 				if (Z_TYPE_P(&file) == IS_ARRAY) {
-					ZEPHIR_CALL_METHOD(NULL, this_ptr, "validateuploadedfiles", &_2, 47, &file);
+					ZEPHIR_CALL_METHOD(NULL, this_ptr, "validateuploadedfiles", &_2, 40, &file);
 					zephir_check_call_status();
 				}
 				if (!((zephir_is_instance_of(&file, SL("Psr\\Http\\Message\\UploadedFileInterface"))))) {
@@ -717,11 +717,11 @@ PHP_METHOD(Moon_Component_Http_Message_ServerRequest, create) {
 	ZVAL_NULL(&_3);
 	ZEPHIR_INIT_VAR(&_4);
 	ZVAL_STRING(&_4, "php://input");
-	ZEPHIR_CALL_METHOD(NULL, &request, "__construct", NULL, 48, &_SERVER, &_COOKIE, &_GET, &_POST, &_FILES, &_0, &_1, &_2, &_3, &_4);
+	ZEPHIR_CALL_METHOD(NULL, &request, "__construct", NULL, 41, &_SERVER, &_COOKIE, &_GET, &_POST, &_FILES, &_0, &_1, &_2, &_3, &_4);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "CONTENT_TYPE");
-	ZEPHIR_CALL_METHOD(&_5, &request, "getheaderline", NULL, 49, &_1);
+	ZEPHIR_CALL_METHOD(&_5, &request, "getheaderline", NULL, 42, &_1);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "application/x-www-form-urlencoded");
@@ -752,17 +752,17 @@ PHP_METHOD(Moon_Component_Http_Message_ServerRequest, create) {
 		_6 = zephir_fast_in_array(&_7, &_11);
 	}
 	if (_6) {
-		ZEPHIR_CALL_METHOD(&_12$$3, &request, "getbody", NULL, 50);
+		ZEPHIR_CALL_METHOD(&_12$$3, &request, "getbody", NULL, 43);
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(&_13$$3, &_12$$3, "getcontents", NULL, 0);
 		zephir_check_call_status();
 		ZEPHIR_MAKE_REF(&data);
-		ZEPHIR_CALL_FUNCTION(NULL, "parse_str", NULL, 51, &_13$$3, &data);
+		ZEPHIR_CALL_FUNCTION(NULL, "parse_str", NULL, 44, &_13$$3, &data);
 		ZEPHIR_UNREF(&data);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_14$$3);
 		object_init_ex(&_14$$3, moon_component_http_message_parameterbag_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_14$$3, "__construct", NULL, 44, &data);
+		ZEPHIR_CALL_METHOD(NULL, &_14$$3, "__construct", NULL, 37, &data);
 		zephir_check_call_status();
 		zephir_update_property_zval(&request, ZEND_STRL("parseBody"), &_14$$3);
 	}

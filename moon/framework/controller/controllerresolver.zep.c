@@ -56,7 +56,7 @@ PHP_METHOD(Moon_Framework_Controller_ControllerResolver, getController) {
 		ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
-	ZEPHIR_RETURN_CALL_METHOD(&_0, "resolverhandler", NULL, 275, &_callable);
+	ZEPHIR_RETURN_CALL_METHOD(&_0, "resolverhandler", NULL, 159, &_callable);
 	zephir_check_call_status();
 	RETURN_MM();
 

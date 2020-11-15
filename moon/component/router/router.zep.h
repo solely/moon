@@ -16,6 +16,7 @@ PHP_METHOD(Moon_Component_Router_Router, match);
 PHP_METHOD(Moon_Component_Router_Router, group);
 PHP_METHOD(Moon_Component_Router_Router, addRoutes);
 PHP_METHOD(Moon_Component_Router_Router, dispatch);
+PHP_METHOD(Moon_Component_Router_Router, generateRouteName);
 zend_object *zephir_init_properties_Moon_Component_Router_Router(zend_class_entry *class_type TSRMLS_DC);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_router_router_add, 0, 0, 3)
@@ -197,6 +198,28 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_router_router_dispatch, 0, 0, 1)
 	ZEND_ARG_OBJ_INFO(0, request, Psr\\Http\\Message\\RequestInterface, 0)
 ZEND_END_ARG_INFO()
 
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_router_router_generateroutename, 0, 3, IS_STRING, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_router_router_generateroutename, 0, 3, IS_STRING, NULL, 0)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, routeName, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, routeName)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, method, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, method)
+#endif
+#if PHP_VERSION_ID >= 70200
+	ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+#else
+	ZEND_ARG_INFO(0, uri)
+#endif
+ZEND_END_ARG_INFO()
+
 ZEPHIR_INIT_FUNCS(moon_component_router_router_method_entry) {
 	PHP_ME(Moon_Component_Router_Router, getHttpMethodList, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Moon_Component_Router_Router, add, arginfo_moon_component_router_router_add, ZEND_ACC_PUBLIC)
@@ -211,5 +234,6 @@ ZEPHIR_INIT_FUNCS(moon_component_router_router_method_entry) {
 	PHP_ME(Moon_Component_Router_Router, group, arginfo_moon_component_router_router_group, ZEND_ACC_PUBLIC)
 	PHP_ME(Moon_Component_Router_Router, addRoutes, NULL, ZEND_ACC_PUBLIC)
 	PHP_ME(Moon_Component_Router_Router, dispatch, arginfo_moon_component_router_router_dispatch, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Router_Router, generateRouteName, arginfo_moon_component_router_router_generateroutename, ZEND_ACC_PRIVATE)
 	PHP_FE_END
 };

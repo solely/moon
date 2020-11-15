@@ -87,15 +87,15 @@ PHP_METHOD(Moon_Component_Http_Message_Request, __construct) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "seturi", NULL, 38, uri);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "seturi", NULL, 31, uri);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setmethod", NULL, 39, &method);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setmethod", NULL, 32, &method);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setbody", NULL, 40, body);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setbody", NULL, 33, body);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setheaders", NULL, 0, &header);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethost", NULL, 41);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethost", NULL, 34);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -326,7 +326,7 @@ PHP_METHOD(Moon_Component_Http_Message_Request, setUri) {
 	if (Z_TYPE_P(uri) == IS_NULL) {
 		ZEPHIR_INIT_VAR(&_0$$3);
 		object_init_ex(&_0$$3, moon_component_http_message_uri_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_0$$3, "__construct", &_1, 42);
+		ZEPHIR_CALL_METHOD(NULL, &_0$$3, "__construct", &_1, 35);
 		zephir_check_call_status();
 		zephir_update_property_zval(this_ptr, ZEND_STRL("uri"), &_0$$3);
 		RETURN_MM_NULL();
@@ -334,7 +334,7 @@ PHP_METHOD(Moon_Component_Http_Message_Request, setUri) {
 	if (Z_TYPE_P(uri) == IS_STRING) {
 		ZEPHIR_INIT_VAR(&_2$$4);
 		object_init_ex(&_2$$4, moon_component_http_message_uri_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_2$$4, "__construct", &_1, 42, uri);
+		ZEPHIR_CALL_METHOD(NULL, &_2$$4, "__construct", &_1, 35, uri);
 		zephir_check_call_status();
 		zephir_update_property_zval(this_ptr, ZEND_STRL("uri"), &_2$$4);
 		RETURN_MM_NULL();
@@ -390,7 +390,7 @@ PHP_METHOD(Moon_Component_Http_Message_Request, setMethod) {
 			ZVAL_STRING(&_5$$4, "Unsupported HTTP %s method");
 			ZEPHIR_CALL_FUNCTION(&_6$$4, "sprintf", NULL, 3, &_5$$4, &method);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(NULL, &_4$$4, "__construct", NULL, 33, &_6$$4);
+			ZEPHIR_CALL_METHOD(NULL, &_4$$4, "__construct", NULL, 25, &_6$$4);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_4$$4, "moon/Component/Http/Message/Request.zep", 117);
 			ZEPHIR_MM_RESTORE();
@@ -463,7 +463,7 @@ PHP_METHOD(Moon_Component_Http_Message_Request, setHost) {
 		ZEPHIR_INIT_VAR(&_6$$3);
 		ZVAL_STRING(&_6$$3, "Host");
 		zephir_update_property_array(this_ptr, SL("_headers"), &_5$$3, &_6$$3);
-		ZEPHIR_CALL_METHOD(&_7$$3, this_ptr, "gethostfromuri", NULL, 43);
+		ZEPHIR_CALL_METHOD(&_7$$3, this_ptr, "gethostfromuri", NULL, 36);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_8$$3);
 		ZVAL_STRING(&_8$$3, "Host");

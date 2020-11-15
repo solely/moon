@@ -82,7 +82,7 @@ PHP_METHOD(Moon_Component_DI_Inject_Inject, __invoke) {
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("arguments"), PH_NOISY_CC | PH_READONLY);
 	zephir_read_property(&_4, this_ptr, ZEND_STRL("callMethods"), PH_NOISY_CC | PH_READONLY);
 	zephir_read_property(&_5, this_ptr, ZEND_STRL("isLazy"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, &medium, "__construct", NULL, 21, &_2, &_3, &_4, &_5);
+	ZEPHIR_CALL_METHOD(NULL, &medium, "__construct", NULL, 13, &_2, &_3, &_4, &_5);
 	zephir_check_call_status();
 	zephir_read_property(&_6, this_ptr, ZEND_STRL("isLazy"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_is_true(&_6)) {
@@ -92,9 +92,9 @@ PHP_METHOD(Moon_Component_DI_Inject_Inject, __invoke) {
 	object_init_ex(&_7, moon_component_di_resolver_resolver_ce);
 	ZEPHIR_CALL_CE_STATIC(&_8, moon_component_di_resolver_reflector_ce, "getinstance", &_9, 0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &_7, "__construct", NULL, 22, &_8);
+	ZEPHIR_CALL_METHOD(NULL, &_7, "__construct", NULL, 14, &_8);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_METHOD(&_7, "resolve", NULL, 23, &medium);
+	ZEPHIR_RETURN_CALL_METHOD(&_7, "resolve", NULL, 15, &medium);
 	zephir_check_call_status();
 	RETURN_MM();
 

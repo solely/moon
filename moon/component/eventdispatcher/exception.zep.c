@@ -125,7 +125,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_Exception, runtimeException) {
 
 	object_init_ex(return_value, moon_component_eventdispatcher_exception_runtimeexception_ce);
 	ZVAL_LONG(&_0, code);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 34, &msg, &_0, throwable);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 26, &msg, &_0, throwable);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -141,7 +141,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_Exception, containerMissingException) 
 	ZEPHIR_MM_GROW();
 
 	object_init_ex(return_value, moon_component_eventdispatcher_exception_containermissingexception_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 34);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 26);
 	zephir_check_call_status();
 	RETURN_MM();
 

@@ -136,12 +136,12 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, fromString) {
 	ZEPHIR_CALL_CE_STATIC(&parts, moon_component_http_message_headerutils_ce, "split", &_0, 0, &cookie, &_1);
 	zephir_check_call_status();
 	ZEPHIR_MAKE_REF(&parts);
-	ZEPHIR_CALL_FUNCTION(&part, "array_shift", NULL, 169, &parts);
+	ZEPHIR_CALL_FUNCTION(&part, "array_shift", NULL, 85, &parts);
 	ZEPHIR_UNREF(&parts);
 	zephir_check_call_status();
 	if (decode) {
 		zephir_array_fetch_long(&_2, &part, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Cookie.zep", 44);
-		ZEPHIR_CALL_FUNCTION(&name, "urldecode", &_3, 176, &_2);
+		ZEPHIR_CALL_FUNCTION(&name, "urldecode", &_3, 86, &_2);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_OBS_NVAR(&name);
@@ -150,7 +150,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, fromString) {
 	if (zephir_array_isset_long(&part, 1)) {
 		if (decode) {
 			zephir_array_fetch_long(&_4, &part, 1, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Cookie.zep", 45);
-			ZEPHIR_CALL_FUNCTION(&value, "urldecode", &_3, 176, &_4);
+			ZEPHIR_CALL_FUNCTION(&value, "urldecode", &_3, 86, &_4);
 			zephir_check_call_status();
 		} else {
 			ZEPHIR_OBS_NVAR(&value);
@@ -182,7 +182,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, fromString) {
 	zephir_array_fetch_string(&_15, &data, SL("httponly"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Cookie.zep", 50);
 	zephir_array_fetch_string(&_16, &data, SL("raw"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Cookie.zep", 50);
 	zephir_array_fetch_string(&_17, &data, SL("samesite"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/Cookie.zep", 50);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 177, &name, &value, &_11, &_12, &_13, &_14, &_15, &_16, &_17);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 87, &name, &value, &_11, &_12, &_13, &_14, &_15, &_16, &_17);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -271,7 +271,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, create) {
 	} else {
 		ZVAL_BOOL(&_2, 0);
 	}
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 177, &name, &value, expire, path, &domain, &_0, &_1, &_2, sameSite);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 87, &name, &value, expire, path, &domain, &_0, &_1, &_2, sameSite);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -380,7 +380,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, __construct) {
 	_0 = raw;
 	if (_0) {
 		zephir_read_static_property_ce(&_1, moon_component_http_message_cookie_ce, SL("reservedCharsList"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&_2, "strpbrk", NULL, 178, &name, &_1);
+		ZEPHIR_CALL_FUNCTION(&_2, "strpbrk", NULL, 88, &name, &_1);
 		zephir_check_call_status();
 		_0 = !ZEPHIR_IS_FALSE_IDENTICAL(&_2);
 	}
@@ -391,7 +391,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, __construct) {
 		ZVAL_STRING(&_4$$3, "The cookie name \"%s\" contains invalid characters.");
 		ZEPHIR_CALL_FUNCTION(&_5$$3, "sprintf", NULL, 3, &_4$$3, &name);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 33, &_5$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 25, &_5$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_3$$3, "moon/Component/Http/Message/Cookie.zep", 75);
 		ZEPHIR_MM_RESTORE();
@@ -408,7 +408,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, __construct) {
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(expire, &_6$$5);
 	} else if (!(zephir_is_numeric(expire))) {
-		ZEPHIR_CALL_FUNCTION(&_8$$6, "strtotime", NULL, 179, expire);
+		ZEPHIR_CALL_FUNCTION(&_8$$6, "strtotime", NULL, 89, expire);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(expire, &_8$$6);
 		if (ZEPHIR_IS_FALSE_IDENTICAL(expire)) {
@@ -559,7 +559,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, __toString) {
 		ZEPHIR_INIT_VAR(&_10$$5);
 		ZVAL_STRING(&_10$$5, "D, d-M-Y H:i:s T");
 		ZVAL_LONG(&_11$$5, (zephir_get_numberval(&_9$$5) - 31536001));
-		ZEPHIR_CALL_FUNCTION(&_12$$5, "gmdate", &_13, 180, &_10$$5, &_11$$5);
+		ZEPHIR_CALL_FUNCTION(&_12$$5, "gmdate", &_13, 90, &_10$$5, &_11$$5);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_14$$5);
 		ZEPHIR_CONCAT_SVS(&_14$$5, "deleted; expires=", &_12$$5, "; Max-Age=0");
@@ -574,7 +574,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, __toString) {
 		} else {
 			ZEPHIR_CALL_METHOD(&_17$$6, this_ptr, "getvalue", &_6, 0);
 			zephir_check_call_status();
-			ZEPHIR_CALL_FUNCTION(&_15$$6, "rawurlencode", NULL, 181, &_17$$6);
+			ZEPHIR_CALL_FUNCTION(&_15$$6, "rawurlencode", NULL, 91, &_17$$6);
 			zephir_check_call_status();
 		}
 		zephir_concat_self(&str, &_15$$6);
@@ -585,7 +585,7 @@ PHP_METHOD(Moon_Component_Http_Message_Cookie, __toString) {
 			zephir_check_call_status();
 			ZEPHIR_INIT_VAR(&_21$$7);
 			ZVAL_STRING(&_21$$7, "D, d-M-Y H:i:s T");
-			ZEPHIR_CALL_FUNCTION(&_22$$7, "gmdate", &_13, 180, &_21$$7, &_20$$7);
+			ZEPHIR_CALL_FUNCTION(&_22$$7, "gmdate", &_13, 90, &_21$$7, &_20$$7);
 			zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(&_23$$7, this_ptr, "getmaxage", NULL, 0);
 			zephir_check_call_status();

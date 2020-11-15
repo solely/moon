@@ -53,7 +53,7 @@ PHP_METHOD(Moon_Framework_Event_Event_ResponseEvent, __construct) {
 
 	ZEPHIR_CALL_PARENT(NULL, moon_framework_event_event_responseevent_ce, getThis(), "__construct", &_0, 0, request, router, container);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setresponse", NULL, 291, response);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setresponse", NULL, 176, response);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 

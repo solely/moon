@@ -15,8 +15,8 @@
 #include "kernel/object.h"
 #include "kernel/operators.h"
 #include "kernel/fcall.h"
-#include "kernel/memory.h"
 #include "kernel/array.h"
+#include "kernel/memory.h"
 #include "kernel/exception.h"
 #include "kernel/concat.h"
 
@@ -60,6 +60,12 @@ ZEPHIR_INIT_CLASS(Moon_Component_EventDispatcher_ListenerCollection) {
 	 */
 	zend_declare_property_long(moon_component_eventdispatcher_listenercollection_ce, SL("itemPriority"), 0, ZEND_ACC_PRIVATE);
 
+	/**
+	 * $items 的索引节点，最后面那个节点
+	 * @var int
+	 */
+	zend_declare_property_long(moon_component_eventdispatcher_listenercollection_ce, SL("itemPriorityMin"), 0, ZEND_ACC_PRIVATE);
+
 	zend_declare_property_long(moon_component_eventdispatcher_listenercollection_ce, SL("currentItemPriority"), 0, ZEND_ACC_PRIVATE);
 
 	/**
@@ -86,13 +92,14 @@ ZEPHIR_INIT_CLASS(Moon_Component_EventDispatcher_ListenerCollection) {
 PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, rewind) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zval __$true, __$false, _0, _2, _3, _4, _5, _1$$3;
+	zval __$true, __$false, _0, keyLists, _2, _3, _4, _5, _1$$3;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
 
 	ZVAL_BOOL(&__$true, 1);
 	ZVAL_BOOL(&__$false, 0);
 	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&keyLists);
 	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_3);
 	ZVAL_UNDEF(&_4);
@@ -107,7 +114,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, rewind) {
 		zephir_check_call_status();
 		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("items"), PH_NOISY_CC | PH_READONLY);
 		ZEPHIR_MAKE_REF(&_1$$3);
-		ZEPHIR_CALL_FUNCTION(NULL, "krsort", NULL, 168, &_1$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "krsort", NULL, 76, &_1$$3);
 		ZEPHIR_UNREF(&_1$$3);
 		zephir_check_call_status();
 		if (1) {
@@ -116,14 +123,16 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, rewind) {
 			zephir_update_property_zval(this_ptr, ZEND_STRL("sorted"), &__$false);
 		}
 	}
-	ZEPHIR_INIT_VAR(&_2);
-	zephir_read_property(&_3, this_ptr, ZEND_STRL("items"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_keys(&_2, &_3);
-	ZEPHIR_MAKE_REF(&_2);
-	ZEPHIR_CALL_FUNCTION(&_4, "array_shift", NULL, 169, &_2);
-	ZEPHIR_UNREF(&_2);
+	zephir_read_property(&_2, this_ptr, ZEND_STRL("items"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_INIT_VAR(&keyLists);
+	zephir_array_keys(&keyLists, &_2);
+	zephir_array_fetch_long(&_3, &keyLists, 0, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 64);
+	zephir_update_property_zval(this_ptr, ZEND_STRL("itemPriority"), &_3);
+	ZEPHIR_MAKE_REF(&keyLists);
+	ZEPHIR_CALL_FUNCTION(&_4, "array_pop", NULL, 67, &keyLists);
+	ZEPHIR_UNREF(&keyLists);
 	zephir_check_call_status();
-	zephir_update_property_zval(this_ptr, ZEND_STRL("itemPriority"), &_4);
+	zephir_update_property_zval(this_ptr, ZEND_STRL("itemPriorityMin"), &_4);
 	ZEPHIR_INIT_ZVAL_NREF(_5);
 	ZVAL_LONG(&_5, 0);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("itemPosition"), &_5);
@@ -145,7 +154,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, next) {
 PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, valid) {
 
 	zend_bool flag = 0, res = 0, _2$$3;
-	zval lItem, _0$$3, _1$$3, _3$$3, _4$$3, _5$$3, _18$$3, _6$$4, _7$$4, _8$$4, _9$$4, _10$$5, _11$$5, _12$$5, _13$$5, _14$$6, _15$$6, _16$$7, _17$$8;
+	zval lItem, _0$$3, _1$$3, _3$$3, _4$$3, _5$$3, _18$$3, _19$$3, _6$$4, _7$$4, _8$$4, _9$$4, _10$$5, _11$$5, _12$$5, _13$$5, _14$$6, _15$$6, _16$$7, _17$$8;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zval *this_ptr = getThis();
 
@@ -156,6 +165,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, valid) {
 	ZVAL_UNDEF(&_4$$3);
 	ZVAL_UNDEF(&_5$$3);
 	ZVAL_UNDEF(&_18$$3);
+	ZVAL_UNDEF(&_19$$3);
 	ZVAL_UNDEF(&_6$$4);
 	ZVAL_UNDEF(&_7$$4);
 	ZVAL_UNDEF(&_8$$4);
@@ -185,23 +195,23 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, valid) {
 			ZEPHIR_OBS_NVAR(&_4$$3);
 			ZEPHIR_OBS_NVAR(&_5$$3);
 			zephir_read_property(&_5$$3, this_ptr, ZEND_STRL("itemPriority"), PH_NOISY_CC);
-			zephir_array_fetch(&_4$$3, &_3$$3, &_5$$3, PH_NOISY, "moon/Component/EventDispatcher/ListenerCollection.zep", 77);
+			zephir_array_fetch(&_4$$3, &_3$$3, &_5$$3, PH_NOISY, "moon/Component/EventDispatcher/ListenerCollection.zep", 86);
 			_2$$3 = !(ZEPHIR_IS_EMPTY(&_4$$3));
 		}
 		if (_2$$3) {
 			zephir_read_property(&_6$$4, this_ptr, ZEND_STRL("items"), PH_NOISY_CC | PH_READONLY);
 			ZEPHIR_OBS_NVAR(&_8$$4);
 			zephir_read_property(&_8$$4, this_ptr, ZEND_STRL("itemPriority"), PH_NOISY_CC);
-			zephir_array_fetch(&_7$$4, &_6$$4, &_8$$4, PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 78);
+			zephir_array_fetch(&_7$$4, &_6$$4, &_8$$4, PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 87);
 			zephir_read_property(&_9$$4, this_ptr, ZEND_STRL("itemPosition"), PH_NOISY_CC | PH_READONLY);
 			if (zephir_array_isset(&_7$$4, &_9$$4)) {
 				zephir_read_property(&_10$$5, this_ptr, ZEND_STRL("items"), PH_NOISY_CC | PH_READONLY);
 				ZEPHIR_OBS_NVAR(&_12$$5);
 				zephir_read_property(&_12$$5, this_ptr, ZEND_STRL("itemPriority"), PH_NOISY_CC);
-				zephir_array_fetch(&_11$$5, &_10$$5, &_12$$5, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 79);
+				zephir_array_fetch(&_11$$5, &_10$$5, &_12$$5, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 88);
 				ZEPHIR_OBS_NVAR(&_13$$5);
 				zephir_read_property(&_13$$5, this_ptr, ZEND_STRL("itemPosition"), PH_NOISY_CC);
-				zephir_array_fetch(&lItem, &_11$$5, &_13$$5, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 79);
+				zephir_array_fetch(&lItem, &_11$$5, &_13$$5, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 88);
 				if (zephir_instance_of_ev(&lItem, moon_component_eventdispatcher_listeneritems_ce)) {
 					flag = 0;
 					res = 1;
@@ -224,7 +234,8 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, valid) {
 			zephir_update_property_zval(this_ptr, ZEND_STRL("itemPosition"), &_17$$8);
 		}
 		zephir_read_property(&_18$$3, this_ptr, ZEND_STRL("itemPriority"), PH_NOISY_CC | PH_READONLY);
-		if (ZEPHIR_LT_LONG(&_18$$3, 0)) {
+		zephir_read_property(&_19$$3, this_ptr, ZEND_STRL("itemPriorityMin"), PH_NOISY_CC | PH_READONLY);
+		if (ZEPHIR_LT(&_18$$3, &_19$$3)) {
 			flag = 0;
 		}
 	}
@@ -251,10 +262,10 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, current) {
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("items"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_OBS_VAR(&_2);
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("currentItemPriority"), PH_NOISY_CC);
-	zephir_array_fetch(&_1, &_0, &_2, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 110);
+	zephir_array_fetch(&_1, &_0, &_2, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 119);
 	ZEPHIR_OBS_VAR(&_3);
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("currentItemPosition"), PH_NOISY_CC);
-	zephir_array_fetch(&lItem, &_1, &_3, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 110);
+	zephir_array_fetch(&lItem, &_1, &_3, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 119);
 	ZEPHIR_OBS_VAR(&_4);
 	zephir_read_property(&_4, &lItem, ZEND_STRL("item"), PH_NOISY_CC);
 	RETURN_CCTOR(&_4);
@@ -390,7 +401,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, addItemBefore) {
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_array_isset(&_1, &pivotId)) {
 		zephir_read_property(&_2$$3, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch(&_3$$3, &_2$$3, &pivotId, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 163);
+		zephir_array_fetch(&_3$$3, &_2$$3, &pivotId, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 172);
 		zephir_read_property(&_4$$3, &_3$$3, ZEND_STRL("priority"), PH_NOISY_CC | PH_READONLY);
 		ZVAL_LONG(&_5$$3, (zephir_get_numberval(&_4$$3) + 1));
 		ZEPHIR_RETURN_CALL_METHOD(this_ptr, "additem", NULL, 0, item, &_5$$3, &id);
@@ -467,7 +478,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, addItemAfter) {
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_array_isset(&_1, &pivotId)) {
 		zephir_read_property(&_2$$3, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch(&_3$$3, &_2$$3, &pivotId, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 194);
+		zephir_array_fetch(&_3$$3, &_2$$3, &pivotId, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 203);
 		zephir_read_property(&_4$$3, &_3$$3, ZEND_STRL("priority"), PH_NOISY_CC | PH_READONLY);
 		ZVAL_LONG(&_5$$3, (zephir_get_numberval(&_4$$3) - 1));
 		ZEPHIR_RETURN_CALL_METHOD(this_ptr, "additem", NULL, 0, item, &_5$$3, &id);
@@ -563,7 +574,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, prioritizePendingI
 	ZEPHIR_MM_GROW();
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("toPrioritize"), PH_NOISY_CC | PH_READONLY);
-	zephir_is_iterable(&_0, 0, "moon/Component/EventDispatcher/ListenerCollection.zep", 227);
+	zephir_is_iterable(&_0, 0, "moon/Component/EventDispatcher/ListenerCollection.zep", 236);
 	if (Z_TYPE_P(&_0) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_0), _1)
 		{
@@ -584,14 +595,14 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, prioritizePendingI
 					ZVAL_LONG(&_14$$5, 0);
 					ZEPHIR_CALL_CE_STATIC(&_7$$5, moon_component_eventdispatcher_exception_ce, "runtimeexception", &_8, 0, &_12$$5, &_14$$5);
 					zephir_check_call_status();
-					zephir_throw_exception_debug(&_7$$5, "moon/Component/EventDispatcher/ListenerCollection.zep", 212);
+					zephir_throw_exception_debug(&_7$$5, "moon/Component/EventDispatcher/ListenerCollection.zep", 221);
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
 				zephir_read_property(&_15$$4, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
 				ZEPHIR_OBS_NVAR(&_17$$4);
 				zephir_read_property(&_17$$4, &item, ZEND_STRL("before"), PH_NOISY_CC);
-				zephir_array_fetch(&_16$$4, &_15$$4, &_17$$4, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 214);
+				zephir_array_fetch(&_16$$4, &_15$$4, &_17$$4, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 223);
 				zephir_read_property(&_18$$4, &_16$$4, ZEND_STRL("priority"), PH_NOISY_CC | PH_READONLY);
 				_19$$4 = (zephir_get_numberval(&_18$$4) + 1);
 				ZEPHIR_INIT_NVAR(&priority);
@@ -610,14 +621,14 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, prioritizePendingI
 					ZVAL_LONG(&_27$$7, 0);
 					ZEPHIR_CALL_CE_STATIC(&_22$$7, moon_component_eventdispatcher_exception_ce, "runtimeexception", &_8, 0, &_26$$7, &_27$$7);
 					zephir_check_call_status();
-					zephir_throw_exception_debug(&_22$$7, "moon/Component/EventDispatcher/ListenerCollection.zep", 218);
+					zephir_throw_exception_debug(&_22$$7, "moon/Component/EventDispatcher/ListenerCollection.zep", 227);
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
 				zephir_read_property(&_28$$6, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
 				ZEPHIR_OBS_NVAR(&_30$$6);
 				zephir_read_property(&_30$$6, &item, ZEND_STRL("after"), PH_NOISY_CC);
-				zephir_array_fetch(&_29$$6, &_28$$6, &_30$$6, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 220);
+				zephir_array_fetch(&_29$$6, &_28$$6, &_30$$6, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 229);
 				zephir_read_property(&_31$$6, &_29$$6, ZEND_STRL("priority"), PH_NOISY_CC | PH_READONLY);
 				_32$$6 = (zephir_get_numberval(&_31$$6) - 1);
 				ZEPHIR_INIT_NVAR(&priority);
@@ -629,7 +640,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, prioritizePendingI
 				ZVAL_LONG(&_35$$8, 0);
 				ZEPHIR_CALL_CE_STATIC(&_33$$8, moon_component_eventdispatcher_exception_ce, "runtimeexception", &_8, 0, &_34$$8, &_35$$8);
 				zephir_check_call_status();
-				zephir_throw_exception_debug(&_33$$8, "moon/Component/EventDispatcher/ListenerCollection.zep", 223);
+				zephir_throw_exception_debug(&_33$$8, "moon/Component/EventDispatcher/ListenerCollection.zep", 232);
 				ZEPHIR_MM_RESTORE();
 				return;
 			}
@@ -660,14 +671,14 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, prioritizePendingI
 						ZVAL_LONG(&_45$$11, 0);
 						ZEPHIR_CALL_CE_STATIC(&_40$$11, moon_component_eventdispatcher_exception_ce, "runtimeexception", &_8, 0, &_44$$11, &_45$$11);
 						zephir_check_call_status();
-						zephir_throw_exception_debug(&_40$$11, "moon/Component/EventDispatcher/ListenerCollection.zep", 212);
+						zephir_throw_exception_debug(&_40$$11, "moon/Component/EventDispatcher/ListenerCollection.zep", 221);
 						ZEPHIR_MM_RESTORE();
 						return;
 					}
 					zephir_read_property(&_46$$10, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
 					ZEPHIR_OBS_NVAR(&_48$$10);
 					zephir_read_property(&_48$$10, &item, ZEND_STRL("before"), PH_NOISY_CC);
-					zephir_array_fetch(&_47$$10, &_46$$10, &_48$$10, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 214);
+					zephir_array_fetch(&_47$$10, &_46$$10, &_48$$10, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 223);
 					zephir_read_property(&_49$$10, &_47$$10, ZEND_STRL("priority"), PH_NOISY_CC | PH_READONLY);
 					_50$$10 = (zephir_get_numberval(&_49$$10) + 1);
 					ZEPHIR_INIT_NVAR(&priority);
@@ -686,14 +697,14 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, prioritizePendingI
 						ZVAL_LONG(&_58$$13, 0);
 						ZEPHIR_CALL_CE_STATIC(&_53$$13, moon_component_eventdispatcher_exception_ce, "runtimeexception", &_8, 0, &_57$$13, &_58$$13);
 						zephir_check_call_status();
-						zephir_throw_exception_debug(&_53$$13, "moon/Component/EventDispatcher/ListenerCollection.zep", 218);
+						zephir_throw_exception_debug(&_53$$13, "moon/Component/EventDispatcher/ListenerCollection.zep", 227);
 						ZEPHIR_MM_RESTORE();
 						return;
 					}
 					zephir_read_property(&_59$$12, this_ptr, ZEND_STRL("itemLookup"), PH_NOISY_CC | PH_READONLY);
 					ZEPHIR_OBS_NVAR(&_61$$12);
 					zephir_read_property(&_61$$12, &item, ZEND_STRL("after"), PH_NOISY_CC);
-					zephir_array_fetch(&_60$$12, &_59$$12, &_61$$12, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 220);
+					zephir_array_fetch(&_60$$12, &_59$$12, &_61$$12, PH_NOISY | PH_READONLY, "moon/Component/EventDispatcher/ListenerCollection.zep", 229);
 					zephir_read_property(&_62$$12, &_60$$12, ZEND_STRL("priority"), PH_NOISY_CC | PH_READONLY);
 					_63$$12 = (zephir_get_numberval(&_62$$12) - 1);
 					ZEPHIR_INIT_NVAR(&priority);
@@ -705,7 +716,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, prioritizePendingI
 					ZVAL_LONG(&_66$$14, 0);
 					ZEPHIR_CALL_CE_STATIC(&_64$$14, moon_component_eventdispatcher_exception_ce, "runtimeexception", &_8, 0, &_65$$14, &_66$$14);
 					zephir_check_call_status();
-					zephir_throw_exception_debug(&_64$$14, "moon/Component/EventDispatcher/ListenerCollection.zep", 223);
+					zephir_throw_exception_debug(&_64$$14, "moon/Component/EventDispatcher/ListenerCollection.zep", 232);
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
@@ -753,7 +764,7 @@ PHP_METHOD(Moon_Component_EventDispatcher_ListenerCollection, enforceUniqueId) {
 	} else {
 		ZEPHIR_INIT_VAR(&_0);
 		ZVAL_STRING(&_0, "");
-		ZEPHIR_CALL_FUNCTION(&candidateId, "uniqid", NULL, 53, &_0, &__$true);
+		ZEPHIR_CALL_FUNCTION(&candidateId, "uniqid", NULL, 77, &_0, &__$true);
 		zephir_check_call_status();
 	}
 	counter = 1;

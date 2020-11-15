@@ -81,23 +81,21 @@ PHP_METHOD(Moon_Framework_Event_Listener_RouterSubscriber, onKernelRequest) {
 
 PHP_METHOD(Moon_Framework_Event_Listener_RouterSubscriber, onKernelException) {
 
-	zend_bool _3;
+	zend_bool _2;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *event, event_sub, path, _0, _1, _2, _4, _5$$3, _6$$3, _7$$3, _8$$3, _9$$3;
+	zval *event, event_sub, path, _0, _1, _3$$3, _4$$3, _5$$3, _6$$3, _7$$3;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&event_sub);
 	ZVAL_UNDEF(&path);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
-	ZVAL_UNDEF(&_2);
-	ZVAL_UNDEF(&_4);
+	ZVAL_UNDEF(&_3$$3);
+	ZVAL_UNDEF(&_4$$3);
 	ZVAL_UNDEF(&_5$$3);
 	ZVAL_UNDEF(&_6$$3);
 	ZVAL_UNDEF(&_7$$3);
-	ZVAL_UNDEF(&_8$$3);
-	ZVAL_UNDEF(&_9$$3);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &event);
@@ -110,28 +108,24 @@ PHP_METHOD(Moon_Framework_Event_Listener_RouterSubscriber, onKernelException) {
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&path, &_1, "getpath", NULL, 0);
 	zephir_check_call_status();
-	ZEPHIR_INIT_VAR(&_2);
-	ZVAL_STRING(&_2, "");
-	_3 = ZEPHIR_IS_EQUAL(&_2, &path);
-	if (!(_3)) {
-		ZEPHIR_INIT_VAR(&_4);
-		ZVAL_STRING(&_4, "/");
-		_3 = ZEPHIR_IS_EQUAL(&_4, &path);
+	_2 = ZEPHIR_IS_STRING(&path, "");
+	if (!(_2)) {
+		_2 = ZEPHIR_IS_STRING(&path, "/");
 	}
-	if (_3) {
-		ZEPHIR_CALL_METHOD(NULL, event, "allowcustomresponsecode", NULL, 292);
+	if (_2) {
+		ZEPHIR_CALL_METHOD(NULL, event, "allowcustomresponsecode", NULL, 177);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(&_6$$3, event, "getcontainer", NULL, 0);
+		ZEPHIR_CALL_METHOD(&_4$$3, event, "getcontainer", NULL, 0);
 		zephir_check_call_status();
-		ZEPHIR_INIT_VAR(&_8$$3);
-		ZVAL_STRING(&_8$$3, "bootstrap");
-		ZEPHIR_CALL_METHOD(&_7$$3, &_6$$3, "get", NULL, 0, &_8$$3);
+		ZEPHIR_INIT_VAR(&_6$$3);
+		ZVAL_STRING(&_6$$3, "bootstrap");
+		ZEPHIR_CALL_METHOD(&_5$$3, &_4$$3, "get", NULL, 0, &_6$$3);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(&_9$$3, &_7$$3, "getmoonversion", NULL, 0);
+		ZEPHIR_CALL_METHOD(&_7$$3, &_5$$3, "getmoonversion", NULL, 0);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(&_5$$3, this_ptr, "createnormalresponse", NULL, 293, &_9$$3);
+		ZEPHIR_CALL_METHOD(&_3$$3, this_ptr, "createnormalresponse", NULL, 178, &_7$$3);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, event, "setresponse", NULL, 0, &_5$$3);
+		ZEPHIR_CALL_METHOD(NULL, event, "setresponse", NULL, 0, &_3$$3);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CALL_METHOD(NULL, event, "stoppropagation", NULL, 0);
@@ -216,7 +210,7 @@ PHP_METHOD(Moon_Framework_Event_Listener_RouterSubscriber, createNormalResponse)
 	ZEPHIR_CALL_FUNCTION(&html, "sprintf", NULL, 3, &_0, version);
 	zephir_check_call_status();
 	object_init_ex(return_value, moon_component_http_message_htmlresponse_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 294, &html);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 179, &html);
 	zephir_check_call_status();
 	RETURN_MM();
 

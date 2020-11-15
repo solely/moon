@@ -61,7 +61,7 @@ PHP_METHOD(Moon_Component_Config_Exception, parserException) {
 
 
 	object_init_ex(return_value, moon_component_config_exception_parserexception_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 34, &msg, code, throwable);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 26, &msg, code, throwable);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -96,7 +96,7 @@ PHP_METHOD(Moon_Component_Config_Exception, notFoundException) {
 
 
 	object_init_ex(return_value, moon_component_config_exception_notfoundexception_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 34, &msg, code, throwable);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 26, &msg, code, throwable);
 	zephir_check_call_status();
 	RETURN_MM();
 

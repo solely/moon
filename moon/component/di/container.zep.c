@@ -140,9 +140,9 @@ PHP_METHOD(Moon_Component_DI_Container, get) {
 		object_init_ex(&_9$$6, moon_component_di_resolver_resolver_ce);
 		ZEPHIR_CALL_CE_STATIC(&_10$$6, moon_component_di_resolver_reflector_ce, "getinstance", &_11, 0);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_9$$6, "__construct", NULL, 22, &_10$$6);
+		ZEPHIR_CALL_METHOD(NULL, &_9$$6, "__construct", NULL, 14, &_10$$6);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(&_12$$6, &_9$$6, "resolve", NULL, 23, &service);
+		ZEPHIR_CALL_METHOD(&_12$$6, &_9$$6, "resolve", NULL, 15, &service);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(&service, &_12$$6);
 	} else if (zephir_instance_of_ev(&service, zend_ce_closure)) {
@@ -268,7 +268,7 @@ PHP_METHOD(Moon_Component_DI_Container, getInstance) {
 	if (ZEPHIR_IS_EMPTY(&_0)) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, moon_component_di_container_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 78, inject, delegator);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 55, inject, delegator);
 		zephir_check_call_status();
 		zephir_update_static_property_ce(moon_component_di_container_ce, ZEND_STRL("instance"), &_1$$3);
 	}

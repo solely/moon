@@ -74,7 +74,7 @@ PHP_METHOD(Moon_Framework_Event_Event, registerEvent) {
 
 
 
-	ZEPHIR_CALL_SELF(&provider, "registersubscriber", &_0, 288, container);
+	ZEPHIR_CALL_SELF(&provider, "registersubscriber", &_0, 173, container);
 	zephir_check_call_status();
 	ZEPHIR_CALL_SELF(&eventList, "geteventlist", NULL, 0);
 	zephir_check_call_status();
@@ -199,13 +199,13 @@ PHP_METHOD(Moon_Framework_Event_Event, registerSubscriber) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&provider);
 	object_init_ex(&provider, moon_component_eventdispatcher_listenerprovider_ce);
-	ZEPHIR_CALL_METHOD(NULL, &provider, "__construct", NULL, 289, container);
+	ZEPHIR_CALL_METHOD(NULL, &provider, "__construct", NULL, 174, container);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_1);
-	ZVAL_STRING(&_1, "\\Moon\\Framework\\Event\\Listener\\RouterSubscriber");
+	ZVAL_STRING(&_1, "Moon\\Framework\\Event\\Listener\\RouterSubscriber");
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "router_subscriber");
-	ZEPHIR_CALL_METHOD(NULL, &provider, "addsubscriber", NULL, 290, &_1, &_2);
+	ZEPHIR_CALL_METHOD(NULL, &provider, "addsubscriber", NULL, 175, &_1, &_2);
 	zephir_check_call_status();
 	RETURN_CCTOR(&provider);
 
@@ -213,33 +213,11 @@ PHP_METHOD(Moon_Framework_Event_Event, registerSubscriber) {
 
 PHP_METHOD(Moon_Framework_Event_Event, getEventList) {
 
-	zval _2;
-	zval _0, _1;
-	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zval *this_ptr = getThis();
 
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1);
-	ZVAL_UNDEF(&_2);
 
-	ZEPHIR_MM_GROW();
-
-	zephir_create_array(return_value, 1, 0);
-	ZEPHIR_INIT_VAR(&_0);
-	zephir_create_array(&_0, 3, 0);
-	ZEPHIR_INIT_VAR(&_1);
-	zephir_create_array(&_1, 2, 0);
-	ZEPHIR_INIT_VAR(&_2);
-	ZVAL_STRING(&_2, "\\Moon\\Framework\\Event\\Listener\\RequestListener");
-	zephir_array_fast_append(&_1, &_2);
-	ZEPHIR_INIT_NVAR(&_2);
-	ZVAL_STRING(&_2, "handle");
-	zephir_array_fast_append(&_1, &_2);
-	zephir_array_update_string(&_0, SL("listener"), &_1, PH_COPY | PH_SEPARATE);
-	add_assoc_long_ex(&_0, SL("type"), 0);
-	add_assoc_long_ex(&_0, SL("priority"), 0);
-	zephir_array_fast_append(return_value, &_0);
-	RETURN_MM();
+	array_init(return_value);
+	return;
 
 }
 
