@@ -74,7 +74,7 @@ PHP_METHOD(Moon_Framework_Event_Event, registerEvent) {
 
 
 
-	ZEPHIR_CALL_SELF(&provider, "registersubscriber", &_0, 173, container);
+	ZEPHIR_CALL_SELF(&provider, "registersubscriber", &_0, 174, container);
 	zephir_check_call_status();
 	ZEPHIR_CALL_SELF(&eventList, "geteventlist", NULL, 0);
 	zephir_check_call_status();
@@ -199,13 +199,13 @@ PHP_METHOD(Moon_Framework_Event_Event, registerSubscriber) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&provider);
 	object_init_ex(&provider, moon_component_eventdispatcher_listenerprovider_ce);
-	ZEPHIR_CALL_METHOD(NULL, &provider, "__construct", NULL, 174, container);
+	ZEPHIR_CALL_METHOD(NULL, &provider, "__construct", NULL, 175, container);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "Moon\\Framework\\Event\\Listener\\RouterSubscriber");
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "router_subscriber");
-	ZEPHIR_CALL_METHOD(NULL, &provider, "addsubscriber", NULL, 175, &_1, &_2);
+	ZEPHIR_CALL_METHOD(NULL, &provider, "addsubscriber", NULL, 176, &_1, &_2);
 	zephir_check_call_status();
 	RETURN_CCTOR(&provider);
 

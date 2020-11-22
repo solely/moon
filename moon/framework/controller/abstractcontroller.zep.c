@@ -182,7 +182,7 @@ PHP_METHOD(Moon_Framework_Controller_AbstractController, redirect) {
 
 	object_init_ex(return_value, moon_component_http_message_redirectresponse_ce);
 	ZVAL_LONG(&_0, statusCode);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 171, &url, &_0);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 172, &url, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -239,7 +239,7 @@ PHP_METHOD(Moon_Framework_Controller_AbstractController, json) {
 
 	object_init_ex(return_value, moon_component_http_message_jsonresponse_ce);
 	ZVAL_LONG(&_0, statusCode);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 172, data, &_0, &headers);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 173, data, &_0, &headers);
 	zephir_check_call_status();
 	RETURN_MM();
 

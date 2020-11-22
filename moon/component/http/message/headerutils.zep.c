@@ -97,7 +97,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, split) {
 	ZEPHIR_CALL_FUNCTION(&quotedSeparators, "preg_quote", NULL, 101, &separators, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_1);
-	ZEPHIR_CONCAT_SVSVS(&_1, "\n            /\n                (?!\\s)\n                    (?:\n                        # quoted-string\n                        \"(?:[^\"\\\\]|\\\\.)*(?:\"|\\\\|$)\n                    |\n                        # token\n                        [^\"", &quotedSeparators, "]+\n                    )+\n                (?<!\\s)\n            |\n                # separator\n                \\s*\n                (?<separator>[", &quotedSeparators, "])\n                \\s*\n            /x");
+	ZEPHIR_CONCAT_SVSVS(&_1, " / (?!\\s) (?: # quoted-string \"(?:[^\"\\\\]|\\\\.)*(?:\"|\\\\|$) | # token [^\"", &quotedSeparators, "]+ )+ (?<!\\s) | # separator \\s* (?<separator>[", &quotedSeparators, "]) \\s* /x");
 	ZEPHIR_INIT_NVAR(&_0);
 	zephir_fast_trim(&_0, &header, NULL , ZEPHIR_TRIM_BOTH);
 	ZVAL_LONG(&_2, 2);
@@ -148,18 +148,18 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, combine) {
 
 	ZEPHIR_INIT_VAR(&assoc);
 	array_init(&assoc);
-	zephir_is_iterable(&parts, 0, "moon/Component/Http/Message/HeaderUtils.zep", 68);
+	zephir_is_iterable(&parts, 0, "moon/Component/Http/Message/HeaderUtils.zep", 87);
 	if (Z_TYPE_P(&parts) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&parts), _0)
 		{
 			ZEPHIR_INIT_NVAR(&part);
 			ZVAL_COPY(&part, _0);
-			zephir_array_fetch_long(&_2$$3, &part, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 64);
+			zephir_array_fetch_long(&_2$$3, &part, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 83);
 			ZEPHIR_INIT_NVAR(&name);
 			zephir_fast_strtolower(&name, &_2$$3);
 			if (zephir_array_isset_long(&part, 1)) {
 				ZEPHIR_OBS_NVAR(&value);
-				zephir_array_fetch_long(&value, &part, 1, PH_NOISY, "moon/Component/Http/Message/HeaderUtils.zep", 65);
+				zephir_array_fetch_long(&value, &part, 1, PH_NOISY, "moon/Component/Http/Message/HeaderUtils.zep", 84);
 			} else {
 				ZEPHIR_INIT_NVAR(&value);
 				ZVAL_BOOL(&value, 1);
@@ -177,12 +177,12 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, combine) {
 			}
 			ZEPHIR_CALL_METHOD(&part, &parts, "current", NULL, 0);
 			zephir_check_call_status();
-				zephir_array_fetch_long(&_3$$4, &part, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 64);
+				zephir_array_fetch_long(&_3$$4, &part, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 83);
 				ZEPHIR_INIT_NVAR(&name);
 				zephir_fast_strtolower(&name, &_3$$4);
 				if (zephir_array_isset_long(&part, 1)) {
 					ZEPHIR_OBS_NVAR(&value);
-					zephir_array_fetch_long(&value, &part, 1, PH_NOISY, "moon/Component/Http/Message/HeaderUtils.zep", 65);
+					zephir_array_fetch_long(&value, &part, 1, PH_NOISY, "moon/Component/Http/Message/HeaderUtils.zep", 84);
 				} else {
 					ZEPHIR_INIT_NVAR(&value);
 					ZVAL_BOOL(&value, 1);
@@ -242,7 +242,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, toString) {
 
 	ZEPHIR_INIT_VAR(&parts);
 	array_init(&parts);
-	zephir_is_iterable(&assoc, 0, "moon/Component/Http/Message/HeaderUtils.zep", 96);
+	zephir_is_iterable(&assoc, 0, "moon/Component/Http/Message/HeaderUtils.zep", 115);
 	if (Z_TYPE_P(&assoc) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&assoc), _2, _3, _0)
 		{
@@ -255,13 +255,13 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, toString) {
 			ZEPHIR_INIT_NVAR(&value);
 			ZVAL_COPY(&value, _0);
 			if (ZEPHIR_IS_TRUE_IDENTICAL(&value)) {
-				zephir_array_append(&parts, &name, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 91);
+				zephir_array_append(&parts, &name, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 110);
 			} else {
 				ZEPHIR_CALL_SELF(&_4$$5, "quote", &_5, 0, &value);
 				zephir_check_call_status();
 				ZEPHIR_INIT_NVAR(&_6$$5);
 				ZEPHIR_CONCAT_VSV(&_6$$5, &name, "=", &_4$$5);
-				zephir_array_append(&parts, &_6$$5, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 93);
+				zephir_array_append(&parts, &_6$$5, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 112);
 			}
 		} ZEND_HASH_FOREACH_END();
 	} else {
@@ -278,13 +278,13 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, toString) {
 			ZEPHIR_CALL_METHOD(&value, &assoc, "current", NULL, 0);
 			zephir_check_call_status();
 				if (ZEPHIR_IS_TRUE_IDENTICAL(&value)) {
-					zephir_array_append(&parts, &name, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 91);
+					zephir_array_append(&parts, &name, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 110);
 				} else {
 					ZEPHIR_CALL_SELF(&_7$$8, "quote", &_5, 0, &value);
 					zephir_check_call_status();
 					ZEPHIR_INIT_NVAR(&_8$$8);
 					ZEPHIR_CONCAT_VSV(&_8$$8, &name, "=", &_7$$8);
-					zephir_array_append(&parts, &_8$$8, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 93);
+					zephir_array_append(&parts, &_8$$8, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 112);
 				}
 			ZEPHIR_CALL_METHOD(NULL, &assoc, "next", NULL, 0);
 			zephir_check_call_status();
@@ -470,7 +470,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, makeDisposition) {
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(NULL, &_2$$3, "__construct", NULL, 25, &_6$$3);
 		zephir_check_call_status();
-		zephir_throw_exception_debug(&_2$$3, "moon/Component/Http/Message/HeaderUtils.zep", 145);
+		zephir_throw_exception_debug(&_2$$3, "moon/Component/Http/Message/HeaderUtils.zep", 164);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
@@ -487,7 +487,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, makeDisposition) {
 	ZVAL_STRING(&_10, "/^[\\x20-\\x7e]*$/");
 	zephir_preg_match(&_9, &_10, &filenameFallback, &_8, 0, 0 , 0 );
 	if (!zephir_is_true(&_9)) {
-		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The filename fallback must only contain ASCII characters.", "moon/Component/Http/Message/HeaderUtils.zep", 152);
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The filename fallback must only contain ASCII characters.", "moon/Component/Http/Message/HeaderUtils.zep", 171);
 		return;
 	}
 	ZEPHIR_INIT_VAR(&_11);
@@ -495,7 +495,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, makeDisposition) {
 	ZEPHIR_INIT_VAR(&_12);
 	zephir_fast_strpos(&_12, &filenameFallback, &_11, 0 );
 	if (!ZEPHIR_IS_FALSE_IDENTICAL(&_12)) {
-		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The filename fallback cannot contain the \"%\" character.", "moon/Component/Http/Message/HeaderUtils.zep", 156);
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The filename fallback cannot contain the \"%\" character.", "moon/Component/Http/Message/HeaderUtils.zep", 175);
 		return;
 	}
 	ZEPHIR_INIT_VAR(&_13);
@@ -527,7 +527,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, makeDisposition) {
 		_21 = !ZEPHIR_IS_FALSE_IDENTICAL(&_23);
 	}
 	if (_21) {
-		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The filename and the fallback cannot contain the \"/\" and \"\\\" characters.", "moon/Component/Http/Message/HeaderUtils.zep", 160);
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The filename and the fallback cannot contain the \"/\" and \"\\\" characters.", "moon/Component/Http/Message/HeaderUtils.zep", 179);
 		return;
 	}
 	ZEPHIR_INIT_VAR(&params);
@@ -601,7 +601,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 	i = 0;
 	ZEPHIR_INIT_VAR(&partMatches);
 	array_init(&partMatches);
-	zephir_is_iterable(&matches, 0, "moon/Component/Http/Message/HeaderUtils.zep", 190);
+	zephir_is_iterable(&matches, 0, "moon/Component/Http/Message/HeaderUtils.zep", 209);
 	if (Z_TYPE_P(&matches) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&matches), _2)
 		{
@@ -609,7 +609,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 			ZVAL_COPY(&_match, _2);
 			_4$$3 = zephir_array_isset_string(&_match, SL("separator"));
 			if (_4$$3) {
-				zephir_array_fetch_string(&_5$$3, &_match, SL("separator"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 183);
+				zephir_array_fetch_string(&_5$$3, &_match, SL("separator"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 202);
 				_4$$3 = ZEPHIR_IS_IDENTICAL(&_5$$3, &separator);
 			}
 			if (_4$$3) {
@@ -631,7 +631,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 			zephir_check_call_status();
 				_6$$6 = zephir_array_isset_string(&_match, SL("separator"));
 				if (_6$$6) {
-					zephir_array_fetch_string(&_7$$6, &_match, SL("separator"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 183);
+					zephir_array_fetch_string(&_7$$6, &_match, SL("separator"), PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 202);
 					_6$$6 = ZEPHIR_IS_IDENTICAL(&_7$$6, &separator);
 				}
 				if (_6$$6) {
@@ -647,7 +647,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 	ZEPHIR_INIT_VAR(&parts);
 	array_init(&parts);
 	if (zephir_is_true(&partSeparators)) {
-		zephir_is_iterable(&partMatches, 0, "moon/Component/Http/Message/HeaderUtils.zep", 196);
+		zephir_is_iterable(&partMatches, 0, "moon/Component/Http/Message/HeaderUtils.zep", 215);
 		if (Z_TYPE_P(&partMatches) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&partMatches), _8$$9)
 			{
@@ -655,7 +655,7 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 				ZVAL_COPY(&matches$$9, _8$$9);
 				ZEPHIR_CALL_SELF(&_10$$10, "groupparts", &_11, 102, &matches$$9, &partSeparators);
 				zephir_check_call_status();
-				zephir_array_append(&parts, &_10$$10, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 194);
+				zephir_array_append(&parts, &_10$$10, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 213);
 			} ZEND_HASH_FOREACH_END();
 		} else {
 			ZEPHIR_CALL_METHOD(NULL, &partMatches, "rewind", NULL, 0);
@@ -670,24 +670,24 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 				zephir_check_call_status();
 					ZEPHIR_CALL_SELF(&_12$$11, "groupparts", &_11, 102, &matches$$9, &partSeparators);
 					zephir_check_call_status();
-					zephir_array_append(&parts, &_12$$11, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 194);
+					zephir_array_append(&parts, &_12$$11, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 213);
 				ZEPHIR_CALL_METHOD(NULL, &partMatches, "next", NULL, 0);
 				zephir_check_call_status();
 			}
 		}
 		ZEPHIR_INIT_NVAR(&matches$$9);
 	} else {
-		zephir_is_iterable(&partMatches, 0, "moon/Component/Http/Message/HeaderUtils.zep", 201);
+		zephir_is_iterable(&partMatches, 0, "moon/Component/Http/Message/HeaderUtils.zep", 220);
 		if (Z_TYPE_P(&partMatches) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&partMatches), _13$$12)
 			{
 				ZEPHIR_INIT_NVAR(&matches$$12);
 				ZVAL_COPY(&matches$$12, _13$$12);
-				zephir_array_fetch_long(&_17$$13, &matches$$12, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 199);
-				zephir_array_fetch_long(&_18$$13, &_17$$13, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 199);
+				zephir_array_fetch_long(&_17$$13, &matches$$12, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 218);
+				zephir_array_fetch_long(&_18$$13, &_17$$13, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 218);
 				ZEPHIR_CALL_SELF(&_15$$13, "unquote", &_16, 0, &_18$$13);
 				zephir_check_call_status();
-				zephir_array_append(&parts, &_15$$13, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 199);
+				zephir_array_append(&parts, &_15$$13, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 218);
 			} ZEND_HASH_FOREACH_END();
 		} else {
 			ZEPHIR_CALL_METHOD(NULL, &partMatches, "rewind", NULL, 0);
@@ -700,11 +700,11 @@ PHP_METHOD(Moon_Component_Http_Message_HeaderUtils, groupParts) {
 				}
 				ZEPHIR_CALL_METHOD(&matches$$12, &partMatches, "current", NULL, 0);
 				zephir_check_call_status();
-					zephir_array_fetch_long(&_20$$14, &matches$$12, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 199);
-					zephir_array_fetch_long(&_21$$14, &_20$$14, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 199);
+					zephir_array_fetch_long(&_20$$14, &matches$$12, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 218);
+					zephir_array_fetch_long(&_21$$14, &_20$$14, 0, PH_NOISY | PH_READONLY, "moon/Component/Http/Message/HeaderUtils.zep", 218);
 					ZEPHIR_CALL_SELF(&_19$$14, "unquote", &_16, 0, &_21$$14);
 					zephir_check_call_status();
-					zephir_array_append(&parts, &_19$$14, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 199);
+					zephir_array_append(&parts, &_19$$14, PH_SEPARATE, "moon/Component/Http/Message/HeaderUtils.zep", 218);
 				ZEPHIR_CALL_METHOD(NULL, &partMatches, "next", NULL, 0);
 				zephir_check_call_status();
 			}

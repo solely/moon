@@ -19,6 +19,7 @@
 #include "kernel/operators.h"
 #include "kernel/exception.h"
 #include "ext/spl/spl_exceptions.h"
+#include "kernel/concat.h"
 
 
 /**
@@ -95,15 +96,16 @@ PHP_METHOD(Moon_Component_Http_Message_RedirectResponse, setTargetUrl) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *url_param = NULL, _0, _1, _2, _3;
-	zval url;
+	zval *url_param = NULL, _0, _2, _3, _4;
+	zval url, _1;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&url);
-	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &url_param);
@@ -118,14 +120,14 @@ PHP_METHOD(Moon_Component_Http_Message_RedirectResponse, setTargetUrl) {
 		return;
 	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("targetUrl"), &url);
-	ZVAL_LONG(&_1, 3);
-	ZEPHIR_INIT_VAR(&_2);
-	ZVAL_STRING(&_2, "UTF-8");
-	ZEPHIR_CALL_FUNCTION(&_3, "htmlspecialchars", NULL, 112, &url, &_1, &_2);
+	ZEPHIR_INIT_VAR(&_1);
+	ZEPHIR_CONCAT_SSSSSSSSSSS(&_1, "<!DOCTYPE html>", "<html>", "<head>", "<meta charset=\"UTF-8\" />", "<meta http-equiv=\"refresh\" content=\"0;url='%1$s'\" />", "<title>Redirecting to %1$s</title>", "</head>", "<body>", "Redirecting to <a href=\"%1$s\">%1$s</a>.", "</body>", "</html>");
+	ZVAL_LONG(&_2, 3);
+	ZEPHIR_INIT_VAR(&_3);
+	ZVAL_STRING(&_3, "UTF-8");
+	ZEPHIR_CALL_FUNCTION(&_4, "htmlspecialchars", NULL, 112, &url, &_2, &_3);
 	zephir_check_call_status();
-	ZEPHIR_INIT_NVAR(&_2);
-	ZVAL_STRING(&_2, "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='%1$s'\" />\n\n        <title>Redirecting to %1$s</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"%1$s\">%1$s</a>.\n    </body>\n</html>");
-	ZEPHIR_RETURN_CALL_FUNCTION("sprintf", NULL, 3, &_2, &_3);
+	ZEPHIR_RETURN_CALL_FUNCTION("sprintf", NULL, 3, &_1, &_4);
 	zephir_check_call_status();
 	RETURN_MM();
 

@@ -133,8 +133,16 @@ zend_class_entry *moon_framework_kernel_ce;
 
 ZEND_DECLARE_MODULE_GLOBALS(moon)
 
+PHP_INI_MH(OnUpdateString) /* {{{ */ {
+	if(ZSTR_LEN(new_value) == 0) {
+	    return FAILURE;
+	}
+	return SUCCESS;
+}
+/* }}} */
+
 PHP_INI_BEGIN()
-	
+	PHP_INI_ENTRY("moon.environ", "product", PHP_INI_ALL, OnUpdateString)
 PHP_INI_END()
 
 static PHP_MINIT_FUNCTION(moon)
@@ -329,11 +337,7 @@ static PHP_MINFO_FUNCTION(moon)
 	php_info_print_table_row(2, "Build Date", __DATE__ " " __TIME__ );
 	php_info_print_table_row(2, "Powered by Zephir", "Version " PHP_MOON_ZEPVERSION);
 	php_info_print_table_end();
-		php_info_print_table_start();
-	php_info_print_table_header(2, "Directive", "Value");
-	php_info_print_table_row(2, "Version", "0.0.1");
-	php_info_print_table_end();
-
+	
 	DISPLAY_INI_ENTRIES();
 }
 

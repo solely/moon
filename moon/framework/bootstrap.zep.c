@@ -12,9 +12,9 @@
 #include <Zend/zend_interfaces.h>
 
 #include "kernel/main.h"
-#include "kernel/fcall.h"
-#include "kernel/memory.h"
 #include "kernel/object.h"
+#include "kernel/memory.h"
+#include "kernel/fcall.h"
 #include "kernel/array.h"
 #include "kernel/exception.h"
 #include "ext/spl/spl_exceptions.h"
@@ -43,13 +43,35 @@ ZEPHIR_INIT_CLASS(Moon_Framework_Bootstrap) {
 
 	zend_declare_property_null(moon_framework_bootstrap_ce, SL("projectDir"), ZEND_ACC_PRIVATE);
 
-	moon_framework_bootstrap_ce->create_object = zephir_init_properties_Moon_Framework_Bootstrap;
-	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION"), "0.0.1");
+	zend_declare_property_null(moon_framework_bootstrap_ce, SL("environ"), ZEND_ACC_PRIVATE);
 
-	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION_ID"), "1");
+	moon_framework_bootstrap_ce->create_object = zephir_init_properties_Moon_Framework_Bootstrap;
+	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION"), "0.0.2");
+
+	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION_ID"), "2");
 
 	zend_class_implements(moon_framework_bootstrap_ce, 1, moon_framework_bootstrapinterface_ce);
 	return SUCCESS;
+
+}
+
+PHP_METHOD(Moon_Framework_Bootstrap, __construct) {
+
+	zval *environ = NULL, environ_sub, __$null;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&environ_sub);
+	ZVAL_NULL(&__$null);
+
+	zephir_fetch_params_without_memory_grow(0, 1, &environ);
+
+	if (!environ) {
+		environ = &environ_sub;
+		environ = &__$null;
+	}
+
+
+	zephir_update_property_zval(this_ptr, ZEND_STRL("environ"), environ);
 
 }
 
@@ -97,7 +119,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, boot) {
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getmodules", NULL, 0);
 	zephir_check_call_status();
-	zephir_is_iterable(&_0, 0, "moon/Framework/Bootstrap.zep", 48);
+	zephir_is_iterable(&_0, 0, "moon/Framework/Bootstrap.zep", 55);
 	if (Z_TYPE_P(&_0) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_0), _1)
 		{
@@ -199,7 +221,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeModules) {
 	zephir_update_property_zval(this_ptr, ZEND_STRL("modules"), &_0);
 	ZEPHIR_CALL_METHOD(&_1, this_ptr, "registermodules", NULL, 0);
 	zephir_check_call_status();
-	zephir_is_iterable(&_1, 0, "moon/Framework/Bootstrap.zep", 74);
+	zephir_is_iterable(&_1, 0, "moon/Framework/Bootstrap.zep", 81);
 	if (Z_TYPE_P(&_1) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_1), _2)
 		{
@@ -217,7 +239,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeModules) {
 				zephir_check_call_status();
 				ZEPHIR_CALL_METHOD(NULL, &_5$$4, "__construct", &_9, 164, &_7$$4);
 				zephir_check_call_status();
-				zephir_throw_exception_debug(&_5$$4, "moon/Framework/Bootstrap.zep", 70);
+				zephir_throw_exception_debug(&_5$$4, "moon/Framework/Bootstrap.zep", 77);
 				ZEPHIR_MM_RESTORE();
 				return;
 			}
@@ -246,7 +268,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeModules) {
 					zephir_check_call_status();
 					ZEPHIR_CALL_METHOD(NULL, &_11$$6, "__construct", &_9, 164, &_13$$6);
 					zephir_check_call_status();
-					zephir_throw_exception_debug(&_11$$6, "moon/Framework/Bootstrap.zep", 70);
+					zephir_throw_exception_debug(&_11$$6, "moon/Framework/Bootstrap.zep", 77);
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
@@ -299,7 +321,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeContainer) {
 	ZEPHIR_CALL_CE_STATIC(&container, moon_component_di_container_ce, "getinstance", &_0, 0, &_1, &_2);
 	zephir_check_call_status();
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("modules"), PH_NOISY_CC | PH_READONLY);
-	zephir_is_iterable(&_2, 0, "moon/Framework/Bootstrap.zep", 91);
+	zephir_is_iterable(&_2, 0, "moon/Framework/Bootstrap.zep", 98);
 	if (Z_TYPE_P(&_2) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_2), _3)
 		{
@@ -431,7 +453,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeConfig) {
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_5, &services, "get", NULL, 0);
 	zephir_check_call_status();
-	zephir_is_iterable(&_5, 0, "moon/Framework/Bootstrap.zep", 132);
+	zephir_is_iterable(&_5, 0, "moon/Framework/Bootstrap.zep", 139);
 	if (Z_TYPE_P(&_5) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_5), _8, _9, _6)
 		{
@@ -449,7 +471,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeConfig) {
 			}
 			_11$$3 = _10$$3;
 			if (_11$$3) {
-				zephir_array_fetch_string(&_12$$3, &item, SL("type"), PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 124);
+				zephir_array_fetch_string(&_12$$3, &item, SL("type"), PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 131);
 				_11$$3 = ZEPHIR_IS_STRING(&_12$$3, "service");
 			}
 			if (_11$$3) {
@@ -477,7 +499,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeConfig) {
 				}
 				_15$$5 = _14$$5;
 				if (_15$$5) {
-					zephir_array_fetch_string(&_16$$5, &item, SL("type"), PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 124);
+					zephir_array_fetch_string(&_16$$5, &item, SL("type"), PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 131);
 					_15$$5 = ZEPHIR_IS_STRING(&_16$$5, "service");
 				}
 				if (_15$$5) {
@@ -539,7 +561,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeRoutes) {
 			zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(NULL, &_1$$4, "__construct", NULL, 26, &_3$$4);
 			zephir_check_call_status();
-			zephir_throw_exception_debug(&_1$$4, "moon/Framework/Bootstrap.zep", 144);
+			zephir_throw_exception_debug(&_1$$4, "moon/Framework/Bootstrap.zep", 151);
 			ZEPHIR_MM_RESTORE();
 			return;
 		}
@@ -557,7 +579,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, initializeRoutes) {
 			zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(NULL, &_6$$5, "__construct", NULL, 26, &_8$$5);
 			zephir_check_call_status();
-			zephir_throw_exception_debug(&_6$$5, "moon/Framework/Bootstrap.zep", 148);
+			zephir_throw_exception_debug(&_6$$5, "moon/Framework/Bootstrap.zep", 155);
 			ZEPHIR_MM_RESTORE();
 			return;
 		}
@@ -610,7 +632,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, getModule) {
 		ZEPHIR_INIT_VAR(&_class);
 		zephir_get_called_class(&_class);
 		ZEPHIR_INIT_VAR(&_1$$3);
-		zephir_array_fetch_long(&_2$$3, &_class, 0, PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 161);
+		zephir_array_fetch_long(&_2$$3, &_class, 0, PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 168);
 		ZEPHIR_INIT_VAR(&_3$$3);
 		ZVAL_STRING(&_3$$3, "c");
 		_4$$3 = ZEPHIR_IS_IDENTICAL(&_3$$3, &_2$$3);
@@ -638,12 +660,12 @@ PHP_METHOD(Moon_Framework_Bootstrap, getModule) {
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(NULL, &_8$$3, "__construct", NULL, 25, &_10$$3);
 		zephir_check_call_status();
-		zephir_throw_exception_debug(&_8$$3, "moon/Framework/Bootstrap.zep", 162);
+		zephir_throw_exception_debug(&_8$$3, "moon/Framework/Bootstrap.zep", 169);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
 	zephir_read_property(&_11, this_ptr, ZEND_STRL("modules"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch(&_12, &_11, &name, PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 164);
+	zephir_array_fetch(&_12, &_11, &name, PH_NOISY | PH_READONLY, "moon/Framework/Bootstrap.zep", 171);
 	RETURN_CTOR(&_12);
 
 }
@@ -705,7 +727,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, getProjectDir) {
 			zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(NULL, &_1$$4, "__construct", NULL, 164, &_4$$4);
 			zephir_check_call_status();
-			zephir_throw_exception_debug(&_1$$4, "moon/Framework/Bootstrap.zep", 186);
+			zephir_throw_exception_debug(&_1$$4, "moon/Framework/Bootstrap.zep", 193);
 			ZEPHIR_MM_RESTORE();
 			return;
 		}
@@ -820,7 +842,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, getMoonVersion) {
 	zval *this_ptr = getThis();
 
 
-	RETURN_STRING("0.0.1");
+	RETURN_STRING("0.0.2");
 
 }
 
@@ -829,7 +851,35 @@ PHP_METHOD(Moon_Framework_Bootstrap, getMoonVersionId) {
 	zval *this_ptr = getThis();
 
 
-	RETURN_STRING("1");
+	RETURN_STRING("2");
+
+}
+
+PHP_METHOD(Moon_Framework_Bootstrap, getEnviron) {
+
+	zval _0, _1, _2;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
+
+	ZEPHIR_MM_GROW();
+
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_OBS_VAR(&_1);
+	zephir_read_property(&_1, this_ptr, ZEND_STRL("environ"), PH_NOISY_CC);
+	if (!(ZEPHIR_IS_EMPTY(&_1))) {
+		zephir_read_property(&_0, this_ptr, ZEND_STRL("environ"), PH_NOISY_CC);
+	} else {
+		ZEPHIR_INIT_VAR(&_2);
+		ZVAL_STRING(&_2, "moon.environ");
+		ZEPHIR_CALL_FUNCTION(&_0, "ini_get", NULL, 171, &_2);
+		zephir_check_call_status();
+	}
+	RETURN_CCTOR(&_0);
 
 }
 
