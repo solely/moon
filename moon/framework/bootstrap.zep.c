@@ -46,9 +46,9 @@ ZEPHIR_INIT_CLASS(Moon_Framework_Bootstrap) {
 	zend_declare_property_null(moon_framework_bootstrap_ce, SL("environ"), ZEND_ACC_PRIVATE);
 
 	moon_framework_bootstrap_ce->create_object = zephir_init_properties_Moon_Framework_Bootstrap;
-	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION"), "0.0.2");
+	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION"), "0.0.3");
 
-	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION_ID"), "2");
+	zephir_declare_class_constant_string(moon_framework_bootstrap_ce, SL("MOON_VERSION_ID"), "3");
 
 	zend_class_implements(moon_framework_bootstrap_ce, 1, moon_framework_bootstrapinterface_ce);
 	return SUCCESS;
@@ -842,7 +842,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, getMoonVersion) {
 	zval *this_ptr = getThis();
 
 
-	RETURN_STRING("0.0.2");
+	RETURN_STRING("0.0.3");
 
 }
 
@@ -851,7 +851,7 @@ PHP_METHOD(Moon_Framework_Bootstrap, getMoonVersionId) {
 	zval *this_ptr = getThis();
 
 
-	RETURN_STRING("2");
+	RETURN_STRING("3");
 
 }
 

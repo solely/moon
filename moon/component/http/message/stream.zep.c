@@ -36,7 +36,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_Stream) {
 
 	zend_declare_property_null(moon_component_http_message_stream_ce, SL("stream"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(moon_component_http_message_stream_ce, 1, zephir_get_internal_ce(SL("psr\\http\\message\\streaminterface")));
+	zend_class_implements(moon_component_http_message_stream_ce, 1, zephir_get_internal_ce(SL("psrext\\http\\message\\streaminterface")));
 	return SUCCESS;
 
 }

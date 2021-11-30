@@ -17,6 +17,8 @@ PHP_METHOD(Moon_Component_Router_Router, group);
 PHP_METHOD(Moon_Component_Router_Router, addRoutes);
 PHP_METHOD(Moon_Component_Router_Router, dispatch);
 PHP_METHOD(Moon_Component_Router_Router, generateRouteName);
+PHP_METHOD(Moon_Component_Router_Router, getRoutes);
+PHP_METHOD(Moon_Component_Router_Router, getNodes);
 zend_object *zephir_init_properties_Moon_Component_Router_Router(zend_class_entry *class_type TSRMLS_DC);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_moon_component_router_router_add, 0, 0, 3)
@@ -220,6 +222,20 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_router_router_gen
 #endif
 ZEND_END_ARG_INFO()
 
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_router_router_getroutes, 0, 0, IS_ARRAY, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_router_router_getroutes, 0, 0, IS_ARRAY, NULL, 0)
+#endif
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 70200
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_router_router_getnodes, 0, 0, IS_ARRAY, 0)
+#else
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_component_router_router_getnodes, 0, 0, IS_ARRAY, NULL, 0)
+#endif
+ZEND_END_ARG_INFO()
+
 ZEPHIR_INIT_FUNCS(moon_component_router_router_method_entry) {
 	PHP_ME(Moon_Component_Router_Router, getHttpMethodList, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Moon_Component_Router_Router, add, arginfo_moon_component_router_router_add, ZEND_ACC_PUBLIC)
@@ -235,5 +251,7 @@ ZEPHIR_INIT_FUNCS(moon_component_router_router_method_entry) {
 	PHP_ME(Moon_Component_Router_Router, addRoutes, NULL, ZEND_ACC_PUBLIC)
 	PHP_ME(Moon_Component_Router_Router, dispatch, arginfo_moon_component_router_router_dispatch, ZEND_ACC_PUBLIC)
 	PHP_ME(Moon_Component_Router_Router, generateRouteName, arginfo_moon_component_router_router_generateroutename, ZEND_ACC_PRIVATE)
+	PHP_ME(Moon_Component_Router_Router, getRoutes, arginfo_moon_component_router_router_getroutes, ZEND_ACC_PUBLIC)
+	PHP_ME(Moon_Component_Router_Router, getNodes, arginfo_moon_component_router_router_getnodes, ZEND_ACC_PUBLIC)
 	PHP_FE_END
 };

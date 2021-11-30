@@ -22,7 +22,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_EventDispatcher_ListenerProviderInterface) {
 
 	ZEPHIR_REGISTER_INTERFACE(Moon\\Component\\EventDispatcher, ListenerProviderInterface, moon, component_eventdispatcher_listenerproviderinterface, moon_component_eventdispatcher_listenerproviderinterface_method_entry);
 
-	zend_class_implements(moon_component_eventdispatcher_listenerproviderinterface_ce, 1, zephir_get_internal_ce(SL("psr\\eventdispatcher\\listenerproviderinterface")));
+	zend_class_implements(moon_component_eventdispatcher_listenerproviderinterface_ce, 1, zephir_get_internal_ce(SL("psrext\\eventdispatcher\\listenerproviderinterface")));
 	return SUCCESS;
 
 }

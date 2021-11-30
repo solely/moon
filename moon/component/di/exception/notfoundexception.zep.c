@@ -24,7 +24,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_DI_Exception_NotFoundException) {
 
 	ZEPHIR_REGISTER_CLASS_EX(Moon\\Component\\DI\\Exception, NotFoundException, moon, component_di_exception_notfoundexception, moon_component_di_exception_containerexception_ce, NULL, 0);
 
-	zend_class_implements(moon_component_di_exception_notfoundexception_ce, 1, zephir_get_internal_ce(SL("psr\\container\\notfoundexceptioninterface")));
+	zend_class_implements(moon_component_di_exception_notfoundexception_ce, 1, zephir_get_internal_ce(SL("psrext\\container\\notfoundexceptioninterface")));
 	return SUCCESS;
 
 }

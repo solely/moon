@@ -47,7 +47,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_ServerRequest) {
 
 	moon_component_http_message_serverrequest_ce->create_object = zephir_init_properties_Moon_Component_Http_Message_ServerRequest;
 
-	zend_class_implements(moon_component_http_message_serverrequest_ce, 1, zephir_get_internal_ce(SL("psr\\http\\message\\serverrequestinterface")));
+	zend_class_implements(moon_component_http_message_serverrequest_ce, 1, zephir_get_internal_ce(SL("psrext\\http\\message\\serverrequestinterface")));
 	return SUCCESS;
 
 }

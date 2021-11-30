@@ -35,7 +35,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_EventDispatcher_EventDispatcher) {
 
 	zend_declare_property_null(moon_component_eventdispatcher_eventdispatcher_ce, SL("logger"), ZEND_ACC_PRIVATE);
 
-	zend_class_implements(moon_component_eventdispatcher_eventdispatcher_ce, 1, zephir_get_internal_ce(SL("psr\\eventdispatcher\\eventdispatcherinterface")));
+	zend_class_implements(moon_component_eventdispatcher_eventdispatcher_ce, 1, zephir_get_internal_ce(SL("psrext\\eventdispatcher\\eventdispatcherinterface")));
 	return SUCCESS;
 
 }

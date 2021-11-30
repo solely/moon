@@ -24,7 +24,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_DI_Exception_ContainerException) {
 
 	ZEPHIR_REGISTER_CLASS_EX(Moon\\Component\\DI\\Exception, ContainerException, moon, component_di_exception_containerexception, zend_exception_get_default(TSRMLS_C), NULL, 0);
 
-	zend_class_implements(moon_component_di_exception_containerexception_ce, 1, zephir_get_internal_ce(SL("psr\\container\\containerexceptioninterface")));
+	zend_class_implements(moon_component_di_exception_containerexception_ce, 1, zephir_get_internal_ce(SL("psrext\\container\\containerexceptioninterface")));
 	return SUCCESS;
 
 }

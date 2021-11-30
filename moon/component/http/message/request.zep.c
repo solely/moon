@@ -41,7 +41,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_Request) {
 
 	zend_declare_property_null(moon_component_http_message_request_ce, SL("requestTarget"), ZEND_ACC_PRIVATE);
 
-	zend_class_implements(moon_component_http_message_request_ce, 1, zephir_get_internal_ce(SL("psr\\http\\message\\requestinterface")));
+	zend_class_implements(moon_component_http_message_request_ce, 1, zephir_get_internal_ce(SL("psrext\\http\\message\\requestinterface")));
 	return SUCCESS;
 
 }

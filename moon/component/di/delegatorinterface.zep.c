@@ -22,7 +22,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_DI_DelegatorInterface) {
 
 	ZEPHIR_REGISTER_INTERFACE(Moon\\Component\\DI, DelegatorInterface, moon, component_di_delegatorinterface, moon_component_di_delegatorinterface_method_entry);
 
-	zend_class_implements(moon_component_di_delegatorinterface_ce, 1, zephir_get_internal_ce(SL("psr\\container\\containerinterface")));
+	zend_class_implements(moon_component_di_delegatorinterface_ce, 1, zephir_get_internal_ce(SL("psrext\\container\\containerinterface")));
 	return SUCCESS;
 
 }

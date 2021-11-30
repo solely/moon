@@ -45,7 +45,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_UploadedFile) {
 
 	zend_declare_property_bool(moon_component_http_message_uploadedfile_ce, SL("moved"), 0, ZEND_ACC_PRIVATE);
 
-	zend_class_implements(moon_component_http_message_uploadedfile_ce, 1, zephir_get_internal_ce(SL("psr\\http\\message\\uploadedfileinterface")));
+	zend_class_implements(moon_component_http_message_uploadedfile_ce, 1, zephir_get_internal_ce(SL("psrext\\http\\message\\uploadedfileinterface")));
 	return SUCCESS;
 
 }

@@ -53,7 +53,7 @@ ZEPHIR_INIT_CLASS(Moon_Component_Http_Message_Uri) {
 
 	zephir_declare_class_constant_string(moon_component_http_message_uri_ce, SL("CHAR_SUB_DELIMS"), "!\\$&'\\(\\)\\*\\+,;=");
 
-	zend_class_implements(moon_component_http_message_uri_ce, 1, zephir_get_internal_ce(SL("psr\\http\\message\\uriinterface")));
+	zend_class_implements(moon_component_http_message_uri_ce, 1, zephir_get_internal_ce(SL("psrext\\http\\message\\uriinterface")));
 	return SUCCESS;
 
 }
