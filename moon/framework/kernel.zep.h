@@ -33,12 +33,13 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_framework_kernel_handlethro
 ZEND_END_ARG_INFO()
 
 #if PHP_VERSION_ID >= 70200
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_moon_framework_kernel_filterresponse, 0, 2, Moon\\Component\\Http\\Message\\Response, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_moon_framework_kernel_filterresponse, 0, 3, Moon\\Component\\Http\\Message\\Response, 0)
 #else
-ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_framework_kernel_filterresponse, 0, 2, IS_OBJECT, "Moon\\Component\\Http\\Message\\Response", 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_moon_framework_kernel_filterresponse, 0, 3, IS_OBJECT, "Moon\\Component\\Http\\Message\\Response", 0)
 #endif
 	ZEND_ARG_OBJ_INFO(0, response, Moon\\Component\\Http\\Message\\Response, 0)
 	ZEND_ARG_OBJ_INFO(0, request, Moon\\Component\\Http\\Message\\ServerRequest, 0)
+	ZEND_ARG_OBJ_INFO(0, route, Moon\\Component\\Router\\Node, 0)
 ZEND_END_ARG_INFO()
 
 #if PHP_VERSION_ID >= 70200

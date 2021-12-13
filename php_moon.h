@@ -11,7 +11,7 @@
 #include "kernel/globals.h"
 
 #define PHP_MOON_NAME        "moon"
-#define PHP_MOON_VERSION     "0.0.3"
+#define PHP_MOON_VERSION     "0.0.4"
 #define PHP_MOON_EXTNAME     "moon"
 #define PHP_MOON_AUTHOR      "solely"
 #define PHP_MOON_ZEPVERSION  "0.12.19-$Id$"
